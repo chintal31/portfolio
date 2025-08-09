@@ -38,7 +38,8 @@ const config: Config = {
       },
       fontFamily: {
         display: ["var(--font-playfair)", "serif"],
-        sans: ["var(--font-noto-sans)", "sans-serif"],
+        "noto-sans": ["var(--font-noto-sans)", "sans-serif"],
+        "open-sans": ["var(--font-open-sans)", "sans-serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",

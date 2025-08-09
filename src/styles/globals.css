@@ -5,6 +5,17 @@
   --foreground: #171717;
 }
 
+@theme inline {
+  /* Map CSS variables from next/font to Tailwind font utilities */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-noto-sans: var(--font-noto-sans), system-ui, sans-serif;
+  --font-open-sans: var(--font-open-sans), system-ui, sans-serif;
+
+  /* Keep color tokens available as utilities */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

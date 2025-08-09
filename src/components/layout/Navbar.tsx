@@ -22,7 +22,7 @@ export default function Navbar() {
       <div className="mx-auto w-[90%] sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%]">
         {/* Glass/Pill navbar */}
         <nav
-          className="mx-auto flex items-center justify-between rounded-[20px] bg-[#f9f9f9] border-black/5 px-4 sm:px-5 md:px-6 py-3 md:py-3.5 font-sans antialiased"
+          className="mx-auto flex items-center justify-between rounded-[20px] bg-[#f9f9f9] border-black/5 px-4 sm:px-5 md:px-6 py-3 md:py-3.5 font-noto-sans antialiased"
           aria-label="Main navigation"
         >
           {/* Brand */}
@@ -85,7 +85,7 @@ export default function Navbar() {
               </button>
             </div>
             <div className="flex h-full w-full items-center justify-center">
-              <nav className="flex flex-col items-center gap-6 font-sans">
+              <nav className="flex flex-col items-center gap-6 font-noto-sans">
                 {NAVIGATION_ITEMS.map(item => (
                   <Link
                     key={item.href}
