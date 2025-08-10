@@ -53,46 +53,46 @@ export default function Home() {
               
             </div>
 
-            {/* Right: Images */}
             <div className="order-1 md:order-2 flex justify-center">
-              <div className="relative w-full h-[clamp(250px,40vw,400px)]">
-                <div
-                  className="absolute"
-                  style={{
-                    width: "clamp(160px,25vw,320px)",
-                    height: "clamp(192px,30vw,380px)",
-                    left: "clamp(60px,15vw,320px)",
-                    top: "clamp(-8px,-1vw,-16px)",
-                    transform: "rotate(9.17deg)",
-                  }}
-                >
-                  <Image
-                    src="/images/hero-img1.png"
-                    alt="Jashvi presenting a UX flow"
-                    fill
-                    className="object-cover rounded-[clamp(6px,0.6vw,10px)] shadow-sm"
-                    priority
-                    sizes="(min-width: 1024px) 400px, 60vw"
-                  />
-                </div>
-                <div
-                  className="absolute"
-                  style={{
-                    width: "clamp(144px,22vw,280px)",
-                    height: "clamp(192px,30vw,380px)",
-                    left: "clamp(0px,0vw,0px)",
-                    top: 0,
-                    transform: "rotate(-6.86deg)",
-                  }}
-                >
-                  <Image
-                    src="/images/hero-img2.png"
-                    alt="UI mockups collage"
-                    fill
-                    className="object-cover rounded-[clamp(6px,0.6vw,10px)] shadow-sm"
-                    priority
-                    sizes="(min-width: 1024px) 400px, 60vw"
-                  />
+              <div className="relative w-full h-[clamp(250px,40vw,400px)] flex justify-center items-center">
+                <div className="flex gap-4 items-center">
+                  {/* Background Image */}
+                  <div
+                    className="relative z-2"
+                    style={{
+                      width: "clamp(160px,22vw,280px)",
+                      height: "clamp(200px,30vw,380px)",
+                      transform: "rotate(-6.86deg)",
+                    }}
+                  >
+                    <Image
+                      src="/images/hero-img2.png"
+                      alt="UI mockups collage"
+                      fill
+                      className="object-cover rounded-[clamp(6px,0.6vw,10px)] shadow-sm"
+                      priority
+                      sizes="(min-width: 1024px) 400px, 60vw"
+                    />
+                  </div>
+                  
+                  {/* Foreground Image */}
+                  <div
+                    className="relative z-1 -ml-5"
+                    style={{
+                      width: "clamp(160px,22vw,280px)",
+                      height: "clamp(200px,30vw,380px)",
+                      transform: "rotate(9.17deg)",
+                    }}
+                  >
+                    <Image
+                      src="/images/hero-img1.png"
+                      alt="Jashvi presenting a UX flow"
+                      fill
+                      className="object-cover rounded-[clamp(6px,0.6vw,10px)] shadow-sm"
+                      priority
+                      sizes="(min-width: 1024px) 400px, 60vw"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
