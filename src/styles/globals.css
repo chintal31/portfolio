@@ -10,6 +10,7 @@
   --font-display: var(--font-playfair), Georgia, serif;
   --font-noto-sans: var(--font-noto-sans), system-ui, sans-serif;
   --font-open-sans: var(--font-open-sans), system-ui, sans-serif;
+  --font-pavanam: var(--font-pavanam), serif;
 
   /* Keep color tokens available as utilities */
   --color-background: var(--background);

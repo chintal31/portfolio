@@ -23,8 +23,7 @@ function CaseStudyCard({ title, backgroundColor, imageSrc, imageAlt, className =
                 alt={imageAlt || title}
                 fill
                 className="object-cover"
-                // sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
           </div>

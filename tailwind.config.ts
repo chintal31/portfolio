@@ -40,6 +40,7 @@ const config: Config = {
         display: ["var(--font-playfair)", "serif"],
         "noto-sans": ["var(--font-noto-sans)", "sans-serif"],
         "open-sans": ["var(--font-open-sans)", "sans-serif"],
+        pavanam: ["var(--font-pavanam)", "serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",
@@ -63,6 +64,9 @@ const config: Config = {
       spacing: {
         "18": "4.5rem",
         "88": "22rem",
+      },
+      borderRadius: {
+        "5xl": "2.5rem",
       },
       maxWidth: {
         "8xl": "88rem",
