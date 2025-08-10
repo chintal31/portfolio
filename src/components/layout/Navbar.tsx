@@ -42,18 +42,23 @@ export default function Navbar() {
           {/* Desktop menu */}
           <div className="hidden md:flex items-center gap-5">
             {NAVIGATION_ITEMS.map(item => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "px-3 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium rounded-xl transition-colors",
-                  router.pathname === item.href
-                    ? "text-gray-900"
-                    : "text-gray-800 hover:text-gray-900"
+              <div key={item.href} className="relative">
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "px-3 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium rounded-xl transition-colors",
+                    router.pathname === item.href
+                      ? "text-gray-900"
+                      : "text-gray-800 hover:text-gray-900"
+                  )}
+                >
+                  {item.label}
+                </Link>
+                {/* Dash indicator below About item */}
+                {router.pathname === "/about" && item.href === "/about" && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-10 h-0.5 bg-gray-400 rounded-full mt-1"></div>
                 )}
-              >
-                {item.label}
-              </Link>
+              </div>
             ))}
           </div>
 
@@ -64,8 +69,18 @@ export default function Navbar() {
             aria-expanded={isOpen}
             onClick={() => setIsOpen(prev => !prev)}
           >
-            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            <svg
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </nav>
@@ -79,8 +94,18 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-800 hover:bg-gray-200/60"
               >
-                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="h-6 w-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
@@ -92,7 +117,9 @@ export default function Navbar() {
                     href={item.href}
                     className={cn(
                       "px-4 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium",
-                      router.pathname === item.href ? "text-gray-900" : "text-gray-800"
+                      router.pathname === item.href
+                        ? "text-gray-900"
+                        : "text-gray-800"
                     )}
                   >
                     {item.label}

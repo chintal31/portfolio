@@ -23,6 +23,20 @@ const testimonials: Testimonial[] = [
     position: "Project Manager",
     company: "Locobuzz"
   },
+  {
+    id: '3',
+    quote: "If I were to describe Jashvi's performance and working with her in one word, it would be 'Exceptional.' From the beginning of working with her, she exceeded my expectations. She quickly adapted to the working process, understood the business model of Amway, and proactively learned new things. She showcased her expertise in ",
+    author: "Ronnel Sanchez",// TODO: Complete the quote
+    position: "UX Lead",
+    company: "Amway Global"
+  },
+  {
+    id: '4',
+    quote: "Kudos to Jashvi for leading UX with clarity and conviction! From untangling complex user flows to crafting intuitive, insight-driven journeys, your contribution has fundamentally shaped how users experience NewzVerse. Your ability to balance functionality with empathy, while keeping business needs in mind.",
+    author: "Asawari Pawar", // TODO: Complete the quote
+    position: "Project Manager",
+    company: "Locobuzz"
+  },
     
 ];
 
