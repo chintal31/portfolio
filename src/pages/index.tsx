@@ -18,7 +18,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
             {/* Left: Text */}
             <div className="order-2 md:order-1">
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-1">
                 <h1 className="font-display text-[clamp(1.5rem,6vw,3rem)] md:text-[clamp(1.05rem,4.6vw,2.4rem)] lg:text-[clamp(1.5rem,6vw,3rem)] leading-[1.2] font-normal">
                   Designing<br />Digital Experiences<br />that bring
                 </h1>
@@ -34,7 +34,7 @@ export default function Home() {
                   <span
                     className="font-display font-semibold text-black text-[clamp(1.25rem,6vw,3rem)] md:text-[clamp(1.15rem,5vw,2.6rem)] lg:text-[clamp(1.25rem,6vw,3rem)]"
                   >
-                    &
+                    & &nbsp;
                   </span>
                   <span
                     className="font-display font-semibold text-transparent bg-clip-text text-[clamp(1.25rem,6vw,3rem)] md:text-[clamp(1.15rem,5vw,2.6rem)] lg:text-[clamp(1.25rem,6vw,3rem)] leading-[1]"
@@ -46,10 +46,11 @@ export default function Home() {
                     ideas to life
                   </span>
                 </div>
-              </div>
-              <p className="mt-[clamp(14px,2.8vw,32px)] font-open-sans text-gray-700 text-[clamp(0.875rem,2vw,1.5rem)] leading-[1.4] max-w-prose">
+                <span className="mt-[clamp(14px,2.8vw,32px)] font-open-sans text-gray-700 text-[clamp(0.875rem,2vw,1.5rem)] leading-[1.4] max-w-[clamp(300px,60vw,500px)]">
                 With 5+ years of UX expertise, I've helped startups and global teams bring powerful tools to life.
-              </p>
+              </span>
+              </div>
+              
             </div>
 
             {/* Right: Images */}
