@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import Hero from "@/components/layout/Hero";
 import Brands from "@/components/layout/Brands";
+import Collaboration from "@/components/layout/Collaboration";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
     >
       <Hero />
       <Brands />
+      <Collaboration />
     </Layout>
   );
 }
