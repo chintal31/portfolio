@@ -33,9 +33,9 @@ export const CONTACT_INFO: ContactInfo = {
   email: "jashvi.sudra@gmail.com",
   location: "Mumbai, India",
   social: {
-    github: "https://github.com/jashvi-sudra", // TODO: change to actual url
     linkedin: "https://linkedin.com/in/jashvi-sudra", // TODO: change to actual url
-    twitter: "https://twitter.com/jashvi_sudra", // TODO: change to actual url
+    behance: "https://www.behance.net/jashvisudra", // TODO: change to actual url
+    instagram: "https://instagram.com/jashvi_sudra", // TODO: change to actual url
     portfolio: "https://jashvi.me", // TODO: change to actual url
   },
 };

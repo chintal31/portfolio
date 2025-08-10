@@ -4,7 +4,7 @@ const companies = [
   { name: 'Amway', logo: '/images/amway.png' },
   { name: 'Lennar', logo: '/images/lennar.png' },
   { name: 'Brand3', logo: '/images/brand3.png' },
-  { name: 'LNT', logo: '/images/lnt.png' },
+  { name: 'LNT', logo: '/images/lnt.png' }, //TODO: This logo is not clear
   { name: 'RBL', logo: '/images/rbl.png' },
   { name: 'Mindstix', logo: '/images/mindstix.png' },
 ];

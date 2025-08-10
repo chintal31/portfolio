@@ -30,9 +30,9 @@ export interface ContactInfo {
   phone?: string;
   location?: string;
   social: {
-    github?: string;
     linkedin?: string;
-    twitter?: string;
+    instagram?: string;
+    behance?: string;
     portfolio?: string;
   };
 }
