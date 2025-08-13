@@ -10,7 +10,8 @@ export default function Home() {
     <Layout
       seo={{
         title: "Home",
-        description: "Welcome to my portfolio showcasing my UX/UI Design work and experience",
+        description:
+          "Welcome to my portfolio showcasing my UX/UI Design work and experience",
       }}
     >
       <Hero />

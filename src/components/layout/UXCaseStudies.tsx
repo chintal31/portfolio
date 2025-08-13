@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 interface CaseStudyCardProps {
   title: string;
@@ -8,10 +8,16 @@ interface CaseStudyCardProps {
   className?: string;
 }
 
-function CaseStudyCard({ title, backgroundColor, imageSrc, imageAlt, className = '' }: CaseStudyCardProps) {
+function CaseStudyCard({
+  title,
+  backgroundColor,
+  imageSrc,
+  imageAlt,
+  className = "",
+}: CaseStudyCardProps) {
   return (
     <div className={`flex flex-col gap-8 w-full ${className}`}>
-      <div 
+      <div
         className="w-full h-[330px] rounded-[20px] relative overflow-hidden"
         style={{ backgroundColor }}
       >
@@ -42,26 +48,26 @@ export default function UXCaseStudies() {
       title: "UX Strategy for AI-Powered Media Intelligence",
       backgroundColor: "#DAF3FF",
       imageSrc: "/images/newsverse.png", // TODO: image is blurred
-      imageAlt: "AI Media Intelligence Interface"
+      imageAlt: "AI Media Intelligence Interface",
     },
     {
       title: "Improving Amway's Product Discovery",
       backgroundColor: "#FFDEBD",
       imageSrc: "",
-      imageAlt: "Amway Product Discovery"
+      imageAlt: "Amway Product Discovery",
     },
     {
       title: "Unifying Lennar Associates' Employee Portal",
       backgroundColor: "#E4CFFF",
       imageSrc: "",
-      imageAlt: "Lennar Employee Portal"
+      imageAlt: "Lennar Employee Portal",
     },
     {
       title: "Gamifying the Sustainability for Individuals",
       backgroundColor: "#CFFFC1",
-      imageSrc: "", 
-      imageAlt: "Sustainability Gamification"
-    }
+      imageSrc: "",
+      imageAlt: "Sustainability Gamification",
+    },
   ];
 
   return (
