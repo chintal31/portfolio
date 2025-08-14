@@ -1,25 +1,22 @@
-export default function ProjectOverview() {
-  const projectDetails = [
-    {
-      title: "Role",
-      description: "Product Strategist, UX Designer, Design QA",
-    },
-    {
-      title: "Timeline",
-      description: "6 months | Feb 2024 - July 2024",
-    },
-    {
-      title: "Team",
-      description: "1 PM, 7 Developers, 1 Designer",
-    },
-    {
-      title: "Platform",
-      description: "Web app (B2B SaaS)",
-    },
-  ];
+interface ProjectDetail {
+  title: string;
+  description: string;
+}
 
+interface ProjectOverviewProps {
+  projectDetails: ProjectDetail[];
+  bgColor?: string;
+}
+
+export default function ProjectOverview({
+  projectDetails,
+  bgColor = "#FAF6FF",
+}: ProjectOverviewProps) {
   return (
-    <section className="w-full bg-[#FAF6FF] py-16 md:py-20">
+    <section
+      className={`w-full py-16 md:py-20`}
+      style={{ backgroundColor: bgColor }}
+    >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {projectDetails.map((detail, index) => (

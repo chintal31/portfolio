@@ -42,6 +42,10 @@ const config: Config = {
         "open-sans": ["var(--font-open-sans)", "sans-serif"],
         pavanam: ["var(--font-pavanam)", "serif"],
       },
+      fontStyle: {
+        normal: "normal",
+        italic: "italic",
+      },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",
         "slide-up": "slideUp 0.5s ease-out",

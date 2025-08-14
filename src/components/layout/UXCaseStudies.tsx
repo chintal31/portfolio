@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface CaseStudyCardProps {
   title: string;
@@ -6,6 +7,7 @@ interface CaseStudyCardProps {
   imageSrc?: string;
   imageAlt?: string;
   className?: string;
+  href?: string | undefined;
 }
 
 function CaseStudyCard({
@@ -14,9 +16,12 @@ function CaseStudyCard({
   imageSrc,
   imageAlt,
   className = "",
+  href,
 }: CaseStudyCardProps) {
-  return (
-    <div className={`flex flex-col gap-8 w-full ${className}`}>
+  const CardContent = () => (
+    <div
+      className={`flex flex-col gap-8 w-full ${className} cursor-pointer hover:opacity-80 transition-opacity duration-300`}
+    >
       <div
         className="w-full h-[330px] rounded-[20px] relative overflow-hidden"
         style={{ backgroundColor }}
@@ -40,6 +45,16 @@ function CaseStudyCard({
       </h3>
     </div>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className="block">
+        <CardContent />
+      </Link>
+    );
+  }
+
+  return <CardContent />;
 }
 
 export default function UXCaseStudies() {
@@ -47,26 +62,30 @@ export default function UXCaseStudies() {
     {
       title: "UX Strategy for AI-Powered Media Intelligence",
       backgroundColor: "#DAF3FF",
-      imageSrc: "/images/newsverse.png", // TODO: image is blurred
+      imageSrc: "/images/newsverse.png",
       imageAlt: "AI Media Intelligence Interface",
+      href: "/work",
     },
     {
       title: "Improving Amway's Product Discovery",
       backgroundColor: "#FFDEBD",
-      imageSrc: "",
+      imageSrc: "/images/amway.png",
       imageAlt: "Amway Product Discovery",
+      href: "/amway",
     },
     {
       title: "Unifying Lennar Associates' Employee Portal",
       backgroundColor: "#E4CFFF",
-      imageSrc: "",
+      imageSrc: "/images/lennar.png",
       imageAlt: "Lennar Employee Portal",
+      href: "/lennar",
     },
     {
       title: "Gamifying the Sustainability for Individuals",
       backgroundColor: "#CFFFC1",
       imageSrc: "",
       imageAlt: "Sustainability Gamification",
+      href: "/sustainability",
     },
   ];
 
@@ -84,32 +103,36 @@ export default function UXCaseStudies() {
         <div className="space-y-16 md:space-y-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14">
             <CaseStudyCard
-              title={caseStudies[0].title}
-              backgroundColor={caseStudies[0].backgroundColor}
-              imageSrc={caseStudies[0].imageSrc}
-              imageAlt={caseStudies[0].imageAlt}
+              title={caseStudies[0]?.title || ""}
+              backgroundColor={caseStudies[0]?.backgroundColor || "#DAF3FF"}
+              imageSrc={caseStudies[0]?.imageSrc || ""}
+              imageAlt={caseStudies[0]?.imageAlt || ""}
+              href={caseStudies[0]?.href}
             />
             <CaseStudyCard
-              title={caseStudies[1].title}
-              backgroundColor={caseStudies[1].backgroundColor}
-              imageSrc={caseStudies[1].imageSrc}
-              imageAlt={caseStudies[1].imageAlt}
+              title={caseStudies[1]?.title || ""}
+              backgroundColor={caseStudies[1]?.backgroundColor || "#FFDEBD"}
+              imageSrc={caseStudies[1]?.imageSrc || ""}
+              imageAlt={caseStudies[1]?.imageAlt || ""}
+              href={caseStudies[1]?.href}
             />
           </div>
 
           {/* Second Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14">
             <CaseStudyCard
-              title={caseStudies[2].title}
-              backgroundColor={caseStudies[2].backgroundColor}
-              imageSrc={caseStudies[2].imageSrc}
-              imageAlt={caseStudies[2].imageAlt}
+              title={caseStudies[2]?.title || ""}
+              backgroundColor={caseStudies[2]?.backgroundColor || "#E4CFFF"}
+              imageSrc={caseStudies[2]?.imageSrc || ""}
+              imageAlt={caseStudies[2]?.imageAlt || ""}
+              href={caseStudies[2]?.href}
             />
             <CaseStudyCard
-              title={caseStudies[3].title}
-              backgroundColor={caseStudies[3].backgroundColor}
-              imageSrc={caseStudies[3].imageSrc}
-              imageAlt={caseStudies[3].imageAlt}
+              title={caseStudies[3]?.title || ""}
+              backgroundColor={caseStudies[3]?.backgroundColor || "#CFFFC1"}
+              imageSrc={caseStudies[3]?.imageSrc || ""}
+              imageAlt={caseStudies[3]?.imageAlt || ""}
+              href={caseStudies[3]?.href}
             />
           </div>
         </div>

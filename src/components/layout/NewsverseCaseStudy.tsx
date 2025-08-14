@@ -34,6 +34,25 @@ export default function NewsverseCaseStudy() {
     { label: "B2B, SaaS", color: "#8FA715" },
   ];
 
+  const projectDetails = [
+    {
+      title: "Role",
+      description: "Product Strategist, UX Designer, Design QA",
+    },
+    {
+      title: "Timeline",
+      description: "6 months | Feb 2024 - July 2024",
+    },
+    {
+      title: "Team",
+      description: "1 PM, 7 Developers, 1 Designer",
+    },
+    {
+      title: "Platform",
+      description: "Web app (B2B SaaS)",
+    },
+  ];
+
   return (
     <>
       {/* Hero Section */}
@@ -95,7 +114,7 @@ export default function NewsverseCaseStudy() {
       </section>
 
       {/* Project Overview Section */}
-      <ProjectOverview />
+      <ProjectOverview projectDetails={projectDetails} bgColor="#FAF6FF" />
 
       {/* Context Section */}
       <ContextSection />
