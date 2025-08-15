@@ -51,6 +51,53 @@ export default function Amway() {
     },
   ];
 
+  const userInterviews = [
+    { text: "Unresponsive Buttons", image: "/images/amway/close_window.svg" },
+    {
+      text: "Cluttered Layout",
+      image: "/images/amway/outline.svg",
+    },
+    {
+      text: "Complex Menu Structure",
+      image: "/images/amway/mind_map.svg",
+    },
+    {
+      text: "Inconsistent Design Elements",
+      image: "/images/amway/paint_palette.svg",
+    },
+    {
+      text: "Search Functionality Issues",
+      image: "/images/amway/analyze.svg",
+    },
+    {
+      text: "Hover and Click States",
+      image: "/images/amway/hand_cursor.svg",
+    },
+  ];
+
+  const heuristicAnalysis = [
+    {
+      boldText: "Categorisation needs a refresh",
+      text: ", as it lacks proper product grouping and clear hierarchy for important information.",
+      image: "/images/amway/mind_map.svg",
+    },
+    {
+      boldText: "Value discovery is limited",
+      text: " as the current search can&apos;t identify user intent, context, or keyword synonyms to deliver personalised results.",
+      image: "/images/amway/search.svg",
+    },
+    {
+      boldText: "Inconsistent visual hierarchy",
+      text: "exists across the storefront",
+      image: "/images/amway/prototype.svg",
+    },
+    {
+      boldText: "Lacks essential features",
+      text: " like Wishlist/ Save for later capabilities, Category-specific filters, Product Recommender, etc.",
+      image: "/images/amway/popular.svg",
+    },
+  ];
+
   return (
     <Layout
       seo={{
@@ -400,7 +447,7 @@ export default function Amway() {
       </section>
 
       {/* User Interviews Section */}
-      <section className="w-full bg-[#FAFAFA] py-16 lg:py-20">
+      <section className="w-full bg-white py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 md:px-12 lg:px-16">
           <div className="flex flex-col gap-10 lg:gap-12">
             <div className="flex flex-col gap-3">
@@ -414,23 +461,21 @@ export default function Amway() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {[
-                "Unresponsive Buttons",
-                "Cluttered Layout",
-                "Complex Menu Structure",
-                "Inconsistent Design Elements",
-                "Search Functionality Issues",
-                "Hover and Click States",
-              ].map((issue, index) => (
+              {userInterviews.map((item, index) => (
                 <div
                   key={index}
                   className="flex items-center gap-4 p-4 bg-white rounded-lg"
                 >
                   <div className="w-[53px] h-[53px] bg-[#FFD6F4] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">🔍</span>
+                    <Image
+                      src={item.image}
+                      alt="User Interview"
+                      width={20}
+                      height={20}
+                    />
                   </div>
                   <span className="font-open-sans font-bold text-base leading-[22px] text-[#272727]">
-                    {issue}
+                    {item.text}
                   </span>
                 </div>
               ))}
@@ -448,28 +493,31 @@ export default function Amway() {
                 Heuristic Analysis
               </h3>
               <p className="font-open-sans font-normal text-base leading-[22px] text-[#272727] max-w-2xl">
-                We decided to look inwards & see what&apos;s missing in the
-                existing experience. We achieved this by analysing Amway
-                Thailand&apos;s current experience with 10 Heuristic principles
-                of UX.
+                We decided to look inwards & see what's missing in the existing
+                experience. We achieved this by analysing Amway Thailand's
+                current experience with{" "}
+                <span className="font-bold">
+                  10 Heuristic principles of UX.
+                </span>
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Left Column - Issues */}
               <div className="flex flex-col gap-7">
-                {[
-                  "Categorisation needs a refresh, as it lacks proper product grouping and clear hierarchy for important information.",
-                  "Value discovery is limited as the current search can&apos;t identify user intent, context, or keyword synonyms to deliver personalised results.",
-                  "Inconsistent visual hierarchy exists across the storefront",
-                  "Lacks essential features like Wishlist/ Save for later capabilities, Category-specific filters, Product Recommender, etc.",
-                ].map((issue, index) => (
+                {heuristicAnalysis.map((item, index) => (
                   <div key={index} className="flex items-start gap-4">
                     <div className="w-[53px] h-[53px] bg-[#D6EDFF] rounded-xl flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg">📋</span>
+                      <Image
+                        src={item.image}
+                        alt="User Interview"
+                        width={20}
+                        height={20}
+                      />
                     </div>
-                    <p className="font-open-sans font-bold text-base leading-[22px] text-[#272727]">
-                      {issue}
+                    <p className="font-open-sans font-normal text-base leading-[22px] text-[#272727]">
+                      <span className="font-bold">{item.boldText}</span>{" "}
+                      {item.text}
                     </p>
                   </div>
                 ))}
@@ -477,7 +525,7 @@ export default function Amway() {
 
               {/* Right Column - Image */}
               <div className="w-full h-[385px] bg-[#D6EDFF] rounded-[13px] flex items-center justify-center">
-                <div className="w-full h-full bg-gray-200 rounded-[16px] flex items-center justify-center">
+                <div className="w-full h-full rounded-[16px] flex items-center justify-center">
                   <span className="text-lg text-gray-600">
                     Heuristic Analysis Image
                   </span>
@@ -582,19 +630,35 @@ export default function Amway() {
                 <p className="font-open-sans font-normal text-base leading-[22px] text-black">
                   Implemented a semantic search experience by configuring
                   backend logic to handle synonyms, spelling variations, and
-                  user intent. On the frontend, I designed a responsive
-                  interface with: Quick filters in the form of pill-shaped
-                  components on the search results page (SRP) for popular
-                  categories Advanced filters supporting detailed refinement
-                  across categories, solutions, and brands—structured to mimic
-                  intuitive navigation Placeholder text in the search bar using
-                  market-recommended keywords to help guide users from their
-                  first interaction
+                  user intent.
+                </p>
+                <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                  On the frontend, I designed a responsive interface with:
+                </p>
+                <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                  <ul className="list-disc list-inside space-y-4 ml-6">
+                    <li>
+                      <span className="font-semibold">Quick filters</span> in
+                      the form of pill-shaped components on the search results
+                      page (SRP) for popular categories.
+                    </li>
+                    <li>
+                      <span className="font-semibold">Advanced filters</span>{" "}
+                      supporting detailed refinement across categories,
+                      solutions, and brands—structured to mimic intuitive
+                      navigation.
+                    </li>
+                    <li>
+                      <span className="font-semibold">Placeholder text</span> in
+                      the search bar using market-recommended keywords to help
+                      guide users from their first interaction.
+                    </li>
+                  </ul>
                 </p>
               </div>
 
               <div className="w-full lg:w-[547px] h-[550px] bg-[#F3FFE8] rounded-[20px] flex items-center justify-center">
-                <div className="w-full h-full bg-gray-200 rounded-[20px] flex items-center justify-center">
+                <div className="w-full h-full rounded-[20px] flex items-center justify-center">
                   <span className="text-lg text-gray-600">
                     Auto Complete Image
                   </span>
@@ -605,10 +669,10 @@ export default function Amway() {
             {/* Solution 2: Product Pages */}
             <div className="flex flex-col lg:flex-row items-center gap-11">
               <div className="w-full lg:w-[517px] h-[562px] bg-[#F7ECFC] rounded-[16px] flex items-center justify-center gap-9 p-8">
-                <div className="w-[207px] h-[495px] bg-gray-200 rounded-lg flex items-center justify-center">
+                <div className="w-[207px] h-[495px] rounded-lg flex items-center justify-center">
                   <span className="text-sm text-gray-600">PDP</span>
                 </div>
-                <div className="w-[212px] h-[499px] bg-gray-200 rounded-lg flex items-center justify-center">
+                <div className="w-[212px] h-[499px] rounded-lg flex items-center justify-center">
                   <span className="text-sm text-gray-600">PLP</span>
                 </div>
               </div>
@@ -619,11 +683,35 @@ export default function Amway() {
                 </h4>
                 <p className="font-open-sans font-normal text-base leading-[22px] text-black">
                   Enhanced the card UX for PLPs to improve visual clarity,
-                  product comparison, and CTA visibility. Key design
-                  improvements: Optimized card density to show more products per
-                  fold Applied accessibility standards (contrast, spacing, and
-                  hierarchy) Supported stock-unavailable scenarios with
-                  meaningful messaging and visual cues.
+                  product comparison, and CTA visibility.
+                </p>
+                <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                  Key design improvements:
+                </p>
+
+                <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                  <ul className="list-disc list-inside space-y-4 ml-6">
+                    <li>
+                      <span className="font-semibold">
+                        Optimized card density{" "}
+                      </span>{" "}
+                      to show more products per fold.
+                    </li>
+                    <li>
+                      Applied{" "}
+                      <span className="font-semibold">
+                        {" "}
+                        accessibility standards{" "}
+                      </span>{" "}
+                      (contrast, spacing, and hierarchy).
+                    </li>
+                    <li>
+                      {" "}
+                      Supported{" "}
+                      <span className="font-semibold"> stock-unavailable </span>
+                      scenarios with meaningful messaging and visual cues.
+                    </li>
+                  </ul>
                 </p>
               </div>
             </div>
@@ -643,7 +731,7 @@ export default function Amway() {
               </div>
 
               <div className="w-full lg:w-[779px] h-[562px] bg-[#FFF2D9] rounded-[16px] flex items-center justify-center">
-                <div className="w-full h-full bg-gray-200 rounded-[16px] flex items-center justify-center">
+                <div className="w-full h-full rounded-[16px] flex items-center justify-center">
                   <span className="text-lg text-gray-600">
                     Categorization Image
                   </span>
@@ -654,7 +742,7 @@ export default function Amway() {
             {/* Solution 4: Backend-Driven UX */}
             <div className="flex flex-col lg:flex-row items-center gap-11">
               <div className="w-full lg:w-[779px] h-[562px] bg-[#E8F3FA] rounded-[21px] flex items-center justify-center">
-                <div className="w-full h-full bg-gray-200 rounded-[21px] flex items-center justify-center">
+                <div className="w-full h-full rounded-[21px] flex items-center justify-center">
                   <span className="text-lg text-gray-600">
                     Backend UX Image
                   </span>
@@ -667,11 +755,23 @@ export default function Amway() {
                 </h4>
                 <p className="font-open-sans font-normal text-base leading-[22px] text-black">
                   Collaborated with backend teams to design for real-world
-                  scenarios like: Dynamic stock status (in stock, out of stock,
-                  limited stock) Semantic search set up Back Office
-                  configuration support without breaking UX The frontend was
-                  structured to adapt based on these backend inputs without
-                  degrading user experience.
+                  scenarios like:
+                </p>
+                <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                  <ul className="list-disc list-inside space-y-4 ml-6">
+                    <li>
+                      Dynamic stock status (in stock, out of stock, limited
+                      stock)
+                    </li>
+                    <li>Semantic search set up</li>
+                    <li>
+                      Back Office configuration support without breaking UX
+                    </li>
+                  </ul>
+                </p>
+                <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                  The frontend was structured to adapt based on these backend
+                  inputs without degrading user experience.
                 </p>
               </div>
             </div>
