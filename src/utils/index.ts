@@ -16,7 +16,7 @@ export function formatDate(date: Date | string): string {
 }
 
 // Debounce utility
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
@@ -47,8 +47,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
   try {
     await navigator.clipboard.writeText(text);
     return true;
-  } catch (err) {
-    console.error("Failed to copy text: ", err);
+  } catch {
     return false;
   }
 }
@@ -60,8 +59,7 @@ export const storage = {
     try {
       const item = window.localStorage.getItem(key);
       return item ? JSON.parse(item) : null;
-    } catch (error) {
-      console.error(`Error getting localStorage key "${key}":`, error);
+    } catch {
       return null;
     }
   },
@@ -69,16 +67,16 @@ export const storage = {
     if (typeof window === "undefined") return;
     try {
       window.localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {
-      console.error(`Error setting localStorage key "${key}":`, error);
+    } catch {
+      // Do nothing
     }
   },
   remove: (key: string): void => {
     if (typeof window === "undefined") return;
     try {
       window.localStorage.removeItem(key);
-    } catch (error) {
-      console.error(`Error removing localStorage key "${key}":`, error);
+    } catch {
+      // Do nothing
     }
   },
 };

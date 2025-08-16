@@ -29,8 +29,8 @@ export default function Custom404() {
             Oops! Page Not Found
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-            The page you're looking for doesn't exist. It might have been moved,
-            deleted, or you entered the wrong URL.
+            The page you&apos;re looking for doesn&apos;t exist. It might have
+            been moved, deleted, or you entered the wrong URL.
           </p>
 
           {/* Actions */}
@@ -55,13 +55,22 @@ export default function Custom404() {
               Looking for something specific?
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link href="/projects" className="text-primary-600 hover:text-primary-700 transition-colors">
+              <Link
+                href="/projects"
+                className="text-primary-600 hover:text-primary-700 transition-colors"
+              >
                 View Projects
               </Link>
-              <Link href="/aboutme" className="text-primary-600 hover:text-primary-700 transition-colors">
+              <Link
+                href="/aboutme"
+                className="text-primary-600 hover:text-primary-700 transition-colors"
+              >
                 About Me
               </Link>
-              <Link href="/contact" className="text-primary-600 hover:text-primary-700 transition-colors">
+              <Link
+                href="/contact"
+                className="text-primary-600 hover:text-primary-700 transition-colors"
+              >
                 Contact
               </Link>
             </div>

@@ -6,7 +6,7 @@ export default function OutsideWork() {
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
         {/* Header */}
         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-normal text-gray-800 mb-12">
-          Outside Work? I'm Probably...
+          Outside Work? I&apos;m Probably...
         </h2>
 
         {/* Activities Grid */}

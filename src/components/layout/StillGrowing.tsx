@@ -7,11 +7,11 @@ export default function StillGrowing() {
             Still Growing, Still Curious
           </h2>
           <p className="font-open-sans font-normal text-base leading-6 text-[#393939] sm:text-lg sm:leading-7 md:text-xl md:leading-8 lg:text-2xl lg:leading-9 max-w-4xl ">
-            I've come a long way. But I know I've only just begun. I dream of
-            taking my skills global - to live and work across cultures, to
-            challenge what I know, and to prove time and again how valuable good
-            design truly is. Because great design is not just beautiful - it's
-            brave. And I'm here for all of it.
+            I&apos;ve come a long way. But I know I&apos;ve only just begun. I
+            dream of taking my skills global - to live and work across cultures,
+            to challenge what I know, and to prove time and again how valuable
+            good design truly is. Because great design is not just beautiful -
+            it&apos;s brave. And I&apos;m here for all of it.
           </p>
         </div>
       </div>

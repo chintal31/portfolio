@@ -20,8 +20,8 @@ export default function AboutHero() {
 
             <div className="border-l-4 border-gray-300 pl-6">
               <p className="font-open-sans text-md md:text-lg italic text-gray-600 leading-relaxed">
-                "I'll show you every version of design I can think of." [swiftie
-                coded]
+                &quot;I&apos;ll show you every version of design I can think
+                of.&quot; [swiftie coded]
               </p>
             </div>
           </div>

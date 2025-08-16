@@ -1,7 +1,6 @@
 import KeyLearning from "@/components/layout/KeyLearning";
 import Layout from "@/components/layout/Layout";
 import Outcomes from "@/components/layout/Outcomes";
-import ProblemStatement from "@/components/layout/ProblemStatement";
 import ProjectOverview from "@/components/layout/ProjectOverview";
 import Image from "next/image";
 
@@ -114,7 +113,7 @@ export default function Amway() {
             <div className="flex flex-col gap-8 md:gap-11 w-full md:w-auto md:max-w-[clamp(400px,55vw,600px)] order-1 md:order-2">
               {/* Title */}
               <h2 className="font-display font-normal text-[clamp(1.25rem,3.5vw,2.5rem)] leading-[1.2] text-[#272727]">
-                <span className="block">Improving Amway's</span>
+                <span className="block">Improving Amway&apos;s</span>
                 <span className="block">Product Discovery</span>
               </h2>
 
@@ -493,9 +492,9 @@ export default function Amway() {
                 Heuristic Analysis
               </h3>
               <p className="font-open-sans font-normal text-base leading-[22px] text-[#272727] max-w-2xl">
-                We decided to look inwards & see what's missing in the existing
-                experience. We achieved this by analysing Amway Thailand's
-                current experience with{" "}
+                We decided to look inwards & see what&apos;s missing in the
+                existing experience. We achieved this by analysing Amway
+                Thailand&apos;s current experience with{" "}
                 <span className="font-bold">
                   10 Heuristic principles of UX.
                 </span>
@@ -580,8 +579,8 @@ export default function Amway() {
               <div className="flex flex-col gap-3 md:gap-4">
                 <p className="font-open-sans font-normal text-base md:text-lg lg:text-xl leading-relaxed md:leading-8 text-[#B7B7B7]">
                   <span className="font-semibold text-white">
-                    Amway Thailand's digital storefront posed serious friction
-                    across key discovery and browsing journeys.
+                    Amway Thailand&apos;s digital storefront posed serious
+                    friction across key discovery and browsing journeys.
                   </span>
                   The existing experience suffered from{" "}
                   <span className="font-semibold text-white">
@@ -635,7 +634,7 @@ export default function Amway() {
                 <p className="font-open-sans font-normal text-base leading-[22px] text-black">
                   On the frontend, I designed a responsive interface with:
                 </p>
-                <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                <div className="font-open-sans font-normal text-base leading-[22px] text-black">
                   <ul className="list-disc list-inside space-y-4 ml-6">
                     <li>
                       <span className="font-semibold">Quick filters</span> in
@@ -654,7 +653,7 @@ export default function Amway() {
                       guide users from their first interaction.
                     </li>
                   </ul>
-                </p>
+                </div>
               </div>
 
               <div className="w-full lg:w-[547px] h-[550px] bg-[#F3FFE8] rounded-[20px] flex items-center justify-center">
@@ -689,7 +688,7 @@ export default function Amway() {
                   Key design improvements:
                 </p>
 
-                <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                <div className="font-open-sans font-normal text-base leading-[22px] text-black">
                   <ul className="list-disc list-inside space-y-4 ml-6">
                     <li>
                       <span className="font-semibold">
@@ -712,7 +711,7 @@ export default function Amway() {
                       scenarios with meaningful messaging and visual cues.
                     </li>
                   </ul>
-                </p>
+                </div>
               </div>
             </div>
 
@@ -724,9 +723,10 @@ export default function Amway() {
                 </h4>
                 <p className="font-open-sans font-normal text-base leading-[22px] text-black">
                   Replaced the traditional product hierarchy with user-centered
-                  categories aligned to user goals (e.g., "Anti-Ageing" vs.
-                  "Serums"). This made navigation faster for new customers and
-                  easier for ABOs to guide their downlines.
+                  categories aligned to user goals (e.g.,
+                  &quot;Anti-Ageing&quot; vs. &quot;Serums&quot;). This made
+                  navigation faster for new customers and easier for ABOs to
+                  guide their downlines.
                 </p>
               </div>
 

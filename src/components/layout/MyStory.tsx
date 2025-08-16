@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function MyStory() {
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-white">
@@ -19,8 +17,8 @@ export default function MyStory() {
           </div>
           <div className="border-l-4 border-gray-300 pl-6">
             <p className="font-open-sans text-lg md:text-xl italic text-gray-600 leading-relaxed">
-              "I didn't study UX. But when I stumbled into it, something just
-              clicked."
+              &quot;I didn&apos;t study UX. But when I stumbled into it,
+              something just clicked.&quot;
             </p>
           </div>
         </div>
@@ -37,9 +35,9 @@ export default function MyStory() {
                 The way I connected the dots, the way I noticed friction, the
                 way I wanted things to feel - it all came instinctively. Much
                 like the first time I picked up a guitar or started singing as a
-                kid, I didn't need a classroom to tell me this felt right. It
-                just made sense. I taught myself the craft - from wireframes and
-                user flows to research plans and stakeholder maps. I asked
+                kid, I didn&apos;t need a classroom to tell me this felt right.
+                It just made sense. I taught myself the craft - from wireframes
+                and user flows to research plans and stakeholder maps. I asked
                 questions, got my hands dirty, and built my confidence one
                 experience at a time.
               </p>
@@ -60,9 +58,9 @@ export default function MyStory() {
             {/* Final Quote */}
             <div className="border-l-4 border-gray-300 pl-6">
               <p className="font-open-sans text-lg md:text-xl italic text-gray-600 leading-relaxed">
-                "It wasn't a conventional journey. But it was mine. And it began
-                the same way my love for music did - with curiosity, feeling,
-                and an undeniable pull to create."
+                &quot;It wasn&apos;t a conventional journey. But it was mine.
+                And it began the same way my love for music did - with
+                curiosity, feeling, and an undeniable pull to create.&quot;
               </p>
             </div>
           </div>

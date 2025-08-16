@@ -1,7 +1,6 @@
 import { NextPageContext } from "next";
 import Layout from "@/components/layout/Layout";
 
-
 interface ErrorProps {
   statusCode?: number;
   hasGetInitialPropsRun?: boolean;
@@ -9,17 +8,19 @@ interface ErrorProps {
 }
 
 function Error({ statusCode }: ErrorProps) {
-  const title = statusCode === 404 
-    ? "Page Not Found" 
-    : statusCode 
-    ? `Server Error ${statusCode}` 
-    : "Client Error";
+  const title =
+    statusCode === 404
+      ? "Page Not Found"
+      : statusCode
+        ? `Server Error ${statusCode}`
+        : "Client Error";
 
-  const description = statusCode === 404
-    ? "The page you're looking for doesn't exist."
-    : statusCode
-    ? "A server-side error occurred."
-    : "A client-side error occurred.";
+  const description =
+    statusCode === 404
+      ? "The page you're looking for doesn't exist."
+      : statusCode
+        ? "A server-side error occurred."
+        : "A client-side error occurred.";
 
   return (
     <Layout
@@ -31,7 +32,7 @@ function Error({ statusCode }: ErrorProps) {
       showNavbar={false}
       showFooter={false}
     >
-     This is the error page
+      This is the error page
     </Layout>
   );
 }

@@ -15,7 +15,9 @@ export default function SEOHead({
   noIndex = false,
   children,
 }: SEOHeadProps) {
-  const fullTitle = title ? `${title} | ${SITE_CONFIG.name}` : SITE_CONFIG.title;
+  const fullTitle = title
+    ? `${title} | ${SITE_CONFIG.name}`
+    : SITE_CONFIG.title;
   const keywordsString = keywords.join(", ");
 
   return (
@@ -24,8 +26,11 @@ export default function SEOHead({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywordsString} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="robots" content={noIndex ? "noindex,nofollow" : "index,follow"} />
-      
+      <meta
+        name="robots"
+        content={noIndex ? "noindex,nofollow" : "index,follow"}
+      />
+
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
@@ -33,22 +38,36 @@ export default function SEOHead({
       <meta property="og:url" content={canonicalUrl || SITE_CONFIG.url} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={SITE_CONFIG.name} />
-      
+
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-      
+
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-      
+
       {/* Favicon */}
       <link rel="icon" href="/favicon.ico" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-      
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+
       {children}
     </Head>
   );

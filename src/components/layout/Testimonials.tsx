@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface Testimonial {
   id: string;
@@ -10,41 +10,46 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    id: '1',
-    quote: "If I were to describe Jashvi's performance and working with her in one word, it would be 'Exceptional.' From the beginning of working with her, she exceeded my expectations. She quickly adapted to the working process, understood the business model of Amway, and proactively learned new things. She showcased her expertise in ",
-    author: "Ronnel Sanchez",// TODO: Complete the quote
+    id: "1",
+    quote:
+      "If I were to describe Jashvi's performance and working with her in one word, it would be 'Exceptional.' From the beginning of working with her, she exceeded my expectations. She quickly adapted to the working process, understood the business model of Amway, and proactively learned new things. She showcased her expertise in ",
+    author: "Ronnel Sanchez", // TODO: Complete the quote
     position: "UX Lead",
-    company: "Amway Global"
+    company: "Amway Global",
   },
   {
-    id: '2',
-    quote: "Kudos to Jashvi for leading UX with clarity and conviction! From untangling complex user flows to crafting intuitive, insight-driven journeys, your contribution has fundamentally shaped how users experience NewzVerse. Your ability to balance functionality with empathy, while keeping business needs in mind.",
+    id: "2",
+    quote:
+      "Kudos to Jashvi for leading UX with clarity and conviction! From untangling complex user flows to crafting intuitive, insight-driven journeys, your contribution has fundamentally shaped how users experience NewzVerse. Your ability to balance functionality with empathy, while keeping business needs in mind.",
     author: "Asawari Pawar", // TODO: Complete the quote
     position: "Project Manager",
-    company: "Locobuzz"
+    company: "Locobuzz",
   },
   {
-    id: '3',
-    quote: "If I were to describe Jashvi's performance and working with her in one word, it would be 'Exceptional.' From the beginning of working with her, she exceeded my expectations. She quickly adapted to the working process, understood the business model of Amway, and proactively learned new things. She showcased her expertise in ",
-    author: "Ronnel Sanchez",// TODO: Complete the quote
+    id: "3",
+    quote:
+      "If I were to describe Jashvi's performance and working with her in one word, it would be 'Exceptional.' From the beginning of working with her, she exceeded my expectations. She quickly adapted to the working process, understood the business model of Amway, and proactively learned new things. She showcased her expertise in ",
+    author: "Ronnel Sanchez", // TODO: Complete the quote
     position: "UX Lead",
-    company: "Amway Global"
+    company: "Amway Global",
   },
   {
-    id: '4',
-    quote: "Kudos to Jashvi for leading UX with clarity and conviction! From untangling complex user flows to crafting intuitive, insight-driven journeys, your contribution has fundamentally shaped how users experience NewzVerse. Your ability to balance functionality with empathy, while keeping business needs in mind.",
+    id: "4",
+    quote:
+      "Kudos to Jashvi for leading UX with clarity and conviction! From untangling complex user flows to crafting intuitive, insight-driven journeys, your contribution has fundamentally shaped how users experience NewzVerse. Your ability to balance functionality with empathy, while keeping business needs in mind.",
     author: "Asawari Pawar", // TODO: Complete the quote
     position: "Project Manager",
-    company: "Locobuzz"
+    company: "Locobuzz",
   },
-    
 ];
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [expandedQuotes, setExpandedQuotes] = useState<{ [key: string]: boolean }>({});
+  const [expandedQuotes, setExpandedQuotes] = useState<{
+    [key: string]: boolean;
+  }>({});
   const [isMobile, setIsMobile] = useState(false);
-  
+
   const MAX_QUOTE_LENGTH = 200; // Character limit for quotes
 
   // Check if mobile on mount and resize
@@ -52,17 +57,17 @@ export default function Testimonials() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   // Auto-rotate carousel every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => {
+      setCurrentIndex(prevIndex => {
         if (prevIndex === testimonials.length - 1) {
           // After last testimonial, go to first
           return 0;
@@ -81,13 +86,13 @@ export default function Testimonials() {
   const toggleQuote = (testimonialId: string) => {
     setExpandedQuotes(prev => ({
       ...prev,
-      [testimonialId]: !prev[testimonialId]
+      [testimonialId]: !prev[testimonialId],
     }));
   };
 
   const truncateQuote = (quote: string, maxLength: number) => {
     if (quote.length <= maxLength) return quote;
-    return quote.substring(0, maxLength).trim() + '...';
+    return quote.substring(0, maxLength).trim() + "...";
   };
 
   // Calculate transform based on device type
@@ -113,11 +118,11 @@ export default function Testimonials() {
           <div className="relative">
             {/* Carousel Container */}
             <div className="relative overflow-hidden">
-              <div 
+              <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: getTransformValue() }}
               >
-                {testimonials.map((testimonial, index) => (
+                {testimonials.map(testimonial => (
                   <div
                     key={testimonial.id}
                     className="w-full md:w-[75%] flex-shrink-0 px-4"
@@ -137,16 +142,20 @@ export default function Testimonials() {
                           {/* Quote Text */}
                           <div className="mb-2 md:mb-4">
                             <p className="font-open-sans font-normal text-sm md:text-base lg:text-lg leading-[18px] md:leading-[20px] lg:leading-[22px] text-[#272727] max-w-none">
-                              {expandedQuotes[testimonial.id] 
-                                ? testimonial.quote 
-                                : truncateQuote(testimonial.quote, MAX_QUOTE_LENGTH)
-                              }
+                              {expandedQuotes[testimonial.id]
+                                ? testimonial.quote
+                                : truncateQuote(
+                                    testimonial.quote,
+                                    MAX_QUOTE_LENGTH
+                                  )}
                               {testimonial.quote.length > MAX_QUOTE_LENGTH && (
                                 <button
                                   onClick={() => toggleQuote(testimonial.id)}
                                   className="inline-block ml-1 text-[#4B01AB] font-open-sans font-medium text-xs md:text-sm hover:text-[#064CF0] focus:outline-none rounded"
                                 >
-                                  {expandedQuotes[testimonial.id] ? 'Read Less' : 'Read More'}
+                                  {expandedQuotes[testimonial.id]
+                                    ? "Read Less"
+                                    : "Read More"}
                                 </button>
                               )}
                             </p>
@@ -176,9 +185,9 @@ export default function Testimonials() {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    index === currentIndex 
-                      ? 'bg-[#4B01AB] scale-125' 
-                      : 'bg-gray-300 hover:bg-gray-400'
+                    index === currentIndex
+                      ? "bg-[#4B01AB] scale-125"
+                      : "bg-gray-300 hover:bg-gray-400"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />

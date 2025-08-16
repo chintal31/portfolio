@@ -1,12 +1,12 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 const companies = [
-  { name: 'Amway', logo: '/images/amway.png' },
-  { name: 'Lennar', logo: '/images/lennar.png' },
-  { name: 'Brand3', logo: '/images/brand3.png' },
-  { name: 'LNT', logo: '/images/lnt.png' }, //TODO: This logo is not clear
-  { name: 'RBL', logo: '/images/rbl.png' },
-  { name: 'Mindstix', logo: '/images/mindstix.png' },
+  { name: "Amway", logo: "/images/amway.png" },
+  { name: "Lennar", logo: "/images/lennar.png" },
+  { name: "Brand3", logo: "/images/brand3.png" },
+  { name: "LNT", logo: "/images/lnt.png" }, //TODO: This logo is not clear
+  { name: "RBL", logo: "/images/rbl.png" },
+  { name: "Mindstix", logo: "/images/mindstix.png" },
 ];
 
 export default function Brands() {
@@ -16,14 +16,14 @@ export default function Brands() {
         {/* Section Title */}
         <div className="text-center mb-10 md:mb-16">
           <h2 className="font-open-sans text-lg md:text-xl text-gray-600">
-            Brands I've designed for
+            Brands I&apos;ve designed for
           </h2>
         </div>
 
         {/* Companies Grid */}
         <div className="flex justify-center">
           <div className="grid grid-cols-6 gap-4 md:gap-6 lg:gap-8 max-w-4xl">
-            {companies.map((company, index) => (
+            {companies.map(company => (
               <div
                 key={company.name}
                 className="flex flex-col items-center justify-center"
