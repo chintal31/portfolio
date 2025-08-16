@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import Outcomes from "@/components/layout/Outcomes";
 import ProjectOverview from "@/components/layout/ProjectOverview";
 import Image from "next/image";
+import Link from "next/link";
 
 interface CategoryTagProps {
   label: string;
@@ -105,6 +106,31 @@ export default function Amway() {
           "UX case study on redesigning Amway Thailand's product discovery journey across Search, Product Pages, and Navigation.",
       }}
     >
+      {/* Back Button */}
+      <div className="bg-white border-b border-[#EBEBEB] py-4">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 md:px-12">
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors group"
+          >
+            <svg
+              className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <span className="font-medium">Back to Work</span>
+          </Link>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative w-full min-h-[528px] bg-white overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 md:px-12 h-full">

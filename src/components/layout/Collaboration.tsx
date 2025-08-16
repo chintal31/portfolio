@@ -1,6 +1,6 @@
 export default function Collaboration() {
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-white">
+    <section id="contact" className="py-16 md:py-20 lg:py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start gap-8 md:gap-11 xl:gap-16">
           {/* Left: Collaboration Icon */}

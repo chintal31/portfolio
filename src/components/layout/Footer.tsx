@@ -3,7 +3,7 @@ import { CONTACT_INFO } from "@/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 py-12 md:py-16 lg:py-20">
+    <footer id="resume" className="bg-gray-100 py-12 md:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16">
           {/* Left Section - Social Media */}

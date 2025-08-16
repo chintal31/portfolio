@@ -69,23 +69,23 @@ export default function UXCaseStudies() {
     {
       title: "Improving Amway's Product Discovery",
       backgroundColor: "#FFDEBD",
-      imageSrc: "/images/amway.png",
+      imageSrc: "/images/amway-hero.png",
       imageAlt: "Amway Product Discovery",
-      href: "/amway",
+      href: "/work",
     },
     {
       title: "Unifying Lennar Associates' Employee Portal",
       backgroundColor: "#E4CFFF",
-      imageSrc: "/images/lennar.png",
+      imageSrc: "",
       imageAlt: "Lennar Employee Portal",
-      href: "/lennar",
+      href: "/work",
     },
     {
       title: "Gamifying the Sustainability for Individuals",
       backgroundColor: "#CFFFC1",
       imageSrc: "",
       imageAlt: "Sustainability Gamification",
-      href: "/sustainability",
+      href: "/work",
     },
   ];
 
@@ -101,6 +101,7 @@ export default function UXCaseStudies() {
 
         {/* Case Studies Grid */}
         <div className="space-y-16 md:space-y-20">
+          {/* First Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14">
             <CaseStudyCard
               title={caseStudies[0]?.title || ""}
