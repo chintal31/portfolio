@@ -627,7 +627,7 @@ export default function Amway() {
               <AnimatedWrapper
                 delay={0}
                 duration={0.8}
-                animationType="fadeInRight"
+                animationType="fadeInUp"
                 distance={80}
               >
                 <div className="w-full h-[385px] bg-[#D6EDFF] rounded-[13px] flex items-center justify-center">

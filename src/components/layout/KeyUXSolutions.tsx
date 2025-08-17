@@ -70,7 +70,7 @@ export default function KeyUXSolutions() {
             <AnimatedWrapper
               delay={0}
               duration={0.8}
-              animationType="fadeInRight"
+              animationType="fadeInUp"
               distance={80}
               key={index}
             >

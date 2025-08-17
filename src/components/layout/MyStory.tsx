@@ -169,6 +169,8 @@ export default function MyStory() {
                         src="/images/about/abc.jpg"
                         alt="ABC - Learning Journey"
                         className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl object-cover transform rotate-12 shadow-lg"
+                        width={100}
+                        height={100}
                       />
                     </div>
                     {/* Text Content */}
@@ -203,6 +205,8 @@ export default function MyStory() {
                         src="/images/about/efg.jpg"
                         alt="EFG - Growth Journey"
                         className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl object-cover transform -rotate-6 shadow-lg"
+                        width={100}
+                        height={100}
                       />
                     </div>
                   </div>
@@ -217,6 +221,8 @@ export default function MyStory() {
                         src="/images/about/xyz.jpg"
                         alt="XYZ - Current State"
                         className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl object-cover transform rotate-12 shadow-lg"
+                        width={100}
+                        height={100}
                       />
                     </div>
                     {/* Text Content */}
