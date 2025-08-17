@@ -67,46 +67,100 @@ export default function MyStory() {
 
           {/* Right: Visual Elements */}
           <div className="relative">
-            <div className="relative w-full h-[600px] md:h-[700px] lg:h-[800px] bg-gray-100 rounded-3xl overflow-hidden">
-              {/* Dashed border */}
-              <div className="absolute inset-4 border-2 border-dashed border-gray-400 rounded-2xl"></div>
+            <div className="relative w-full h-[600px] md:h-[700px] lg:h-[800px] rounded-3xl overflow-hidden">
+              {/* Dashed curved path - positioned based on Figma */}
+              <svg
+                width="75%"
+                height="70%"
+                className="absolute inset-0 m-auto"
+                viewBox="0 0 359 458"
+                preserveAspectRatio="xMidYMid meet"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.32032 1C20.4231 32.5171 70.2648 94.115 172.809 88.3701C275.353 82.6252 317.126 113.504 325.194 129.661C367.921 203.268 402.762 352.276 200.315 359.457C-2.13211 366.638 -12.0344 427.478 8.32032 457"
+                  stroke="#727272"
+                  stroke-dasharray="6 6"
+                />
+              </svg>
 
-              {/* Image cards */}
-              <div className="absolute top-10 left-7 w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40">
-                <div className="w-full h-full bg-gray-200 rounded-xl transform rotate-12"></div>
-                <div className="absolute -bottom-4 left-0 right-0 text-center">
-                  <h4 className="font-open-sans text-lg md:text-xl font-semibold text-black">
-                    ABC
-                  </h4>
-                  <p className="font-open-sans text-sm md:text-base text-black">
-                    Lorem ipsum dolor sit amet
-                  </p>
+              {/* First Image Card - Top Left */}
+              <div className="absolute">
+                <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                  {/* Image */}
+                  <div className="relative">
+                    <img
+                      src="/images/about/abc.jpg"
+                      alt="ABC - Learning Journey"
+                      className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl object-cover transform rotate-12 shadow-lg"
+                    />
+                  </div>
+                  {/* Text Content */}
+                  <div className="text-center md:text-left max-w-[200px] md:max-w-[250px] lg:max-w-[300px]">
+                    <h4 className="font-open-sans text-lg md:text-xl font-semibold text-black mb-2">
+                      UX/UI Designer
+                    </h4>
+                    <p className="font-open-sans text-sm md:text-base text-gray-700 leading-relaxed">
+                      The beginning of my design journey - where curiosity met
+                      creativity
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="absolute top-48 left-16 w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40">
-                <div className="w-full h-full bg-gray-200 rounded-xl transform -rotate-6"></div>
-                <div className="absolute -bottom-4 left-0 right-0 text-center">
-                  <h4 className="font-open-sans text-lg md:text-xl font-semibold text-black">
-                    ABC
-                  </h4>
-                  <p className="font-open-sans text-sm md:text-base text-black">
-                    Lorem ipsum dolor sit amet
-                  </p>
+              {/* Second Image Card - Middle */}
+              <div className="absolute top-48 md:top-56 lg:top-64 left-8 md:left-10 lg:left-12">
+                <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                  {/* Text Content */}
+                  <div className="text-center md:text-left max-w-[200px] md:max-w-[250px] lg:max-w-[300px] order-2 md:order-1">
+                    <h4 className="font-open-sans text-lg md:text-xl font-semibold text-black mb-2">
+                      Product Designer
+                    </h4>
+                    <p className="font-open-sans text-sm md:text-base text-gray-700 leading-relaxed">
+                      Growth through challenges - every obstacle became a
+                      stepping stone
+                    </p>
+                  </div>
+                  {/* Image */}
+                  <div className="relative order-1 md:order-2">
+                    <img
+                      src="/images/about/efg.jpg"
+                      alt="EFG - Growth Journey"
+                      className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl object-cover transform -rotate-6 shadow-lg"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="absolute bottom-20 left-16 w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40">
-                <div className="w-full h-full bg-gray-200 rounded-xl transform rotate-12"></div>
-                <div className="absolute -bottom-4 left-0 right-0 text-center">
-                  <h4 className="font-open-sans text-lg md:text-xl font-semibold text-black">
-                    ABC
-                  </h4>
-                  <p className="font-open-sans text-sm md:text-base text-black">
-                    Lorem ipsum dolor sit amet
-                  </p>
+              {/* Third Image Card - Bottom */}
+              <div className="absolute bottom-16 md:bottom-20 lg:bottom-24 left-8 md:left-12 lg:left-16">
+                <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                  {/* Image */}
+                  <div className="relative">
+                    <img
+                      src="/images/about/xyz.jpg"
+                      alt="XYZ - Current State"
+                      className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl object-cover transform rotate-12 shadow-lg"
+                    />
+                  </div>
+                  {/* Text Content */}
+                  <div className="text-center md:text-left max-w-[200px] md:max-w-[250px] lg:max-w-[300px]">
+                    <h4 className="font-open-sans text-lg md:text-xl font-semibold text-black mb-2">
+                      UX Lead
+                    </h4>
+                    <p className="font-open-sans text-sm md:text-base text-gray-700 leading-relaxed">
+                      Where I stand today - leading UX with confidence and
+                      clarity
+                    </p>
+                  </div>
                 </div>
               </div>
+
+              {/* Additional decorative elements */}
+              <div className="absolute top-1/2 right-4 w-2 h-2 bg-gray-300 rounded-full opacity-60"></div>
+              <div className="absolute bottom-1/3 right-8 w-1 h-1 bg-gray-400 rounded-full opacity-40"></div>
+              <div className="absolute top-1/3 right-12 w-1.5 h-1.5 bg-gray-300 rounded-full opacity-50"></div>
             </div>
           </div>
         </div>
