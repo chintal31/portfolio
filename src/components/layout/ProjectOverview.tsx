@@ -27,8 +27,9 @@ export default function ProjectOverview({
               duration={0.8}
               animationType="fadeInUp"
               distance={80}
+              key={index}
             >
-              <div key={index} className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2">
                 <h3 className="font-display font-medium text-lg leading-6 text-[#272727]">
                   {detail.title}
                 </h3>

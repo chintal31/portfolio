@@ -72,9 +72,9 @@ export default function KeyUXSolutions() {
               duration={0.8}
               animationType="fadeInRight"
               distance={80}
+              key={index}
             >
               <div
-                key={index}
                 className={`flex flex-col md:flex-row items-center gap-8 lg:gap-12 p-8 ${
                   index % 2 === 1 ? "md:flex-row-reverse" : ""
                 }`}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AnimatedWrapper } from "../ui";
 
 export default function MyStory() {
@@ -164,7 +165,7 @@ export default function MyStory() {
                   <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                     {/* Image */}
                     <div className="relative">
-                      <img
+                      <Image
                         src="/images/about/abc.jpg"
                         alt="ABC - Learning Journey"
                         className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl object-cover transform rotate-12 shadow-lg"
@@ -198,7 +199,7 @@ export default function MyStory() {
                     </div>
                     {/* Image */}
                     <div className="relative order-1 md:order-2">
-                      <img
+                      <Image
                         src="/images/about/efg.jpg"
                         alt="EFG - Growth Journey"
                         className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl object-cover transform -rotate-6 shadow-lg"
@@ -212,7 +213,7 @@ export default function MyStory() {
                   <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                     {/* Image */}
                     <div className="relative">
-                      <img
+                      <Image
                         src="/images/about/xyz.jpg"
                         alt="XYZ - Current State"
                         className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl object-cover transform rotate-12 shadow-lg"

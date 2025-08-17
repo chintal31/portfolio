@@ -546,11 +546,9 @@ export default function Amway() {
                   duration={0.8}
                   animationType="fadeInUp"
                   distance={80}
+                  key={index}
                 >
-                  <div
-                    key={index}
-                    className="flex items-center gap-4 p-4 bg-white rounded-lg"
-                  >
+                  <div className="flex items-center gap-4 p-4 bg-white rounded-lg">
                     <div className="w-[53px] h-[53px] bg-[#FFD6F4] rounded-xl flex items-center justify-center flex-shrink-0">
                       <Image
                         src={item.image}

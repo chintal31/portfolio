@@ -221,8 +221,9 @@ export default function Work() {
                     duration={0.8}
                     animationType="fadeInUp"
                     distance={80}
+                    key={index + 2}
                   >
-                    <div key={index + 2} className="block group">
+                    <div className="block group">
                       {study.isExternal ? (
                         <a
                           href={study.href}
