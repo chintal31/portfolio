@@ -49,13 +49,13 @@ export default function Navbar() {
                     "px-3 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium rounded-xl transition-colors",
                     router.pathname === item.href
                       ? "text-gray-900"
-                      : "text-gray-800 hover:text-gray-900"
+                      : "text-gray-800 hover:text-gray-500"
                   )}
                 >
                   {item.label}
                 </Link>
-                {/* Dash indicator below About item */}
-                {router.pathname === "/about" && item.href === "/about" && (
+                {/* Dash indicator below active navigation item */}
+                {router.pathname === item.href && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 w-10 h-0.5 bg-gray-400 rounded-full mt-1"></div>
                 )}
               </div>
