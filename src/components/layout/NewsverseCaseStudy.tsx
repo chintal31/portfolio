@@ -8,6 +8,7 @@ import UserPersonas from "./UserPersonas";
 import KeyUXSolutions from "./KeyUXSolutions";
 import Outcomes from "./Outcomes";
 import KeyLearning from "./KeyLearning";
+import { AnimatedWrapper } from "../ui";
 
 interface CategoryTagProps {
   label: string;
@@ -96,45 +97,59 @@ export default function NewsverseCaseStudy() {
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 md:px-12 h-full">
           <div className="flex flex-col md:flex-row items-center justify-between min-h-[528px] py-16 gap-8 md:gap-12">
             {/* Left Content */}
-            <div className="flex flex-col gap-8 md:gap-11 w-full md:w-auto md:max-w-[clamp(400px,55vw,600px)] order-1 md:order-2">
-              {/* Title */}
-              <h2 className="font-display font-normal text-[clamp(1.25rem,3.5vw,2.5rem)] leading-[1.2] text-[#272727]">
-                <span className="block">UX Strategy For</span>
-                <span className="block">AI-Powered Media</span>
-                <span className="block">Intelligence</span>
-              </h2>
+            <AnimatedWrapper
+              delay={0}
+              duration={0.8}
+              animationType="fadeInUp"
+              distance={80}
+            >
+              <div className="flex flex-col gap-8 md:gap-11 w-full md:w-auto md:max-w-[clamp(400px,55vw,600px)] order-1 md:order-2">
+                {/* Title */}
 
-              {/* Category Tags */}
-              <div className="flex flex-wrap items-start gap-6 md:gap-8 w-full max-w-full md:max-w-[407px]">
-                {categories.map((category, index) => (
-                  <CategoryTag
-                    key={index}
-                    label={category.label}
-                    color={category.color}
-                  />
-                ))}
+                <h2 className="font-display font-normal text-[clamp(1.25rem,3.5vw,2.5rem)] leading-[1.2] text-[#272727]">
+                  <span className="block">UX Strategy For</span>
+                  <span className="block">AI-Powered Media</span>
+                  <span className="block">Intelligence</span>
+                </h2>
+                {/* Category Tags */}
+                <div className="flex flex-wrap items-start gap-6 md:gap-8 w-full max-w-full md:max-w-[407px]">
+                  {categories.map((category, index) => (
+                    <CategoryTag
+                      key={index}
+                      label={category.label}
+                      color={category.color}
+                    />
+                  ))}
+                </div>
+
+                {/* CTA Button */}
+                <button className="flex items-center justify-center py-3 w-[clamp(150px,40vw,171px)] h-[clamp(45px,12vw,51px)] border border-[#ACACAC] rounded-[30px] hover:border-[#730FD6] hover:bg-[#730FD6] hover:text-white transition-all duration-300 group">
+                  <span className="font-open-sans font-normal text-[clamp(16px,4vw,20px)] leading-[1.35] text-[#272727] group-hover:text-white">
+                    Check live site
+                  </span>
+                </button>
               </div>
-
-              {/* CTA Button */}
-              <button className="flex items-center justify-center py-3 w-[clamp(150px,40vw,171px)] h-[clamp(45px,12vw,51px)] border border-[#ACACAC] rounded-[30px] hover:border-[#730FD6] hover:bg-[#730FD6] hover:text-white transition-all duration-300 group">
-                <span className="font-open-sans font-normal text-[clamp(16px,4vw,20px)] leading-[1.35] text-[#272727] group-hover:text-white">
-                  Check live site
-                </span>
-              </button>
-            </div>
+            </AnimatedWrapper>
 
             {/* Right: Device Frame - Full size image with responsive positioning */}
-            <div className="order-1 md:order-2 w-full md:w-auto flex justify-center md:justify-start mb-8 md:mb-0">
-              <div className="relative w-full h-[clamp(200px,50vh,400px)] sm:w-[clamp(300px,80vw,500px)] sm:h-[clamp(250px,60vh,450px)] md:w-[clamp(400px,50vw,600px)] md:h-[clamp(300px,70vh,500px)] xl:w-[clamp(500px,45vw,700px)] xl:h-[clamp(350px,65vh,550px)]">
-                <Image
-                  src="/images/newsverse2.png"
-                  alt="Newsverse AI Media Intelligence Interface"
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, (max-width: 1280px) 45vw, 700px"
-                />
+            <AnimatedWrapper
+              delay={0}
+              duration={0.8}
+              animationType="fadeInRight"
+              distance={80}
+            >
+              <div className="order-1 md:order-2 w-full md:w-auto flex justify-center md:justify-start mb-8 md:mb-0">
+                <div className="relative w-full h-[clamp(200px,50vh,400px)] sm:w-[clamp(300px,80vw,500px)] sm:h-[clamp(250px,60vh,450px)] md:w-[clamp(400px,50vw,600px)] md:h-[clamp(300px,70vh,500px)] xl:w-[clamp(500px,45vw,700px)] xl:h-[clamp(350px,65vh,550px)]">
+                  <Image
+                    src="/images/newsverse2.png"
+                    alt="Newsverse AI Media Intelligence Interface"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, (max-width: 1280px) 45vw, 700px"
+                  />
+                </div>
               </div>
-            </div>
+            </AnimatedWrapper>
           </div>
         </div>
       </section>
@@ -146,13 +161,34 @@ export default function NewsverseCaseStudy() {
       <ContextSection />
 
       {/* Problem Statement Section */}
-      <ProblemStatement />
+      <AnimatedWrapper
+        delay={0}
+        duration={0.8}
+        animationType="fadeInUp"
+        distance={80}
+      >
+        <ProblemStatement />
+      </AnimatedWrapper>
 
       {/* Design Process Section */}
-      <DesignProcess />
+      <AnimatedWrapper
+        delay={0}
+        duration={0.8}
+        animationType="fadeInUp"
+        distance={80}
+      >
+        <DesignProcess />
+      </AnimatedWrapper>
 
       {/* User Personas Section */}
-      <UserPersonas />
+      <AnimatedWrapper
+        delay={0}
+        duration={0.8}
+        animationType="fadeInUp"
+        distance={80}
+      >
+        <UserPersonas />
+      </AnimatedWrapper>
 
       {/* Key UX Solutions Section */}
       <KeyUXSolutions />

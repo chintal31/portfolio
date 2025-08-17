@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { AnimatedWrapper } from "../ui";
 
 interface Testimonial {
   id: string;
@@ -104,98 +105,107 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-16 md:gap-20">
-          {/* Section Title */}
-          <div className="text-center md:text-left">
-            <h2 className="font-display font-medium text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-[#222222]">
-              Testimonials
-            </h2>
-          </div>
+    <AnimatedWrapper
+      delay={0}
+      duration={0.8}
+      animationType="fadeInUp"
+      distance={80}
+    >
+      <section className="py-16 md:py-20 lg:py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-16 md:gap-20">
+            {/* Section Title */}
 
-          {/* Testimonials Carousel */}
-          <div className="relative">
-            {/* Carousel Container */}
-            <div className="relative overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: getTransformValue() }}
-              >
-                {testimonials.map(testimonial => (
-                  <div
-                    key={testimonial.id}
-                    className="w-full md:w-[75%] flex-shrink-0 px-4"
-                  >
-                    <div className="max-w-4xl mx-auto">
-                      {/* Testimonial Card - Updated to match Figma design */}
-                      <div className="relative bg-[#F8F8F8] rounded-[20px] p-2 md:p-4 lg:p-6">
-                        {/* Quote Mark - Positioned as per Figma */}
-                        <div className="absolute left-4 md:left-8 lg:left-10 top-4 md:top-8 lg:top-10 -translate-y-1 md:-translate-y-2">
-                          <span className="text-[60px] md:text-[80px] lg:text-[100px] font-pavanam text-[#4B01AB] leading-[70px] md:leading-[90px] lg:leading-[110px]">
-                            “
-                          </span>
-                        </div>
+            <div className="text-center md:text-left">
+              <h2 className="font-display font-medium text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-[#222222]">
+                Testimonials
+              </h2>
+            </div>
 
-                        {/* Content Container - Positioned with proper spacing */}
-                        <div className="ml-[40px] md:ml-[60px] lg:ml-[75px] pt-6 md:pt-8 lg:pt-10">
-                          {/* Quote Text */}
-                          <div className="mb-2 md:mb-4">
-                            <p className="font-open-sans font-normal text-sm md:text-base lg:text-lg leading-[18px] md:leading-[20px] lg:leading-[22px] text-[#272727] max-w-none">
-                              {expandedQuotes[testimonial.id]
-                                ? testimonial.quote
-                                : truncateQuote(
-                                    testimonial.quote,
-                                    MAX_QUOTE_LENGTH
-                                  )}
-                              {testimonial.quote.length > MAX_QUOTE_LENGTH && (
-                                <button
-                                  onClick={() => toggleQuote(testimonial.id)}
-                                  className="inline-block ml-1 text-[#4B01AB] font-open-sans font-medium text-xs md:text-sm hover:text-[#064CF0] focus:outline-none rounded"
-                                >
-                                  {expandedQuotes[testimonial.id]
-                                    ? "Read Less"
-                                    : "Read More"}
-                                </button>
-                              )}
-                            </p>
+            {/* Testimonials Carousel */}
+            <div className="relative">
+              {/* Carousel Container */}
+              <div className="relative overflow-hidden">
+                <div
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: getTransformValue() }}
+                >
+                  {testimonials.map(testimonial => (
+                    <div
+                      key={testimonial.id}
+                      className="w-full md:w-[75%] flex-shrink-0 px-4"
+                    >
+                      <div className="max-w-4xl mx-auto">
+                        {/* Testimonial Card - Updated to match Figma design */}
+                        <div className="relative bg-[#F8F8F8] rounded-[20px] p-2 md:p-4 lg:p-6">
+                          {/* Quote Mark - Positioned as per Figma */}
+                          <div className="absolute left-4 md:left-8 lg:left-10 top-4 md:top-8 lg:top-10 -translate-y-1 md:-translate-y-2">
+                            <span className="text-[60px] md:text-[80px] lg:text-[100px] font-pavanam text-[#4B01AB] leading-[70px] md:leading-[90px] lg:leading-[110px]">
+                              “
+                            </span>
                           </div>
 
-                          {/* Author Info - Updated spacing and typography */}
-                          <div className="flex flex-col gap-1">
-                            <h4 className="font-open-sans font-semibold text-base md:text-lg lg:text-xl leading-[20px] md:leading-[22px] lg:leading-[24px] text-[#272727]">
-                              {testimonial.author}
-                            </h4>
-                            <p className="font-open-sans font-normal text-xs md:text-sm lg:text-base leading-[16px] md:leading-[18px] lg:leading-[20px] text-[#272727]">
-                              {testimonial.position}, {testimonial.company}
-                            </p>
+                          {/* Content Container - Positioned with proper spacing */}
+                          <div className="ml-[40px] md:ml-[60px] lg:ml-[75px] pt-6 md:pt-8 lg:pt-10">
+                            {/* Quote Text */}
+                            <div className="mb-2 md:mb-4">
+                              <p className="font-open-sans font-normal text-sm md:text-base lg:text-lg leading-[18px] md:leading-[20px] lg:leading-[22px] text-[#272727] max-w-none">
+                                {expandedQuotes[testimonial.id]
+                                  ? testimonial.quote
+                                  : truncateQuote(
+                                      testimonial.quote,
+                                      MAX_QUOTE_LENGTH
+                                    )}
+                                {testimonial.quote.length >
+                                  MAX_QUOTE_LENGTH && (
+                                  <button
+                                    onClick={() => toggleQuote(testimonial.id)}
+                                    className="inline-block ml-1 text-[#4B01AB] font-open-sans font-medium text-xs md:text-sm hover:text-[#064CF0] focus:outline-none rounded"
+                                  >
+                                    {expandedQuotes[testimonial.id]
+                                      ? "Read Less"
+                                      : "Read More"}
+                                  </button>
+                                )}
+                              </p>
+                            </div>
+
+                            {/* Author Info - Updated spacing and typography */}
+                            <div className="flex flex-col gap-1">
+                              <h4 className="font-open-sans font-semibold text-base md:text-lg lg:text-xl leading-[20px] md:leading-[22px] lg:leading-[24px] text-[#272727]">
+                                {testimonial.author}
+                              </h4>
+                              <p className="font-open-sans font-normal text-xs md:text-sm lg:text-base leading-[16px] md:leading-[18px] lg:leading-[20px] text-[#272727]">
+                                {testimonial.position}, {testimonial.company}
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Dots Indicator */}
+              <div className="flex justify-center mt-8 gap-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                      index === currentIndex
+                        ? "bg-[#4B01AB] scale-125"
+                        : "bg-gray-300 hover:bg-gray-400"
+                    }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
                 ))}
               </div>
             </div>
-
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-8 gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                    index === currentIndex
-                      ? "bg-[#4B01AB] scale-125"
-                      : "bg-gray-300 hover:bg-gray-400"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </AnimatedWrapper>
   );
 }

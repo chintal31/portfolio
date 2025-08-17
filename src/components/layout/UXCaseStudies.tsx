@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatedWrapper } from "../ui";
 
 interface CaseStudyCardProps {
   title: string;
@@ -19,31 +20,38 @@ function CaseStudyCard({
   href,
 }: CaseStudyCardProps) {
   const CardContent = () => (
-    <div
-      className={`flex flex-col gap-8 w-full ${className} cursor-pointer hover:opacity-80 transition-opacity duration-300`}
+    <AnimatedWrapper
+      delay={0}
+      duration={0.8}
+      animationType="fadeInUp"
+      distance={80}
     >
       <div
-        className="w-full h-[330px] rounded-[20px] relative overflow-hidden"
-        style={{ backgroundColor }}
+        className={`flex flex-col gap-8 w-full ${className} cursor-pointer hover:opacity-80 transition-opacity duration-300`}
       >
-        {imageSrc && (
-          <div className="absolute inset-0 pl-15 pt-15">
-            <div className="relative w-full h-full ">
-              <Image
-                src={imageSrc}
-                alt={imageAlt || title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
+        <div
+          className="w-full h-[330px] rounded-[20px] relative overflow-hidden"
+          style={{ backgroundColor }}
+        >
+          {imageSrc && (
+            <div className="absolute inset-0 pl-15 pt-15">
+              <div className="relative w-full h-full ">
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt || title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+        <h3 className="font-display font-normal text-[clamp(1.5rem,4vw,2.5rem)] leading-[1.3] text-[#222222]">
+          {title}
+        </h3>
       </div>
-      <h3 className="font-display font-normal text-[clamp(1.5rem,4vw,2.5rem)] leading-[1.3] text-[#222222]">
-        {title}
-      </h3>
-    </div>
+    </AnimatedWrapper>
   );
 
   if (href) {
@@ -93,11 +101,18 @@ export default function UXCaseStudies() {
     <section className="bg-[#FCFCFC] border-t border-[#EBEBEB] py-16 px-4 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12 md:mb-16">
-          <h2 className="font-display font-medium text-[clamp(2rem,6vw,3rem)] leading-[1.3] text-[#222222]">
-            UX Case Studies
-          </h2>
-        </div>
+        <AnimatedWrapper
+          delay={0}
+          duration={0.8}
+          animationType="fadeInUp"
+          distance={80}
+        >
+          <div className="mb-12 md:mb-16">
+            <h2 className="font-display font-medium text-[clamp(2rem,6vw,3rem)] leading-[1.3] text-[#222222]">
+              UX Case Studies
+            </h2>
+          </div>
+        </AnimatedWrapper>
 
         {/* Case Studies Grid */}
         <div className="space-y-16 md:space-y-20">

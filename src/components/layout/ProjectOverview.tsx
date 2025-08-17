@@ -1,3 +1,5 @@
+import { AnimatedWrapper } from "../ui";
+
 interface ProjectDetail {
   title: string;
   description: string;
@@ -20,14 +22,21 @@ export default function ProjectOverview({
       <div className="mx-auto max-w-7xl px-6 sm:px-8 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {projectDetails.map((detail, index) => (
-            <div key={index} className="flex flex-col gap-2">
-              <h3 className="font-display font-medium text-lg leading-6 text-[#272727]">
-                {detail.title}
-              </h3>
-              <p className="font-open-sans font-normal text-lg leading-[25px] text-[#272727]">
-                {detail.description}
-              </p>
-            </div>
+            <AnimatedWrapper
+              delay={0}
+              duration={0.8}
+              animationType="fadeInUp"
+              distance={80}
+            >
+              <div key={index} className="flex flex-col gap-2">
+                <h3 className="font-display font-medium text-lg leading-6 text-[#272727]">
+                  {detail.title}
+                </h3>
+                <p className="font-open-sans font-normal text-lg leading-[25px] text-[#272727]">
+                  {detail.description}
+                </p>
+              </div>
+            </AnimatedWrapper>
           ))}
         </div>
       </div>

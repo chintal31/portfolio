@@ -1,3 +1,5 @@
+import { AnimatedWrapper } from "../ui";
+
 export default function KeyUXSolutions() {
   const solutions = [
     {
@@ -51,57 +53,73 @@ export default function KeyUXSolutions() {
     <section className="w-full bg-white py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 md:px-12 lg:px-16">
         <div className="mb-16">
-          <h2 className="font-display font-medium text-3xl leading-[43px] text-[#0C0C0C]">
-            Key UX Solutions
-          </h2>
+          <AnimatedWrapper
+            delay={0}
+            duration={0.8}
+            animationType="fadeInUp"
+            distance={80}
+          >
+            <h2 className="font-display font-medium text-3xl leading-[43px] text-[#0C0C0C]">
+              Key UX Solutions
+            </h2>
+          </AnimatedWrapper>
         </div>
 
         <div className="space-y-16">
           {solutions.map((solution, index) => (
-            <div
-              key={index}
-              className={`flex flex-col md:flex-row items-center gap-8 lg:gap-12 p-8 ${
-                index % 2 === 1 ? "md:flex-row-reverse" : ""
-              }`}
+            <AnimatedWrapper
+              delay={0}
+              duration={0.8}
+              animationType="fadeInRight"
+              distance={80}
             >
-              {/* Content */}
-              <div className="flex-1 max-w-lg lg:w-[40%] lg:max-w-none">
-                <h3 className="font-open-sans font-semibold text-2xl leading-[33px] text-black mb-6">
-                  {solution.title}
-                </h3>
-
-                <div className="space-y-4 mb-6">
-                  <div>
-                    <h4 className="font-open-sans font-semibold text-base leading-[22px] text-black mb-3">
-                      Problem:
-                    </h4>
-                    <p className="font-open-sans font-normal text-base leading-[22px] text-black">
-                      {solution.problem}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-open-sans font-semibold text-base leading-[22px] text-black mb-3">
-                      Solution:
-                    </h4>
-                    <p className="font-open-sans font-normal text-base leading-[22px] text-black">
-                      {solution.solution}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Image/Video */}
               <div
-                className={`lg:w-[60%] flex justify-center lg:justify-end rounded-2xl border border-[#E0E0E0] ${solution.bgColor}`}
+                key={index}
+                className={`flex flex-col md:flex-row items-center gap-8 lg:gap-12 p-8 ${
+                  index % 2 === 1 ? "md:flex-row-reverse" : ""
+                }`}
               >
-                <div className="w-full max-w-md h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">
-                    Demo/Screenshot Placeholder
-                  </span>
+                {/* Content */}
+
+                <div className="flex-1 max-w-lg lg:w-[40%] lg:max-w-none">
+                  <h3 className="font-open-sans font-semibold text-2xl leading-[33px] text-black mb-6">
+                    {solution.title}
+                  </h3>
+
+                  <div className="space-y-4 mb-6">
+                    <div>
+                      <h4 className="font-open-sans font-semibold text-base leading-[22px] text-black mb-3">
+                        Problem:
+                      </h4>
+                      <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                        {solution.problem}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="font-open-sans font-semibold text-base leading-[22px] text-black mb-3">
+                        Solution:
+                      </h4>
+                      <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                        {solution.solution}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Image/Video */}
+
+                <div
+                  className={`lg:w-[60%] flex justify-center lg:justify-end rounded-2xl border border-[#E0E0E0] ${solution.bgColor}`}
+                >
+                  <div className="w-full max-w-md h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                    <span className="text-gray-500 text-sm">
+                      Demo/Screenshot Placeholder
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedWrapper>
           ))}
         </div>
       </div>
