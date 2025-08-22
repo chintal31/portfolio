@@ -21,8 +21,8 @@ export default function Brands() {
       <section className="py-10 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
-          <div className="text-center mb-10 md:mb-16">
-            <h2 className="font-open-sans text-lg md:text-xl text-gray-600">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="font-open-sans text-[clamp(0.775rem,1.75vw,1.25rem)] text-gray-600">
               Brands I&apos;ve designed for
             </h2>
           </div>

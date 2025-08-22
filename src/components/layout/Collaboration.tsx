@@ -56,7 +56,7 @@ export default function Collaboration() {
                 animationType="fadeInUp"
                 distance={80}
               >
-                <p className="font-open-sans font-normal text-lg sm:text-xl lg:text-2xl leading-relaxed text-[#272727] max-w-4xl">
+                <p className="font-open-sans font-normal text-[clamp(1rem,2vw,1.5rem)] leading-relaxed text-[#272727] max-w-4xl">
                   Whether you&apos;re shaping a new product or refining an
                   experience, I&apos;d love to bring it to life with you.
                 </p>
@@ -68,7 +68,7 @@ export default function Collaboration() {
                 animationType="fadeInUp"
                 distance={80}
               >
-                <p className="font-open-sans font-normal text-lg sm:text-xl lg:text-2xl leading-relaxed text-[#272727]">
+                <p className="font-open-sans font-normal text-[clamp(1rem,2vw,1.5rem)] leading-relaxed text-[#272727]">
                   You can mail me at 👇 <br />
                   <a
                     href="mailto:jashvi.sudra@gmail.com"
