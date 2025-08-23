@@ -75,7 +75,7 @@ export default function KeyUXSolutions() {
               key={index}
             >
               <div
-                className={`flex flex-col md:flex-row items-center gap-8 lg:gap-12 p-8 ${
+                className={`flex flex-col md:flex-row items-center gap-8 lg:gap-12 ${
                   index % 2 === 1 ? "md:flex-row-reverse" : ""
                 }`}
               >
