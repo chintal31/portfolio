@@ -21,7 +21,7 @@ export default function Layout({
       <SEOHead {...seo} />
       <div className={`min-h-screen flex flex-col ${className}`}>
         {showNavbar && <Navbar />}
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-32">{children}</main>
         {showFooter && <Footer />}
       </div>
     </>
