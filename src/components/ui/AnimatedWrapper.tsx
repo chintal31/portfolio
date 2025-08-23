@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
+import { useScrollAnimation } from "@/hooks";
 
 interface AnimatedWrapperProps {
   children: React.ReactNode;
@@ -27,69 +28,54 @@ export default function AnimatedWrapper({
   animationType = "fadeInUp",
   distance = 50,
 }: AnimatedWrapperProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const { elementRef, isVisible } = useScrollAnimation(threshold);
 
-  useEffect(() => {
-    if (!enabled) return;
-
-    const observer = new IntersectionObserver(
-      entries => {
-        const entry = entries[0];
-        if (entry && entry.isIntersecting) {
-          setIsVisible(true);
-          // Don't disconnect immediately to allow for scroll-based animations
-          setTimeout(() => observer.disconnect(), 1000);
-        } else {
-          setIsVisible(false);
-        }
-      },
-      {
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-        rootMargin: "0px 0px -100px 0px", // Trigger slightly before element is fully visible
-      }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [threshold, enabled]);
-
-  // Get animation styles based on type and scroll progress
+  // Get animation styles based on type and visibility
   const getAnimationStyles = () => {
     const baseStyles = {
       opacity: isVisible ? 1 : 0,
-      transition: `all ${duration}s ease-out ${delay}s`,
+      transition: `all ${duration}s cubic-bezier(0.4, 0, 0.2, 1) ${delay}s`,
+      willChange: "opacity, transform",
+      backfaceVisibility: "hidden" as const,
+      transform: "translateZ(0)",
     };
 
     const animationStyles = {
       fadeInUp: {
         ...baseStyles,
-        transform: isVisible ? "translateY(0)" : `translateY(${distance}px)`,
+        transform: isVisible
+          ? "translateY(0) translateZ(0)"
+          : `translateY(${distance}px) translateZ(0)`,
       },
       fadeInDown: {
         ...baseStyles,
-        transform: isVisible ? "translateY(0)" : `translateY(-${distance}px)`,
+        transform: isVisible
+          ? "translateY(0) translateZ(0)"
+          : `translateY(-${distance}px) translateZ(0)`,
       },
       fadeInLeft: {
         ...baseStyles,
-        transform: isVisible ? "translateX(0)" : `translateX(${distance}px)`,
+        transform: isVisible
+          ? "translateX(0) translateZ(0)"
+          : `translateX(${distance}px) translateZ(0)`,
       },
       fadeInRight: {
         ...baseStyles,
-        transform: isVisible ? "translateX(0)" : `translateX(-${distance}px)`,
+        transform: isVisible
+          ? "translateX(0) translateZ(0)"
+          : `translateX(-${distance}px) translateZ(0)`,
       },
       scaleIn: {
         ...baseStyles,
-        transform: isVisible ? "scale(1)" : "scale(0.9)",
+        transform: isVisible
+          ? "scale(1) translateZ(0)"
+          : "scale(0.9) translateZ(0)",
       },
       slideInUp: {
         ...baseStyles,
         transform: isVisible
-          ? "translateY(0)"
-          : `translateY(${distance * 2}px)`,
+          ? "translateY(0) translateZ(0)"
+          : `translateY(${distance * 2}px) translateZ(0)`,
         opacity: isVisible ? 1 : 0.3,
       },
     };
@@ -103,8 +89,8 @@ export default function AnimatedWrapper({
 
   return (
     <div
-      ref={ref}
-      className={`animated-wrapper scroll-animated ${className}`}
+      ref={elementRef}
+      className={`animated-wrapper ${className}`}
       style={getAnimationStyles()}
     >
       {children}

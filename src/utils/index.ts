@@ -42,7 +42,6 @@ export function generateSlug(text: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-// Copy to clipboard
 export async function copyToClipboard(text: string): Promise<boolean> {
   try {
     await navigator.clipboard.writeText(text);
@@ -52,7 +51,6 @@ export async function copyToClipboard(text: string): Promise<boolean> {
   }
 }
 
-// Local storage utilities
 export const storage = {
   get: <T>(key: string): T | null => {
     if (typeof window === "undefined") return null;
@@ -68,7 +66,7 @@ export const storage = {
     try {
       window.localStorage.setItem(key, JSON.stringify(value));
     } catch {
-      // Do nothing
+      console.error("Error setting localStorage item:", key);
     }
   },
   remove: (key: string): void => {
@@ -76,7 +74,18 @@ export const storage = {
     try {
       window.localStorage.removeItem(key);
     } catch {
-      // Do nothing
+      console.error("Error removing localStorage item:", key);
     }
   },
+};
+
+export const isInViewport = (element: HTMLElement): boolean => {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
 };

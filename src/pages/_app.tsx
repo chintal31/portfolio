@@ -6,6 +6,7 @@ import {
   Pavanam,
 } from "next/font/google";
 import Head from "next/head";
+import PageTransition from "@/components/ui/PageTransition";
 import "@/styles/globals.css";
 
 const playfair = Playfair_Display({
@@ -44,7 +45,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <div
         className={`${playfair.variable} ${notoSans.variable} ${openSans.variable} ${pavanam.variable} antialiased`}
       >
-        <Component {...pageProps} />
+        <PageTransition>
+          <Component {...pageProps} />
+        </PageTransition>
       </div>
     </>
   );
