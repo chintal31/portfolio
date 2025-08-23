@@ -49,7 +49,7 @@ export default function Navbar() {
                     "px-3 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium rounded-xl transition-colors",
                     router.pathname === item.href
                       ? "text-gray-900"
-                      : "text-gray-800 hover:text-gray-500"
+                      : "text-gray-800 hover:text-[#1404D5]"
                   )}
                 >
                   {item.label}

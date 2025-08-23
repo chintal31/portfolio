@@ -72,33 +72,36 @@ export default function UXCaseStudies() {
       backgroundColor: "#DAF3FF",
       imageSrc: "/images/newsverse.png",
       imageAlt: "AI Media Intelligence Interface",
-      href: "/work",
+      href: "/newsverse",
     },
     {
       title: "Improving Amway's Product Discovery",
       backgroundColor: "#FFDEBD",
       imageSrc: "/images/amway-hero.png",
       imageAlt: "Amway Product Discovery",
-      href: "/work",
+      href: "/amway",
     },
     {
       title: "Unifying Lennar Associates' Employee Portal",
       backgroundColor: "#E4CFFF",
       imageSrc: "",
       imageAlt: "Lennar Employee Portal",
-      href: "/work",
+      href: "/lennar",
     },
     {
       title: "Gamifying the Sustainability for Individuals",
       backgroundColor: "#CFFFC1",
       imageSrc: "",
       imageAlt: "Sustainability Gamification",
-      href: "/work",
+      href: "/sustainability",
     },
   ];
 
   return (
-    <section className="bg-[#FCFCFC] border-t border-[#EBEBEB] py-16 px-4 md:py-20">
+    <section
+      id="work"
+      className="bg-[#FCFCFC] border-t border-[#EBEBEB] py-16 px-4 md:py-20"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <AnimatedWrapper

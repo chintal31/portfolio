@@ -22,9 +22,9 @@ export const SITE_CONFIG = {
 
 // Navigation items
 export const NAVIGATION_ITEMS: NavigationItem[] = [
-  { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
+  { href: "#work", label: "Work" },
   { href: "/about", label: "About" },
+  { href: "#contact", label: "Contact" },
   { href: "#resume", label: "Resume" },
 ];
 
