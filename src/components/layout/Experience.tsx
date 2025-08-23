@@ -42,7 +42,7 @@ export default function Experience() {
                 </div>
                 <div className="text-center md:text-right">
                   <span className="font-open-sans text-xs md:text-lg lg:text-xl font-semibold">
-                    2021-2024
+                    2024 - Present
                   </span>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function Experience() {
                 </div>
                 <div className="text-center md:text-right">
                   <span className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
-                    2021-2024
+                    2024 - 2024
                   </span>
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default function Experience() {
                 </div>
                 <div className="text-center md:text-right">
                   <span className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
-                    2021-2024
+                    2021 - 2024
                   </span>
                 </div>
               </div>
