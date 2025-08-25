@@ -161,7 +161,7 @@ export default function UXCaseStudies() {
               href={caseStudies[0]?.href}
               tags={caseStudies[0]?.tags || []}
               tagBgColor={caseStudies[0]?.tagBgColor}
-              svg={"/images/AI.svg"}
+              svg={"/images/landing-page/AI.svg"}
             />
             <CaseStudyCard
               title={caseStudies[1]?.title || ""}
