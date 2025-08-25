@@ -66,7 +66,7 @@ export const storage = {
     try {
       window.localStorage.setItem(key, JSON.stringify(value));
     } catch {
-      console.error("Error setting localStorage item:", key);
+      // console.error("Error setting localStorage item:", key);
     }
   },
   remove: (key: string): void => {
@@ -74,7 +74,7 @@ export const storage = {
     try {
       window.localStorage.removeItem(key);
     } catch {
-      console.error("Error removing localStorage item:", key);
+      // console.error("Error removing localStorage item:", key);
     }
   },
 };
