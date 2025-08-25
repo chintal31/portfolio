@@ -9,7 +9,7 @@ export default function KeyUXSolutions() {
       solution:
         "Designed an interface that flags potential misinformation using contextual explanations and contradiction cues. Users can quickly understand why a claim may be inaccurate through clear reasoning - enabling faster, more confident decisions.",
       bgColor: "bg-[#F5ECFC]",
-      image: "/images/newsverse.png",
+      video: "/videos/newsverse-keyuxsol.mp4",
     },
     {
       title: "Alert Trigger System",
@@ -18,7 +18,7 @@ export default function KeyUXSolutions() {
       solution:
         'Designed a modular alert builder that mirrors how real signals behave — by grouping conditions into Time, Volume, and Event Attributes. This flexible logic system enables teams to define what "risk momentum" looks like for them (e.g., 5 negative posts about frauds within 15 minutes), so they can act before an issue escalates. The result: a shift from reactive monitoring to proactive signal-driven intervention - built for high-stakes communication.',
       bgColor: "bg-[#FEF4E3]",
-      image: "/images/newsverse.png",
+      video: "/videos/alert-trigger-system.mp4",
     },
     {
       title: "Share Market Impact",
@@ -27,7 +27,7 @@ export default function KeyUXSolutions() {
       solution:
         "We enabled teams to see live share price and volume movements as an event unfolds, so they can instantly assess market sensitivity. This helps differentiate real threats from noise, making interventions more timely and evidence-backed. It also supports compliance teams in aligning with SEBI's mandate to report misinformation that affects investor sentiment or share prices.",
       bgColor: "bg-[#FEE7E3]",
-      image: "/images/newsverse.png",
+      video: "/videos/share-market.mp4",
     },
     {
       title: "NV Score Visualization",
@@ -36,7 +36,7 @@ export default function KeyUXSolutions() {
       solution:
         "Enhanced and visualized the in-house proprietary NV Score developed by Locobuzz - a dynamic metric that evaluates each news event based on multiple attributes like source type, sentiment, velocity, credibility, and business relevance. All key events are sorted using NV Score, giving users an immediate understanding of impact, and helping them respond to the most critical developments first.",
       bgColor: "bg-[#E8F3FA]",
-      image: "/images/newsverse.png",
+      video: "/videos/nv-score.mp4",
     },
     {
       title: "Theme Categorization",
@@ -45,7 +45,7 @@ export default function KeyUXSolutions() {
       solution:
         "Introduced Insight Themes - a set of 10 key categories that every signal is sorted into, like PR Watch, Compliance View, and Leadership Movement. Each theme contains events, and each event contains the related articles or posts, helping users see the bigger picture at a glance. This layered setup turns a noisy feed into a clear, organized view of what's unfolding and why it matters.",
       bgColor: "bg-[#F2FEE3]",
-      image: "/images/newsverse.png",
+      video: "/videos/theme-categorization.mp4",
     },
   ];
 
@@ -75,13 +75,12 @@ export default function KeyUXSolutions() {
               key={index}
             >
               <div
-                className={`flex flex-col md:flex-row items-center gap-8 lg:gap-12 ${
+                className={`flex flex-col md:flex-row items-start gap-8 lg:gap-12 ${
                   index % 2 === 1 ? "md:flex-row-reverse" : ""
                 }`}
               >
                 {/* Content */}
-
-                <div className="flex-1 max-w-lg lg:w-[40%] lg:max-w-none">
+                <div className="w-full md:flex-1 md:max-w-lg lg:w-[40%] lg:max-w-none">
                   <h3 className="font-open-sans font-semibold text-2xl leading-[33px] text-black mb-6">
                     {solution.title}
                   </h3>
@@ -107,15 +106,26 @@ export default function KeyUXSolutions() {
                   </div>
                 </div>
 
-                {/* Image/Video */}
-
+                {/* Video */}
                 <div
-                  className={`lg:w-[60%] flex justify-center lg:justify-end rounded-2xl border border-[#E0E0E0] ${solution.bgColor}`}
+                  className={`w-full md:w-[45%] lg:w-[60%] rounded-2xl border border-[#E0E0E0] ${solution.bgColor} relative overflow-hidden`}
+                  style={{ height: "330px", minHeight: "330px" }}
                 >
-                  <div className="w-full max-w-md h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">
-                      Demo/Screenshot Placeholder
-                    </span>
+                  <div className={`absolute inset-0 pl-15 pt-15`}>
+                    <div className={`relative w-full h-full`}>
+                      <video
+                        className="w-full h-full rounded-lg object-cover"
+                        controls
+                        muted
+                        loop
+                        playsInline
+                        autoPlay
+                        preload="auto"
+                      >
+                        <source src={solution.video} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
                   </div>
                 </div>
               </div>

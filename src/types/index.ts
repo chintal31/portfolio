@@ -31,7 +31,7 @@ export interface ContactInfo {
   location?: string;
   social: {
     linkedin?: string;
-    instagram?: string;
+    medium?: string;
     behance?: string;
     portfolio?: string;
   };

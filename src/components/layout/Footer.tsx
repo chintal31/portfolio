@@ -38,9 +38,9 @@ export default function Footer() {
                   </svg>
                 </a>
 
-                {/* Instagram */}
+                {/* Medium */}
                 <a
-                  href={CONTACT_INFO.social.instagram}
+                  href={CONTACT_INFO.social.medium}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity"
@@ -53,7 +53,7 @@ export default function Footer() {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"
+                      d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"
                       fill="white"
                     />
                   </svg>
@@ -67,7 +67,7 @@ export default function Footer() {
                   className="w-7 h-7 md:w-8 md:h-8 bg-[#1769FF] rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity"
                 >
                   <Image
-                    src="/images/behance.svg"
+                    src="/images/landing-page/behance.svg"
                     alt="Behance"
                     width={20}
                     height={20}
@@ -99,10 +99,13 @@ export default function Footer() {
                     />
                   </svg>
                 </div>
-                {/* TODO: add resume link */}
-                <span className="font-open-sans text-lg sm:text-xl md:text-xl lg:text-2xl text-gray-800">
+                <a
+                  href="/resume-jashvi-sudra.pdf"
+                  download
+                  className="font-open-sans text-lg sm:text-xl md:text-xl lg:text-2xl text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+                >
                   Resume
-                </span>
+                </a>
               </div>
             </div>
           </div>

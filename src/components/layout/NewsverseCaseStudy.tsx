@@ -63,7 +63,7 @@ export default function NewsverseCaseStudy() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 20%, transparent 40%), radial-gradient(1% 1% at 1% 1%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%), url('/images/newsverse-bg.jpg')",
+              "linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 20%, transparent 40%), radial-gradient(1% 1% at 1% 1%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.9) 100%), url('/images/newsverse/newsverse-bg.jpg')",
             backgroundColor: "#FFFFFF",
           }}
         />
@@ -115,7 +115,7 @@ export default function NewsverseCaseStudy() {
               <div className="order-1 md:order-2 w-full md:w-auto flex justify-center md:justify-start mb-8 md:mb-0">
                 <div className="relative w-full h-[clamp(200px,50vh,400px)] sm:w-[clamp(300px,80vw,500px)] sm:h-[clamp(250px,60vh,450px)] md:w-[clamp(400px,50vw,600px)] md:h-[clamp(300px,70vh,500px)] xl:w-[clamp(500px,45vw,700px)] xl:h-[clamp(350px,65vh,550px)]">
                   <Image
-                    src="/images/newsverse2.png"
+                    src="/images/landing-page/newsverse.png"
                     alt="Newsverse AI Media Intelligence Interface"
                     fill
                     className="object-contain"

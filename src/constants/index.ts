@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   description:
     "Portfolio showcasing my work and experience as a UX/UI Designer",
   url: "https://jashvi.me", // TODO: change to actual url
-  ogImage: "/images/flower.png",
+  ogImage: "/images/landing-page/flower.png",
   keywords: [
     "UX/UI Designer",
     "UX/UI Design",
@@ -25,7 +25,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   { href: "/#work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
-  { href: "#resume", label: "Resume" },
+  { href: "/resume-jashvi-sudra.pdf", label: "Resume" },
 ];
 
 // Contact information
@@ -33,10 +33,10 @@ export const CONTACT_INFO: ContactInfo = {
   email: "jashvi.sudra@gmail.com",
   location: "Mumbai, India",
   social: {
-    linkedin: "https://linkedin.com/in/jashvi-sudra", // TODO: change to actual url
-    behance: "https://www.behance.net/jashvisudra", // TODO: change to actual url
-    instagram: "https://instagram.com/jashvi_sudra", // TODO: change to actual url
-    portfolio: "https://jashvi.me", // TODO: change to actual url
+    linkedin: "https://www.linkedin.com/in/jashvisudra/",
+    behance: "https://www.behance.net/jashvisudra",
+    medium: "https://medium.com/@jashvisudra",
+    portfolio: "https://jashvi.vercel.app",
   },
 };
 

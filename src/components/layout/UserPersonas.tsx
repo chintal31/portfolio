@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function UserPersonas() {
   const personas = [
     {
-      svg: "/images/pr.svg",
+      svg: "/images/newsverse/pr.svg",
       title: "PR & Corporate Communications Lead",
       goals: [
         "Monitor media coverage volume",
@@ -13,7 +13,7 @@ export default function UserPersonas() {
       ],
     },
     {
-      svg: "/images/risk.svg",
+      svg: "/images/newsverse/risk.svg",
       title: "Investor Relations / Risk Analyst",
       goals: [
         "Monitor stock-media impact",
@@ -23,7 +23,7 @@ export default function UserPersonas() {
       ],
     },
     {
-      svg: "/images/brand.svg",
+      svg: "/images/newsverse/brand.svg",
       title: "Brand & Marketing Manager",
       goals: [
         "Track campaign traction",
@@ -33,7 +33,7 @@ export default function UserPersonas() {
       ],
     },
     {
-      svg: "/images/compliance.svg",
+      svg: "/images/newsverse/compliance.svg",
       title: "Compliance & Regulatory Officer",
       goals: [
         "Monitor fraud/breach flags",

@@ -153,9 +153,9 @@ export default function Amway() {
             >
               <div className="order-1 md:order-2 w-full md:w-auto flex justify-center md:justify-start mb-8 md:mb-0">
                 <div className="relative w-full h-[clamp(200px,50vh,400px)] sm:w-[clamp(300px,80vw,500px)] sm:h-[clamp(250px,60vh,450px)] md:w-[clamp(400px,50vw,600px)] md:h-[clamp(300px,70vh,500px)] xl:w-[clamp(500px,45vw,700px)] xl:h-[clamp(350px,65vh,550px)]">
-                  <Image //TODO: change to actual image
-                    src="/images/amway-hero.png"
-                    alt="Amway Product Discovery"
+                  <Image
+                    src="/images/amway/amway-hero.png"
+                    alt="Amway Hero Image"
                     fill
                     className="object-contain"
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, (max-width: 1280px) 45vw, 700px"
@@ -738,26 +738,24 @@ export default function Amway() {
                   <p className="font-open-sans font-normal text-base leading-[22px] text-black">
                     On the frontend, I designed a responsive interface with:
                   </p>
-                  <div className="font-open-sans font-normal text-base leading-[22px] text-black">
-                    <ul className="list-disc list-inside space-y-4 ml-6">
-                      <li>
-                        <span className="font-semibold">Quick filters</span> in
-                        the form of pill-shaped components on the search results
-                        page (SRP) for popular categories.
-                      </li>
-                      <li>
-                        <span className="font-semibold">Advanced filters</span>{" "}
-                        supporting detailed refinement across categories,
-                        solutions, and brands—structured to mimic intuitive
-                        navigation.
-                      </li>
-                      <li>
-                        <span className="font-semibold">Placeholder text</span>{" "}
-                        in the search bar using market-recommended keywords to
-                        help guide users from their first interaction.
-                      </li>
-                    </ul>
-                  </div>
+                  <ul className="list-disc list-inside space-y-4 ml-6 font-open-sans font-normal text-base leading-[22px] text-black">
+                    <li>
+                      <span className="font-semibold">Quick filters</span> in
+                      the form of pill-shaped components on the search results
+                      page (SRP) for popular categories.
+                    </li>
+                    <li>
+                      <span className="font-semibold">Advanced filters</span>{" "}
+                      supporting detailed refinement across categories,
+                      solutions, and brands—structured to mimic intuitive
+                      navigation.
+                    </li>
+                    <li>
+                      <span className="font-semibold">Placeholder text</span> in
+                      the search bar using market-recommended keywords to help
+                      guide users from their first interaction.
+                    </li>
+                  </ul>
                 </div>
 
                 <div className="w-full lg:w-[547px] h-[550px] bg-[#F3FFE8] rounded-[20px] flex items-center justify-center">
@@ -799,33 +797,28 @@ export default function Amway() {
                     Key design improvements:
                   </p>
 
-                  <div className="font-open-sans font-normal text-base leading-[22px] text-black">
-                    <ul className="list-disc list-inside space-y-4 ml-6">
-                      <li>
-                        <span className="font-semibold">
-                          Optimized card density{" "}
-                        </span>{" "}
-                        to show more products per fold.
-                      </li>
-                      <li>
-                        Applied{" "}
-                        <span className="font-semibold">
-                          {" "}
-                          accessibility standards{" "}
-                        </span>{" "}
-                        (contrast, spacing, and hierarchy).
-                      </li>
-                      <li>
+                  <ul className="list-disc list-inside space-y-4 ml-6 font-open-sans font-normal text-base leading-[22px] text-black">
+                    <li>
+                      <span className="font-semibold">
+                        Optimized card density{" "}
+                      </span>{" "}
+                      to show more products per fold.
+                    </li>
+                    <li>
+                      Applied{" "}
+                      <span className="font-semibold">
                         {" "}
-                        Supported{" "}
-                        <span className="font-semibold">
-                          {" "}
-                          stock-unavailable{" "}
-                        </span>
-                        scenarios with meaningful messaging and visual cues.
-                      </li>
-                    </ul>
-                  </div>
+                        accessibility standards{" "}
+                      </span>{" "}
+                      (contrast, spacing, and hierarchy).
+                    </li>
+                    <li>
+                      {" "}
+                      Supported{" "}
+                      <span className="font-semibold"> stock-unavailable </span>
+                      scenarios with meaningful messaging and visual cues.
+                    </li>
+                  </ul>
                 </div>
               </div>
             </AnimatedWrapper>
@@ -885,18 +878,16 @@ export default function Amway() {
                     Collaborated with backend teams to design for real-world
                     scenarios like:
                   </p>
-                  <p className="font-open-sans font-normal text-base leading-[22px] text-black">
-                    <ul className="list-disc list-inside space-y-4 ml-6">
-                      <li>
-                        Dynamic stock status (in stock, out of stock, limited
-                        stock)
-                      </li>
-                      <li>Semantic search set up</li>
-                      <li>
-                        Back Office configuration support without breaking UX
-                      </li>
-                    </ul>
-                  </p>
+                  <ul className="list-disc list-inside space-y-4 ml-6 font-open-sans font-normal text-base leading-[22px] text-black">
+                    <li>
+                      Dynamic stock status (in stock, out of stock, limited
+                      stock)
+                    </li>
+                    <li>Semantic search set up</li>
+                    <li>
+                      Back Office configuration support without breaking UX
+                    </li>
+                  </ul>
                   <p className="font-open-sans font-normal text-base leading-[22px] text-black">
                     The frontend was structured to adapt based on these backend
                     inputs without degrading user experience.

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { AnimatedWrapper } from "../ui";
 
-const companies = [
-  { name: "Amway", logo: "/images/amway.png" },
-  { name: "Lennar", logo: "/images/lennar.png" },
-  { name: "Brand3", logo: "/images/brand3.png" },
-  { name: "LNT", logo: "/images/lnt.png" }, //TODO: This logo is not clear
-  { name: "RBL", logo: "/images/rbl.png" },
-  { name: "Mindstix", logo: "/images/mindstix.png" },
+const brands = [
+  { name: "Amway", logo: "/images/landing-page/amway.png" },
+  { name: "Lennar", logo: "/images/landing-page/lennar.png" },
+  { name: "Brand3", logo: "/images/landing-page/brand3.png" },
+  { name: "LNT", logo: "/images/landing-page/lnt.png" }, //TODO: This logo is not clear
+  { name: "RBL", logo: "/images/landing-page/rbl.png" },
+  { name: "Mindstix", logo: "/images/landing-page/mindstix.png" },
 ];
 
 export default function Brands() {
@@ -30,21 +30,21 @@ export default function Brands() {
           {/* Companies Grid */}
           <div className="flex justify-center">
             <div className="grid grid-cols-6 gap-4 md:gap-6 lg:gap-8 max-w-4xl">
-              {companies.map(company => (
+              {brands.map(brand => (
                 <div
-                  key={company.name}
+                  key={brand.name}
                   className="flex flex-col items-center justify-center"
                 >
                   <div className="relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 bg-white border border-gray-100 rounded-xl flex items-center justify-center">
                     <Image
-                      src={company.logo}
-                      alt={`${company.name} logo`}
+                      src={brand.logo}
+                      alt={`${brand.name} logo`}
                       fill
                       className="object-contain p-2"
                       sizes="(min-width: 1280px) 112px, (min-width: 1024px) 96px, (min-width: 768px) 80px, (min-width: 640px) 64px, 48px"
                     />
                   </div>
-                  <span className="sr-only">{company.name}</span>
+                  <span className="sr-only">{brand.name}</span>
                 </div>
               ))}
             </div>

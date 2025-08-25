@@ -65,8 +65,8 @@ export default function Navbar() {
             {/* Brand */}
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/images/flower.png"
-                alt="Logo"
+                src="/images/landing-page/flower.png"
+                alt="Flower"
                 width={28}
                 height={28}
                 className="rounded-full"
@@ -80,17 +80,30 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-5">
               {NAVIGATION_ITEMS.map(item => (
                 <div key={item.href} className="relative">
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      "px-3 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium rounded-xl transition-colors",
-                      router.pathname === item.href
-                        ? "text-gray-900"
-                        : "text-gray-800 hover:text-[#1404D5]"
-                    )}
-                  >
-                    {item.label}
-                  </Link>
+                  {item.label === "Resume" ? (
+                    <a
+                      href={item.href}
+                      download
+                      className={cn(
+                        "px-3 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium rounded-xl transition-colors cursor-pointer",
+                        "text-gray-800 hover:text-[#1404D5]"
+                      )}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "px-3 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium rounded-xl transition-colors",
+                        router.pathname === item.href
+                          ? "text-gray-900"
+                          : "text-gray-800 hover:text-[#1404D5]"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                   {/* Dash indicator below active navigation item */}
                   {router.pathname === item.href && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 w-10 h-0.5 bg-gray-400 rounded-full mt-1"></div>
@@ -150,20 +163,34 @@ export default function Navbar() {
           </div>
           <div className="flex h-full w-full items-center justify-center">
             <nav className="flex flex-col items-center gap-6 font-noto-sans">
-              {NAVIGATION_ITEMS.map(item => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "px-4 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium",
-                    router.pathname === item.href
-                      ? "text-gray-900"
-                      : "text-gray-800"
-                  )}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {NAVIGATION_ITEMS.map(item =>
+                item.label === "Resume" ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    download
+                    className={cn(
+                      "px-4 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium cursor-pointer",
+                      "text-gray-800"
+                    )}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "px-4 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium",
+                      router.pathname === item.href
+                        ? "text-gray-900"
+                        : "text-gray-800"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
             </nav>
           </div>
         </div>
