@@ -1,4 +1,5 @@
 import { AnimatedWrapper } from "../ui";
+import Image from "next/image";
 
 export default function KeyUXSolutions() {
   const solutions = [
@@ -9,7 +10,7 @@ export default function KeyUXSolutions() {
       solution:
         "Designed an interface that flags potential misinformation using contextual explanations and contradiction cues. Users can quickly understand why a claim may be inaccurate through clear reasoning - enabling faster, more confident decisions.",
       bgColor: "bg-[#F5ECFC]",
-      video: "/videos/newsverse-keyuxsol.mp4",
+      gif: "/videos/Misinformation-detection-interface.gif",
     },
     {
       title: "Alert Trigger System",
@@ -18,7 +19,7 @@ export default function KeyUXSolutions() {
       solution:
         'Designed a modular alert builder that mirrors how real signals behave — by grouping conditions into Time, Volume, and Event Attributes. This flexible logic system enables teams to define what "risk momentum" looks like for them (e.g., 5 negative posts about frauds within 15 minutes), so they can act before an issue escalates. The result: a shift from reactive monitoring to proactive signal-driven intervention - built for high-stakes communication.',
       bgColor: "bg-[#FEF4E3]",
-      video: "/videos/alert-trigger-system.mp4",
+      gif: "/videos/Alert-trigger-system.gif",
     },
     {
       title: "Share Market Impact",
@@ -27,7 +28,7 @@ export default function KeyUXSolutions() {
       solution:
         "We enabled teams to see live share price and volume movements as an event unfolds, so they can instantly assess market sensitivity. This helps differentiate real threats from noise, making interventions more timely and evidence-backed. It also supports compliance teams in aligning with SEBI's mandate to report misinformation that affects investor sentiment or share prices.",
       bgColor: "bg-[#FEE7E3]",
-      video: "/videos/share-market.mp4",
+      gif: "/videos/Share-market-impact.gif",
     },
     {
       title: "NV Score Visualization",
@@ -36,7 +37,7 @@ export default function KeyUXSolutions() {
       solution:
         "Enhanced and visualized the in-house proprietary NV Score developed by Locobuzz - a dynamic metric that evaluates each news event based on multiple attributes like source type, sentiment, velocity, credibility, and business relevance. All key events are sorted using NV Score, giving users an immediate understanding of impact, and helping them respond to the most critical developments first.",
       bgColor: "bg-[#E8F3FA]",
-      video: "/videos/nv-score.mp4",
+      gif: "/videos/Event-card-visualization.gif",
     },
     {
       title: "Theme Categorization",
@@ -45,7 +46,7 @@ export default function KeyUXSolutions() {
       solution:
         "Introduced Insight Themes - a set of 10 key categories that every signal is sorted into, like PR Watch, Compliance View, and Leadership Movement. Each theme contains events, and each event contains the related articles or posts, helping users see the bigger picture at a glance. This layered setup turns a noisy feed into a clear, organized view of what's unfolding and why it matters.",
       bgColor: "bg-[#F2FEE3]",
-      video: "/videos/theme-categorization.mp4",
+      gif: "/videos/Theme-categorization.gif",
     },
   ];
 
@@ -75,12 +76,12 @@ export default function KeyUXSolutions() {
               key={index}
             >
               <div
-                className={`flex flex-col md:flex-row items-start gap-8 lg:gap-12 ${
-                  index % 2 === 1 ? "md:flex-row-reverse" : ""
+                className={`flex flex-col lg:flex-row items-start gap-8 lg:gap-12 ${
+                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
                 {/* Content */}
-                <div className="w-full md:flex-1 md:max-w-lg lg:w-[40%] lg:max-w-none">
+                <div className="w-full lg:flex-1 lg:max-w-lg xl:w-[40%] xl:max-w-none">
                   <h3 className="font-open-sans font-semibold text-2xl leading-[33px] text-black mb-6">
                     {solution.title}
                   </h3>
@@ -106,25 +107,21 @@ export default function KeyUXSolutions() {
                   </div>
                 </div>
 
-                {/* Video */}
+                {/* GIF */}
                 <div
-                  className={`w-full md:w-[45%] lg:w-[60%] rounded-2xl border border-[#E0E0E0] ${solution.bgColor} relative overflow-hidden`}
-                  style={{ height: "330px", minHeight: "330px" }}
+                  className={`w-full lg:w-[60%] h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px] rounded-xl sm:rounded-2xl border border-[#E0E0E0] ${solution.bgColor} relative overflow-hidden order-1 lg:order-2`}
                 >
-                  <div className={`absolute inset-0 pl-15 pt-15`}>
-                    <div className={`relative w-full h-full`}>
-                      <video
+                  <div className="absolute inset-0 p-3 sm:p-4 md:p-6 lg:p-8">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={solution.gif}
+                        alt={`${solution.title} demonstration`}
                         className="w-full h-full rounded-lg object-cover"
-                        controls
-                        muted
-                        loop
-                        playsInline
-                        autoPlay
-                        preload="auto"
-                      >
-                        <source src={solution.video} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
+                        loading="lazy"
+                        width={1000}
+                        height={1000}
+                        unoptimized
+                      />
                     </div>
                   </div>
                 </div>

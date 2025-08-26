@@ -113,13 +113,14 @@ export default function NewsverseCaseStudy() {
               distance={80}
             >
               <div className="order-1 md:order-2 w-full md:w-auto flex justify-center md:justify-start mb-8 md:mb-0">
-                <div className="relative w-full h-[clamp(200px,50vh,400px)] sm:w-[clamp(300px,80vw,500px)] sm:h-[clamp(250px,60vh,450px)] md:w-[clamp(400px,50vw,600px)] md:h-[clamp(300px,70vh,500px)] xl:w-[clamp(500px,45vw,700px)] xl:h-[clamp(350px,65vh,550px)]">
+                <div className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] flex justify-center">
                   <Image
                     src="/images/landing-page/newsverse.png"
                     alt="Newsverse AI Media Intelligence Interface"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, (max-width: 1280px) 45vw, 700px"
+                    width={0}
+                    height={0}
+                    className="w-full h-auto object-contain"
+                    sizes="(max-width: 640px) 250px, (max-width: 768px) 300px, (max-width: 1024px) 400px, (max-width: 1280px) 500px, 600px"
                   />
                 </div>
               </div>
