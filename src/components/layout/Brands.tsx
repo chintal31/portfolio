@@ -5,7 +5,7 @@ const brands = [
   { name: "Amway", logo: "/images/landing-page/amway.png" },
   { name: "Lennar", logo: "/images/landing-page/lennar.png" },
   { name: "Brand3", logo: "/images/landing-page/brand3.png" },
-  { name: "LNT", logo: "/images/landing-page/lnt.png" }, //TODO: This logo is not clear
+  { name: "LNT", logo: "/images/landing-page/lnt.png" },
   { name: "RBL", logo: "/images/landing-page/rbl.png" },
   { name: "Mindstix", logo: "/images/landing-page/mindstix.png" },
 ];
@@ -40,7 +40,7 @@ export default function Brands() {
                       src={brand.logo}
                       alt={`${brand.name} logo`}
                       fill
-                      className="object-contain p-2"
+                      className="object-contain p-4"
                       sizes="(min-width: 1280px) 112px, (min-width: 1024px) 96px, (min-width: 768px) 80px, (min-width: 640px) 64px, 48px"
                     />
                   </div>
