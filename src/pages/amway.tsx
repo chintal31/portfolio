@@ -152,13 +152,13 @@ export default function Amway() {
               distance={80}
             >
               <div className="order-1 md:order-2 w-full md:w-auto flex justify-center md:justify-start mb-8 md:mb-0">
-                <div className="relative w-full h-[clamp(200px,50vh,400px)] sm:w-[clamp(300px,80vw,500px)] sm:h-[clamp(250px,60vh,450px)] md:w-[clamp(400px,50vw,600px)] md:h-[clamp(300px,70vh,500px)] xl:w-[clamp(500px,45vw,700px)] xl:h-[clamp(350px,65vh,550px)]">
+                <div className="w-full max-w-lg md:max-w-xl lg:max-w-3xl">
                   <Image
                     src="/images/amway/amway-hero.png"
                     alt="Amway Hero Image"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, (max-width: 1280px) 45vw, 700px"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover rounded-lg"
                   />
                 </div>
               </div>
