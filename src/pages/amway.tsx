@@ -604,11 +604,19 @@ export default function Amway() {
                 animationType="fadeInUp"
                 distance={80}
               >
-                <div className="w-full h-[385px] bg-[#D6EDFF] rounded-[13px] flex items-center justify-center">
-                  <div className="w-full h-full rounded-[16px] flex items-center justify-center">
-                    <span className="text-lg text-gray-600">
-                      Heuristic Analysis Image
-                    </span>
+                <div
+                  className="w-full bg-[#D6EDFF] rounded-[13px] flex items-center justify-center"
+                  style={{ aspectRatio: "4/3" }}
+                >
+                  <div className="w-full h-full rounded-[16px] overflow-hidden">
+                    <Image
+                      width={1000}
+                      height={1000}
+                      src="/videos/amway/hueristic-analysis.gif"
+                      alt="Heuristic Analysis showing UX evaluation and improvement recommendations"
+                      className="w-full h-full object-contain"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </AnimatedWrapper>
@@ -726,7 +734,7 @@ export default function Amway() {
             >
               {" "}
               <div className="flex flex-col lg:flex-row items-center gap-11">
-                <div className="flex flex-col gap-6 w-full lg:w-[577px]">
+                <div className="flex flex-col gap-6 w-full lg:w-[577px] order-1 lg:order-1">
                   <h4 className="font-open-sans font-semibold text-2xl leading-[33px] text-black">
                     Semantic Search with Smart Filters
                   </h4>
@@ -758,12 +766,15 @@ export default function Amway() {
                   </ul>
                 </div>
 
-                <div className="w-full lg:w-[547px] h-[550px] bg-[#F3FFE8] rounded-[20px] flex items-center justify-center">
-                  <div className="w-full h-full rounded-[20px] flex items-center justify-center">
-                    <span className="text-lg text-gray-600">
-                      Auto Complete Image
-                    </span>
-                  </div>
+                <div className="w-full lg:w-[600px] aspect-[4/3] rounded-[20px] overflow-hidden order-2 lg:order-2">
+                  <Image
+                    width={1000}
+                    height={1000}
+                    src="/videos/amway/semantic-search-with-smart-filters.gif"
+                    alt="Auto Complete showing search results and suggestions"
+                    className="w-full h-full object-cover rounded-[20px]"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </AnimatedWrapper>
@@ -776,16 +787,18 @@ export default function Amway() {
             >
               {/* Solution 2: Product Pages */}
               <div className="flex flex-col lg:flex-row items-center gap-11">
-                <div className="w-full lg:w-[517px] h-[562px] bg-[#F7ECFC] rounded-[16px] flex items-center justify-center gap-9 p-8">
-                  <div className="w-[207px] h-[495px] rounded-lg flex items-center justify-center">
-                    <span className="text-sm text-gray-600">PDP</span>
-                  </div>
-                  <div className="w-[212px] h-[499px] rounded-lg flex items-center justify-center">
-                    <span className="text-sm text-gray-600">PLP</span>
-                  </div>
+                <div className="w-full lg:w-[550px] aspect-[4/3] rounded-[16px] overflow-hidden order-2 lg:order-1">
+                  <Image
+                    width={1000}
+                    height={1000}
+                    src="/videos/amway/PLP_PDP.gif"
+                    alt="Product Listing and Detail Pages showing improved UX"
+                    className="w-full h-full object-cover rounded-[16px]"
+                    loading="lazy"
+                  />
                 </div>
 
-                <div className="flex flex-col gap-6 w-full lg:w-[607px]">
+                <div className="flex flex-col gap-6 w-full lg:w-[607px] order-1 lg:order-2">
                   <h4 className="font-open-sans font-semibold text-2xl leading-[33px] text-black">
                     Redesigned Product Listing & Detail Pages (PLP/PDP)
                   </h4>
@@ -831,7 +844,7 @@ export default function Amway() {
             >
               {/* Solution 3: Categorization */}
               <div className="flex flex-col lg:flex-row items-center gap-11">
-                <div className="flex flex-col gap-6 w-full lg:w-[345px]">
+                <div className="flex flex-col gap-6 w-full lg:w-[345px] order-1 lg:order-1">
                   <h4 className="font-open-sans font-semibold text-2xl leading-[33px] text-black">
                     Solution-Based Categorization for Navigation
                   </h4>
@@ -844,12 +857,15 @@ export default function Amway() {
                   </p>
                 </div>
 
-                <div className="w-full lg:w-[779px] h-[562px] bg-[#FFF2D9] rounded-[16px] flex items-center justify-center">
-                  <div className="w-full h-full rounded-[16px] flex items-center justify-center">
-                    <span className="text-lg text-gray-600">
-                      Categorization Image
-                    </span>
-                  </div>
+                <div className="w-full lg:w-[700px] aspect-[5/3] rounded-[16px] overflow-hidden order-2 lg:order-2">
+                  <Image
+                    width={1000}
+                    height={1000}
+                    src="/videos/amway/solution-based-categorization-for-navigation.gif"
+                    alt="Solution-based categorization showing improved navigation"
+                    className="w-full h-full object-cover rounded-[16px]"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </AnimatedWrapper>
@@ -862,15 +878,18 @@ export default function Amway() {
               distance={80}
             >
               <div className="flex flex-col lg:flex-row items-center gap-11">
-                <div className="w-full lg:w-[779px] h-[562px] bg-[#E8F3FA] rounded-[21px] flex items-center justify-center">
-                  <div className="w-full h-full rounded-[21px] flex items-center justify-center">
-                    <span className="text-lg text-gray-600">
-                      Backend UX Image
-                    </span>
-                  </div>
+                <div className="w-full lg:w-[700px] aspect-[5/3] rounded-[21px] overflow-hidden order-2 lg:order-1">
+                  <Image
+                    width={1000}
+                    height={1000}
+                    src="/videos/amway/backend-driven-UX-edge-case-handling.gif"
+                    alt="Backend-driven UX showing edge case handling"
+                    className="w-full h-full object-cover rounded-[21px]"
+                    loading="lazy"
+                  />
                 </div>
 
-                <div className="flex flex-col gap-6 w-full lg:w-[345px]">
+                <div className="flex flex-col gap-6 w-full lg:w-[345px] order-1 lg:order-2">
                   <h4 className="font-open-sans font-semibold text-2xl leading-[33px] text-black">
                     Backend-Driven UX Edge Case Handling
                   </h4>

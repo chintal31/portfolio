@@ -24,10 +24,10 @@ export default function OutsideWork() {
           animationType="fadeInUp"
           distance={80}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {/* Planning a trip */}
-            <div>
-              <div className="w-full aspect-square bg-gray-200 rounded-2xl mb-5 flex items-center justify-center">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-full max-w-[200px] aspect-square rounded-2xl mb-5 overflow-hidden">
                 <Image
                   src="/images/about/trip_planning.svg"
                   alt="trip"
@@ -36,14 +36,14 @@ export default function OutsideWork() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="font-display text-lg md:text-xl font-normal text-gray-800">
+              <h3 className="font-display text-lg md:text-xl font-normal text-gray-800 max-w-[250px]">
                 Planning a trip (with too many Pinterest tabs open)
               </h3>
             </div>
 
             {/* Singing or strumming */}
-            <div>
-              <div className="w-full aspect-square bg-gray-200 rounded-2xl mb-5 flex items-center justify-center">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-full max-w-[200px] aspect-square rounded-2xl mb-5 overflow-hidden">
                 <Image
                   src="/images/about/guitar.svg"
                   alt="trip"
@@ -52,14 +52,14 @@ export default function OutsideWork() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="font-display text-lg md:text-xl font-normal text-gray-800">
+              <h3 className="font-display text-lg md:text-xl font-normal text-gray-800 max-w-[250px]">
                 Singing or strumming my guitar/ukulele
               </h3>
             </div>
 
             {/* Cooking */}
-            <div>
-              <div className="w-full aspect-square bg-gray-200 rounded-2xl mb-5 flex items-center justify-center">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-full max-w-[200px] aspect-square rounded-2xl mb-5 overflow-hidden">
                 <Image
                   src="/images/about/cook.svg"
                   alt="trip"
@@ -68,14 +68,14 @@ export default function OutsideWork() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="font-display text-lg md:text-xl font-normal text-gray-800">
+              <h3 className="font-display text-lg md:text-xl font-normal text-gray-800 max-w-[250px]">
                 Whipping up something healthy-ish in the kitchen
               </h3>
             </div>
 
             {/* Gym */}
-            <div>
-              <div className="w-full aspect-square bg-gray-200 rounded-2xl mb-5 flex items-center justify-center">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-full max-w-[200px] aspect-square rounded-2xl mb-5 overflow-hidden">
                 <Image
                   src="/images/about/gym.svg"
                   alt="trip"
@@ -84,7 +84,7 @@ export default function OutsideWork() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="font-display text-lg md:text-xl font-normal text-gray-800">
+              <h3 className="font-display text-lg md:text-xl font-normal text-gray-800 max-w-[250px]">
                 Showing up at the gym - for both strength & sanity
               </h3>
             </div>

@@ -141,9 +141,9 @@ export default function MyStory() {
             animationType="fadeInUp"
             distance={80}
           >
-            <div className="w-full h-[600px] md:h-[700px] lg:h-[800px] xl:h-[900px]">
+            <div className="w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]">
               <Image
-                src="/images/about/trial_about.svg"
+                src="/images/about/story.svg"
                 alt="My Story"
                 width={800}
                 height={800}

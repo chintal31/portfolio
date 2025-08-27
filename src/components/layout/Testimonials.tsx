@@ -26,6 +26,14 @@ const testimonials: Testimonial[] = [
     position: "Project Manager",
     company: "Locobuzz",
   },
+  {
+    id: "3",
+    quote:
+      "I had the opportunity to work very closely with Jashvi on multiple projects. Her drive and passion for design was very evident as she always gave her 100% to everything she worked on. It's been amazing to see her grow in this field, from starting out on projects where she was supported by other team mates to independently working on a design pod for one of our top customers. The energy she brought to work is something the team will truly miss. I'm sure Jashvi will add great value to any organisation she joins next.",
+    author: "Ayan Barua",
+    position: "Lead",
+    company: "Mindstix Software Labs",
+  },
 ];
 
 export default function Testimonials() {
