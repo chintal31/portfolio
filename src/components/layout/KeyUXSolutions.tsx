@@ -31,11 +31,11 @@ export default function KeyUXSolutions() {
       gif: "/videos/Share-market-impact.gif",
     },
     {
-      title: "NV Score Visualization",
+      title: "Event Card Visualization",
       problem:
-        "With high volumes of news and posts, teams struggled to distinguish which events needed urgent attention - often reacting to noise instead of signal.",
+        "With numerous attributes demanded by stakeholders - such as event category, NV Score, sentiment, market impact, social traction, and action tools - event cards risked becoming overwhelming.",
       solution:
-        "Enhanced and visualized the in-house proprietary NV Score developed by Locobuzz - a dynamic metric that evaluates each news event based on multiple attributes like source type, sentiment, velocity, credibility, and business relevance. All key events are sorted using NV Score, giving users an immediate understanding of impact, and helping them respond to the most critical developments first.",
+        "Designed a two-state event card that balances completeness with clarity. In the default state, only the most critical information (headline, NV Score, sentiment, market movement, company) is shown, ensuring a clean and scannable view. On hover, secondary details like metrics and user actions providing depth without sacrificing simplicity. This layered approach keeps the interface minimal by default but powerful on demand, giving users immediate impact awareness while still fulfilling stakeholder needs.",
       bgColor: "bg-[#E8F3FA]",
       gif: "/videos/Event-card-visualization.gif",
     },
