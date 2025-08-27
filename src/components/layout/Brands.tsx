@@ -35,13 +35,13 @@ export default function Brands() {
                   key={brand.name}
                   className="flex flex-col items-center justify-center"
                 >
-                  <div className="relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 bg-white border border-gray-100 rounded-xl flex items-center justify-center">
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white border border-gray-100 rounded-xl flex items-center justify-center">
                     <Image
                       src={brand.logo}
                       alt={`${brand.name} logo`}
                       fill
                       className="object-contain p-4"
-                      sizes="(min-width: 1280px) 112px, (min-width: 1024px) 96px, (min-width: 768px) 80px, (min-width: 640px) 64px, 48px"
+                      sizes="(min-width: 1024px) 96px, (min-width: 640px) 80px, 56px"
                     />
                   </div>
                   <span className="sr-only">{brand.name}</span>

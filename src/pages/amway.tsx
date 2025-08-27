@@ -119,10 +119,10 @@ export default function Amway() {
             >
               <div className="flex flex-col gap-8 md:gap-11 w-full md:w-auto md:max-w-[clamp(400px,55vw,600px)] order-1 md:order-2">
                 {/* Title */}
-                <h2 className="font-display font-normal text-[clamp(1.25rem,3.5vw,2.5rem)] leading-[1.2] text-[#272727]">
+                <h1 className="font-display font-normal text-[clamp(1.5rem,4vw,2.5rem)] leading-[1.2] text-[#272727]">
                   <span className="block">Improving Amway&apos;s</span>
                   <span className="block">Product Discovery</span>
-                </h2>
+                </h1>
 
                 {/* Category Tags */}
                 <div className="flex flex-wrap items-start gap-6 md:gap-8 w-full max-w-full md:max-w-[407px]">
