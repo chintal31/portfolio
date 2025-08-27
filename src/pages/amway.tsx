@@ -320,69 +320,17 @@ export default function Amway() {
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
               {/* Customer Persona */}
               <div className="flex flex-col items-center gap-7">
                 <div className="relative">
-                  <div className="w-24 h-24 md:w-[133px] md:h-[133px] border border-[#66798F] rounded-full flex items-center justify-center">
-                    <div className="w-12 h-12 md:w-[67px] md:h-[67px] bg-gray-300 rounded-full flex items-center justify-center">
-                      <span className="text-xs text-gray-600">
-                        <svg
-                          width="68"
-                          height="67"
-                          viewBox="0 0 68 67"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlnsXlink="http://www.w3.org/1999/xlink"
-                        >
-                          <rect
-                            x="0.5"
-                            y="-0.000488281"
-                            width="66.6667"
-                            height="66.6667"
-                            fill="url(#pattern0_2723_23102)"
-                          />
-                          <defs>
-                            <pattern
-                              id="pattern0_2723_23102"
-                              patternContentUnits="objectBoundingBox"
-                              width="1"
-                              height="1"
-                            >
-                              <use
-                                xlinkHref="#image0_2723_23102"
-                                transform="scale(0.01)"
-                              />
-                            </pattern>
-                            <image
-                              id="image0_2723_23102"
-                              width="100"
-                              height="100"
-                              preserveAspectRatio="none"
-                              xlinkHref="data:image/png;base64,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"
-                            />
-                          </defs>
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Tags */}
-                  <div className="absolute -top-1 -right-4 md:-right-20 bg-[#EAFFD6] border border-[#7ED27F] rounded-[20px] px-2 md:px-3 py-2 min-w-[50px] md:min-w-[70px] flex items-center justify-center">
-                    <span className="font-open-sans font-normal text-[8px] md:text-[10px] leading-[8px] md:leading-[10px] text-black">
-                      Easy Product Discovery
-                    </span>
-                  </div>
-                  <div className="absolute top-20 sm:top-24 -right-4 md:-right-20 bg-[#EAFFD6] border border-[#7ED27F] rounded-[20px] px-2 md:px-3 py-2 min-w-[50px] md:min-w-[70px] flex items-center justify-center">
-                    <span className="font-open-sans font-normal text-[8px] md:text-[10px] leading-[8px] md:leading-[10px] text-black">
-                      Offers & Discounts
-                    </span>
-                  </div>
-                  <div className="absolute top-12 sm:top-14 -left-4 md:-left-28 bg-[#EAFFD6] border border-[#7ED27F] rounded-[20px] px-2 md:px-3 py-2 min-w-[50px] md:min-w-[70px] flex items-center justify-center">
-                    <span className="font-open-sans font-normal text-[8px] md:text-[10px] leading-[8px] md:leading-[10px] text-black">
-                      Learn about products
-                    </span>
-                  </div>
+                  <Image
+                    src="/images/amway/shopping-cart.svg"
+                    alt="Customer"
+                    width={100}
+                    height={100}
+                    className="w-full h-full"
+                  />
                 </div>
 
                 <div className="text-center">
@@ -398,74 +346,13 @@ export default function Amway() {
               {/* ABO Persona */}
               <div className="flex flex-col items-center gap-4 md:gap-5">
                 <div className="relative">
-                  <div className="w-24 h-24 md:w-[133px] md:h-[133px] border border-[#967A44] rounded-full flex items-center justify-center">
-                    <div className="w-10 h-10 md:w-[53px] md:h-[53px] bg-gray-300 rounded-full flex items-center justify-center">
-                      <span className="text-xs text-gray-600">
-                        <svg
-                          width="134"
-                          height="134"
-                          viewBox="0 0 134 134"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlnsXlink="http://www.w3.org/1999/xlink"
-                        >
-                          <rect
-                            x="1.00033"
-                            y="0.332845"
-                            width="132.667"
-                            height="132.667"
-                            rx="66.3333"
-                            stroke="#967A44"
-                            stroke-width="0.666667"
-                          />
-                          <rect
-                            x="40.667"
-                            y="39.9995"
-                            width="53.3333"
-                            height="53.3333"
-                            fill="url(#pattern0_2723_23113)"
-                          />
-                          <defs>
-                            <pattern
-                              id="pattern0_2723_23113"
-                              patternContentUnits="objectBoundingBox"
-                              width="1"
-                              height="1"
-                            >
-                              <use
-                                xlinkHref="#image0_2723_23113"
-                                transform="scale(0.0125)"
-                              />
-                            </pattern>
-                            <image
-                              id="image0_2723_23113"
-                              width="80"
-                              height="80"
-                              preserveAspectRatio="none"
-                              xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAChElEQVR4nO2awWoTURSGZ+VT2LWPITLXNOLCVRdxo75EdWbaabEtpDtd3FFbq65clEI3TTdK2oDZSDnPUCq2ELBUy6yPnNtYlJgmYOKZO/l/+AkkZObMl//MOTAJAgiaGNmkMmUjs2Vj8yOLDY/S3WNuZ3O3bgTlhRd+GzW4Xoencq6gbLKR2bpISth4Pnvz+qiPL8e0kdl1EKNwMyibbLdtxwHv8hxJZaoL8HtQFm0uzFzLYrN62WJRWJf3fD3Pf1cWhfWe+1QU1n09T/8Cxn5zN6UyAMZjApjTCkz9GQAg/VtAAJAAkDVvM0ggASAjgeTvpEcLEwAyEkj6rYgWJgBk7TRhiBAAsnaisMYQALJPxiJNAMhIIOm3IlqYAJD7Qei0U27YGq+lVecdW+OTVqKePi+GSKed8uvFas9TMHlPPtOur/AAG7bW91HiblZTr6/wANfS3vT98no6rV6f3wAXqur1FR7gzpUtfL/4AM8+P1Ut8KSV/HWIbCze4c6nedXahM1AgIcfH6v/yp126gaG3PPEkjxteOLDD7ODAe69eaheaF5QNzceDACYGH41X+EvzUi92LxgPmo+4Zdztx2jgX9ve7d0FxDpT3jCZKi/t20/m3GvQlsiK32vPVhyBcs1y7ULA5e839hcCfD8YNl96UVy8SXYOBYyG84PlobfA7/ux9x6+4jfr95zk3DSQK6n0+7ahcHxfuzPIp0X3ABIAMhIIOm3IlqYAJC104QhQgDI2onCGkMAyD4ZizQBICOBpN+KaGECQNZOE4YIASBrJwprDAEg+2Qs0gSAjASSfiuihQkAWTtNGCIEgFy6NQY2QzEAwHjEACEIgiAIgqBgkvQTWwdJiy+KBDMAAAAASUVORK5CYII="
-                            />
-                          </defs>
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Tags */}
-                  <div className="absolute -top-1 -right-2 sm:-right-8 md:-right-28 bg-[#FFEBD6] border border-[#D2A97E] rounded-[20px] px-2 md:px-3 py-2 min-w-[50px] md:min-w-[70px] flex items-center justify-center">
-                    <span className="font-open-sans font-normal text-[8px] md:text-[10px] leading-[8px] md:leading-[10px] text-black">
-                      Managing Multiple Orders
-                    </span>
-                  </div>
-                  <div className="absolute top-8 sm:top-10 -left-2 sm:-left-8 md:-left-28 bg-[#FFEBD6] border border-[#D2A97E] rounded-[20px] px-2 md:px-3 py-2 min-w-[50px] md:min-w-[70px] flex items-center justify-center">
-                    <span className="font-open-sans font-normal text-[8px] md:text-[10px] leading-[8px] md:leading-[10px] text-black">
-                      Personalised Experience
-                    </span>
-                  </div>
-                  <div className="absolute top-20 sm:top-28 -right-2 sm:-right-8 md:-right-32 bg-[#FFEBD6] border border-[#D2A97E] rounded-[20px] px-2 md:px-3 py-2 min-w-[50px] md:min-w-[70px] flex items-center justify-center">
-                    <span className="font-open-sans font-normal text-[8px] md:text-[10px] leading-[8px] md:leading-[10px] text-black">
-                      Actionable Insights & Dashboards
-                    </span>
-                  </div>
+                  <Image
+                    src="/images/amway/abos.svg"
+                    alt="ABOs"
+                    width={100}
+                    height={100}
+                    className="w-full h-full"
+                  />
                 </div>
 
                 <div className="text-center">
