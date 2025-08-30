@@ -51,7 +51,7 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 pt-6 pb-4 bg-white transition-transform duration-300 ease-in-out",
+          "fixed top-0 left-0 right-0 z-50 pt-6 bg-white transition-transform duration-300 ease-in-out",
           isVisible ? "translate-y-0" : "-translate-y-full"
         )}
       >
