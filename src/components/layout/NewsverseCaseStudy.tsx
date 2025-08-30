@@ -115,7 +115,7 @@ export default function NewsverseCaseStudy() {
               <div className="order-1 md:order-2 w-full md:w-auto flex justify-center md:justify-start mb-8 md:mb-0">
                 <div className="w-full max-w-lg md:max-w-xl lg:max-w-3xl flex justify-center">
                   <Image
-                    src="/images/landing-page/newsverse.png"
+                    src="/images/newsverse/newsverse.png"
                     alt="Newsverse AI Media Intelligence Interface"
                     width={800}
                     height={600}

@@ -67,7 +67,7 @@ export default function Footer() {
                   className="w-7 h-7 md:w-8 md:h-8 bg-[#1769FF] rounded-lg flex items-center justify-center hover:opacity-80 transition-opacity"
                 >
                   <Image
-                    src="/images/landing-page/behance.svg"
+                    src="/images/footer/behance.svg"
                     alt="Behance"
                     width={20}
                     height={20}

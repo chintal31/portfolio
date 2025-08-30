@@ -65,7 +65,7 @@ export default function Navbar() {
             {/* Brand */}
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/images/landing-page/flower.png"
+                src="/images/navbar/flower.png"
                 alt="Flower"
                 width={28}
                 height={28}

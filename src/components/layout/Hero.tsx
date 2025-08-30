@@ -6,7 +6,7 @@ export default function Hero() {
     <section
       className="relative py-12 sm:py-16 md:py-20 bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/images/landing-page/hero-section-bg.png')",
+        backgroundImage: "url('/images/landing-page/hero/hero-section-bg.png')",
       }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -78,7 +78,7 @@ export default function Hero() {
                     }}
                   >
                     <Image
-                      src="/images/landing-page/hero-img2.png"
+                      src="/images/landing-page/hero/hero-img2.png"
                       alt="UI mockups collage"
                       fill
                       className="object-cover rounded-[clamp(6px,0.6vw,10px)] shadow-sm"
@@ -97,7 +97,7 @@ export default function Hero() {
                     }}
                   >
                     <Image
-                      src="/images/landing-page/hero-img1.png"
+                      src="/images/landing-page/hero/hero-img1.png"
                       alt="Jashvi presenting a UX flow"
                       fill
                       className="object-cover rounded-[clamp(6px,0.6vw,10px)] shadow-sm"

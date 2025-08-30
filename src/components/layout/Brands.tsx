@@ -2,12 +2,12 @@ import Image from "next/image";
 import { AnimatedWrapper } from "../ui";
 
 const brands = [
-  { name: "Amway", logo: "/images/landing-page/amway.png" },
-  { name: "Lennar", logo: "/images/landing-page/lennar.png" },
-  { name: "Brand3", logo: "/images/landing-page/brand3.png" },
-  { name: "LNT", logo: "/images/landing-page/lnt.png" },
-  { name: "RBL", logo: "/images/landing-page/rbl.png" },
-  { name: "Mindstix", logo: "/images/landing-page/mindstix.png" },
+  { name: "Amway", logo: "/images/landing-page/brands/amway.png" },
+  { name: "Lennar", logo: "/images/landing-page/brands/lennar.png" },
+  { name: "Brand3", logo: "/images/landing-page/brands/brand3.png" },
+  { name: "LNT", logo: "/images/landing-page/brands/lnt.png" },
+  { name: "RBL", logo: "/images/landing-page/brands/rbl.png" },
+  { name: "Mindstix", logo: "/images/landing-page/brands/mindstix.png" },
 ];
 
 export default function Brands() {

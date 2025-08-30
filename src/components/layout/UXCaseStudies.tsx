@@ -13,6 +13,7 @@ interface CaseStudyCardProps {
   tagBgColor?: string | undefined;
   svg?: string | undefined;
   svgPosition?: "tag" | "topRight";
+  isLastCard?: boolean;
 }
 
 function CaseStudyCard({
@@ -48,7 +49,7 @@ function CaseStudyCard({
                   src={imageSrc}
                   alt={imageAlt || title}
                   fill
-                  className="object-cover object-top-left transition-transform duration-500 ease-out scale-150 lg:scale-100 lg:group-hover:scale-150 origin-top-left"
+                  className={`object-cover transition-transform duration-500 ease-out object-top-left scale-150 lg:scale-100 lg:group-hover:scale-200 origin-top-left`}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
@@ -110,7 +111,7 @@ export default function UXCaseStudies() {
       id: 1,
       title: "UX Strategy for AI-Powered News Intelligence",
       backgroundColor: "#FFEAD4",
-      imageSrc: "/images/landing-page/newsverse-4x.png",
+      imageSrc: "/images/landing-page/case-study/newsverse.png",
       imageAlt: "AI Media Intelligence Interface",
       href: "/newsverse",
       tags: ["AI", "Media Intelligence", "B2B SaaS"],
@@ -120,7 +121,7 @@ export default function UXCaseStudies() {
       id: 2,
       title: "Improving Amway's Product Discovery",
       backgroundColor: "#F5E1FF",
-      imageSrc: "/images/landing-page/amway-hero.png",
+      imageSrc: "/images/landing-page/case-study/amway.png",
       imageAlt: "Amway Product Discovery",
       href: "/amway",
       tags: ["E2E Responsive", "B2C", "E-Commerce"],
@@ -130,7 +131,7 @@ export default function UXCaseStudies() {
       id: 3,
       title: "Reimagining the Home Buying Process",
       backgroundColor: "#DAF3FF",
-      imageSrc: "/images/landing-page/home-buying-4x.png",
+      imageSrc: "/images/landing-page/case-study/home-buying.png",
       imageAlt: "Lennar Employee Portal",
       href: "https://luminous-galaxy-47d.notion.site/Home-Buying-Experience-8342de601ef4446e935ece5709eb7a71",
       tags: ["UX Research", "B2B Saas", "Real Estate"],
@@ -139,8 +140,9 @@ export default function UXCaseStudies() {
     {
       id: 4,
       title: "Gamifying the Sustainability for Individuals",
-      backgroundColor: "#DBFFF0",
-      imageSrc: "/images/landing-page/sus.png",
+      // backgroundColor: "#DBFFF0",
+      backgroundColor: "#30B0A0",
+      imageSrc: "/images/landing-page/case-study/sus-2.png",
       imageAlt: "Sustainability Gamification",
       href: "https://www.behance.net/gallery/153216047/IMPACT-APP-Designathon",
       tags: ["Designathon", "E2E", "Sustainability"],
@@ -180,7 +182,7 @@ export default function UXCaseStudies() {
               href={caseStudies[0]?.href}
               tags={caseStudies[0]?.tags || []}
               tagBgColor={caseStudies[0]?.tagBgColor}
-              svg={"/images/landing-page/AI.svg"}
+              svg={"/images/landing-page/case-study/AI.svg"}
               svgPosition="tag"
             />
             <CaseStudyCard
@@ -213,7 +215,7 @@ export default function UXCaseStudies() {
               href={caseStudies[3]?.href}
               tags={caseStudies[3]?.tags || []}
               tagBgColor={caseStudies[3]?.tagBgColor}
-              svg={"/images/landing-page/runnersup.svg"}
+              svg={"/images/landing-page/case-study/runnersup.svg"}
               svgPosition="topRight"
             />
           </div>
