@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AnimatedWrapper } from "../ui";
 
 interface CaseStudyCardProps {
+  id: number;
   title: string;
   backgroundColor: string;
   imageSrc?: string;
@@ -13,7 +14,6 @@ interface CaseStudyCardProps {
   tagBgColor?: string | undefined;
   svg?: string | undefined;
   svgPosition?: "tag" | "topRight";
-  customClass?: string | undefined;
 }
 
 function CaseStudyCard({
@@ -27,7 +27,6 @@ function CaseStudyCard({
   tagBgColor,
   svg,
   svgPosition = "topRight",
-  customClass = "",
 }: CaseStudyCardProps) {
   const CardContent = () => (
     <AnimatedWrapper
@@ -50,7 +49,7 @@ function CaseStudyCard({
                   src={imageSrc}
                   alt={imageAlt || title}
                   fill
-                  className={`object-cover scale-100 lg:group-hover:scale-130 transition-transform duration-500 ease-out object-top-left ${customClass}`}
+                  className={`object-cover scale-100 lg:group-hover:scale-130 transition-transform duration-500 ease-out object-top-left origin-top-left`}
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
@@ -107,7 +106,7 @@ function CaseStudyCard({
 }
 
 export default function UXCaseStudies() {
-  const caseStudies = [
+  const caseStudies: CaseStudyCardProps[] = [
     {
       id: 1,
       title: "UX Strategy for AI-Powered News Intelligence",
@@ -117,7 +116,6 @@ export default function UXCaseStudies() {
       href: "/newsverse",
       tags: ["AI", "Media Intelligence", "B2B SaaS"],
       tagBgColor: "#FFD5AA",
-      customClass: "origin-top-left",
     },
     {
       id: 2,
@@ -128,7 +126,6 @@ export default function UXCaseStudies() {
       href: "/amway",
       tags: ["E2E Responsive", "B2C", "E-Commerce"],
       tagBgColor: "#EAB8FF",
-      customClass: "origin-top-left",
     },
     {
       id: 3,
@@ -139,7 +136,6 @@ export default function UXCaseStudies() {
       href: "https://luminous-galaxy-47d.notion.site/Home-Buying-Experience-8342de601ef4446e935ece5709eb7a71",
       tags: ["UX Research", "B2B Saas", "Real Estate"],
       tagBgColor: "#C5EAFF",
-      customClass: "origin-top-left",
     },
     {
       id: 4,
@@ -151,7 +147,6 @@ export default function UXCaseStudies() {
       href: "https://www.behance.net/gallery/153216047/IMPACT-APP-Designathon",
       tags: ["Designathon", "E2E", "Sustainability"],
       tagBgColor: "#96FFD0",
-      customClass: "origin-center",
     },
   ];
 
@@ -180,6 +175,7 @@ export default function UXCaseStudies() {
           {/* First Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14">
             <CaseStudyCard
+              id={caseStudies[0]?.id || 0}
               title={caseStudies[0]?.title || ""}
               backgroundColor={caseStudies[0]?.backgroundColor || "#DAF3FF"}
               imageSrc={caseStudies[0]?.imageSrc || ""}
@@ -189,9 +185,9 @@ export default function UXCaseStudies() {
               tagBgColor={caseStudies[0]?.tagBgColor}
               svg={"/images/landing-page/case-study/AI.svg"}
               svgPosition="tag"
-              customClass={caseStudies[0]?.customClass}
             />
             <CaseStudyCard
+              id={caseStudies[1]?.id || 0}
               title={caseStudies[1]?.title || ""}
               backgroundColor={caseStudies[1]?.backgroundColor || "#FFDEBD"}
               imageSrc={caseStudies[1]?.imageSrc || ""}
@@ -199,13 +195,13 @@ export default function UXCaseStudies() {
               href={caseStudies[1]?.href}
               tags={caseStudies[1]?.tags || []}
               tagBgColor={caseStudies[1]?.tagBgColor}
-              customClass={caseStudies[1]?.customClass}
             />
           </div>
 
           {/* Second Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14">
             <CaseStudyCard
+              id={caseStudies[2]?.id || 0}
               title={caseStudies[2]?.title || ""}
               backgroundColor={caseStudies[2]?.backgroundColor || "#E4CFFF"}
               imageSrc={caseStudies[2]?.imageSrc || ""}
@@ -213,9 +209,9 @@ export default function UXCaseStudies() {
               href={caseStudies[2]?.href}
               tags={caseStudies[2]?.tags || []}
               tagBgColor={caseStudies[2]?.tagBgColor}
-              customClass={caseStudies[2]?.customClass}
             />
             <CaseStudyCard
+              id={caseStudies[3]?.id || 0}
               title={caseStudies[3]?.title || ""}
               backgroundColor={caseStudies[3]?.backgroundColor || "#CFFFC1"}
               imageSrc={caseStudies[3]?.imageSrc || ""}
@@ -225,7 +221,6 @@ export default function UXCaseStudies() {
               tagBgColor={caseStudies[3]?.tagBgColor}
               svg={"/images/landing-page/case-study/runnersup.svg"}
               svgPosition="topRight"
-              customClass={caseStudies[3]?.customClass}
             />
           </div>
         </div>
