@@ -54,6 +54,10 @@ export default function Navbar() {
           "fixed top-0 left-0 right-0 z-50 pt-6 bg-white transition-transform duration-300 ease-in-out",
           isVisible ? "translate-y-0" : "-translate-y-full"
         )}
+        style={{
+          background: "rgba(255,255,255,0.01)",
+          backdropFilter: "blur(2px)",
+        }}
       >
         {/* Centered container */}
         <div className="mx-auto w-[90%] sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[55%]">
