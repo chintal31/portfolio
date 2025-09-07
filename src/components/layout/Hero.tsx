@@ -105,41 +105,35 @@ export default function Hero() {
                       sizes="(min-width: 1024px) 400px, 60vw"
                     />
                   </div>
-                  {/* <div className="absolute inset-0 z-3">
+                  <div className="absolute inset-0 z-3">
                     <div className="flex justify-center items-start h-1/3">
-                      <div className="flex justify-center items-center">
-                        <Image
-                          src="/images/landing-page/hero/ux-lead.svg"
-                          alt="UX Lead"
-                          width={60}
-                          height={60}
-                          className="w-[clamp(40px,6vw,75px)] h-auto"
-                        />
-                      </div>
+                      <Image
+                        src="/images/landing-page/hero/ux-lead.svg"
+                        alt="UX Lead"
+                        width={60}
+                        height={60}
+                        className="w-[clamp(40px,6vw,75px)] h-full animate-float-slow"
+                      />
                     </div>
-
                     <div className="flex justify-end items-end h-1/3">
-                      <div className="w-[clamp(100px,12vw,150px)] h-full">
-                        <Image
-                          src="/images/landing-page/hero/digital-problem-solver.svg"
-                          alt="Digital Problem Solver"
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
+                      <Image
+                        src="/images/landing-page/hero/digital-problem-solver.svg"
+                        alt="Digital Problem Solver"
+                        width={100}
+                        height={100}
+                        className="w-[clamp(100px,12vw,150px)] h-full animate-float-medium"
+                      />
                     </div>
-
                     <div className="flex justify-center items-end h-1/3">
-                      <div className="w-[clamp(150px,20vw,250px)] h-full">
-                        <Image
-                          src="/images/landing-page/hero/driven-by-clarity.svg"
-                          alt="Driven by Clarity"
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
+                      <Image
+                        src="/images/landing-page/hero/driven-by-clarity.svg"
+                        alt="Driven by Clarity"
+                        width={150}
+                        height={150}
+                        className="w-[clamp(150px,20vw,250px)] h-full animate-float-fast"
+                      />
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>
