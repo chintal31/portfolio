@@ -105,6 +105,44 @@ export default function Hero() {
                       sizes="(min-width: 1024px) 400px, 60vw"
                     />
                   </div>
+                  {/* Flexbox container for all SVGs */}
+                  <div className="absolute inset-0 z-3">
+                    {/* Top row - UX Lead on left, empty space, empty space */}
+                    <div className="flex justify-center items-start h-1/3">
+                      <div className="w-[clamp(40px,4vw,60px)] h-full">
+                        <Image
+                          src="/images/landing-page/hero/ux-lead.svg"
+                          alt="UX Lead"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Middle row - Center SVG */}
+                    <div className="flex justify-end items-end h-1/3">
+                      <div className="w-[clamp(100px,12vw,150px)] h-full">
+                        <Image
+                          src="/images/landing-page/hero/digital-problem-solver.svg"
+                          alt="Digital Problem Solver"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Bottom row - Empty space, empty space, Driven by Clarity on right */}
+                    <div className="flex justify-center items-end h-1/3">
+                      <div className="w-[clamp(150px,20vw,250px)] h-full">
+                        <Image
+                          src="/images/landing-page/hero/driven-by-clarity.svg"
+                          alt="Driven by Clarity"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
