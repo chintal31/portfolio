@@ -38,7 +38,9 @@ export default function MyStory() {
               distance={80}
             >
               <p className="font-display text-lg md:text-xl italic text-black">
-                Like Music Did - Naturally.
+                <span className="border-b-2 border-[#FFCF22]">
+                  Like Music Did - Naturally.
+                </span>
               </p>
             </AnimatedWrapper>
           </div>
@@ -57,9 +59,9 @@ export default function MyStory() {
           </AnimatedWrapper>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Left: Text Content */}
-          <div className="space-y-12">
+          <div className="space-y-12 lg:col-span-3">
             {/* Learning Phase */}
             <div className="space-y-4">
               <AnimatedWrapper
@@ -78,12 +80,15 @@ export default function MyStory() {
                 animationType="fadeInUp"
                 distance={80}
               >
-                <p className="font-open-sans text-lg md:text-xl leading-relaxed text-black">
+                <p className="font-open-sans text-lg md:text-xl leading-relaxed text-black mb-4">
                   The way I connected the dots, the way I noticed friction, the
                   way I wanted things to feel - it all came instinctively. Much
                   like the first time I picked up a guitar or started singing as
                   a kid, I didn&apos;t need a classroom to tell me this felt
-                  right. It just made sense. I taught myself the craft - from
+                  right.
+                </p>
+                <p className="font-open-sans text-lg md:text-xl leading-relaxed text-black">
+                  It just made sense. I taught myself the craft - from
                   wireframes and user flows to research plans and stakeholder
                   maps. I asked questions, got my hands dirty, and built my
                   confidence one experience at a time.
@@ -135,23 +140,25 @@ export default function MyStory() {
           </div>
 
           {/* Right: Visual Elements */}
-          <AnimatedWrapper
-            delay={0}
-            duration={0.8}
-            animationType="fadeInUp"
-            distance={80}
-          >
-            <div className="w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]">
-              <Image
-                src="/images/about/story.svg"
-                alt="My Story"
-                width={800}
-                height={800}
-                className="w-full h-full object-contain"
-                style={{ maxWidth: "100%", maxHeight: "100%" }}
-              />
-            </div>
-          </AnimatedWrapper>
+          <div className="lg:col-span-2">
+            <AnimatedWrapper
+              delay={0}
+              duration={0.8}
+              animationType="fadeInUp"
+              distance={80}
+            >
+              <div className="w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px]">
+                <Image
+                  src="/images/about/my-story.svg"
+                  alt="My Story"
+                  width={800}
+                  height={800}
+                  className="w-full h-full object-contain"
+                  style={{ maxWidth: "100%", maxHeight: "100%" }}
+                />
+              </div>
+            </AnimatedWrapper>
+          </div>
         </div>
       </div>
     </section>
