@@ -52,17 +52,17 @@ export default function Experience() {
             <div className="bg-gray-50 rounded-xl p-4 md:p-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 items-center">
                 <div className="text-center md:text-left">
-                  <h3 className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
+                  <h3 className="font-open-sans text-xs md:text-lg lg:text-xl text-gray-800">
                     Manager - UX Design
                   </h3>
                 </div>
                 <div className="text-center">
-                  <h4 className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
+                  <h4 className="font-open-sans text-xs md:text-lg lg:text-xl text-gray-800">
                     RBL Bank Ltd.
                   </h4>
                 </div>
                 <div className="text-center md:text-right">
-                  <span className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
+                  <span className="font-open-sans text-xs md:text-lg lg:text-xl text-gray-800">
                     2024 - 2024
                   </span>
                 </div>
@@ -73,17 +73,17 @@ export default function Experience() {
             <div className="bg-gray-50 rounded-xl p-4 md:p-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 items-center">
                 <div className="text-center md:text-left">
-                  <h3 className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
+                  <h3 className="font-open-sans text-xs md:text-lg lg:text-xl text-gray-800">
                     Product Experience Designer
                   </h3>
                 </div>
                 <div className="text-center">
-                  <h4 className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
+                  <h4 className="font-open-sans text-xs md:text-lg lg:text-xl text-gray-800">
                     Mindstix Software Pvt. Ltd.
                   </h4>
                 </div>
                 <div className="text-center md:text-right">
-                  <span className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
+                  <span className="font-open-sans text-xs md:text-lg lg:text-xl text-gray-800">
                     2021 - 2024
                   </span>
                 </div>
@@ -94,17 +94,17 @@ export default function Experience() {
             <div className="bg-gray-50 rounded-xl p-4 md:p-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 items-center">
                 <div className="text-center md:text-left">
-                  <h3 className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
+                  <h3 className="font-open-sans text-xs md:text-lg lg:text-xl text-gray-800">
                     UX/UI Designer
                   </h3>
                 </div>
                 <div className="text-center">
-                  <h4 className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
+                  <h4 className="font-open-sans text-xs md:text-lg lg:text-xl text-gray-800">
                     Boho Procures Pvt. Ltd.
                   </h4>
                 </div>
                 <div className="text-center md:text-right">
-                  <span className="font-open-sans text-sm sm:text-base md:text-lg lg:text-xl text-gray-800">
+                  <span className="font-open-sans text-xs md:text-lg lg:text-xl text-gray-800">
                     2019-2020
                   </span>
                 </div>
