@@ -13,7 +13,7 @@ const testimonials: Testimonial[] = [
   {
     id: "1",
     quote:
-      "If I were to describe Jashvi's performance and working with her in one word, it would be 'Exceptional.' From the beginning of working with her, she exceeded my expectations. She quickly adapted to the working process, understood the business model of Amway, and proactively learned new things. She showcased her expertise in ",
+      "If I were to describe Jashvi's performance and working with her in one word, it would be 'Exceptional.' From the beginning of working with her, she exceeded my expectations. She quickly adapted to the working process, understood the business model of Amway, and proactively learned new things.",
     author: "Ronnel Sanchez", // TODO: Complete the quote
     position: "UX Lead",
     company: "Amway Global",
