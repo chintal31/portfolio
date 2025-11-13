@@ -97,11 +97,16 @@ export default function NewsverseCaseStudy() {
                 </div>
 
                 {/* CTA Button */}
-                <button className="flex items-center justify-center py-3 w-[clamp(150px,40vw,171px)] h-[clamp(45px,12vw,51px)] border border-[#ACACAC] rounded-[30px] hover:border-[#730FD6] hover:bg-[#730FD6] hover:text-white transition-all duration-300 group">
+                <a
+                  href="https://newzverse.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center py-3 w-[clamp(150px,40vw,171px)] h-[clamp(45px,12vw,51px)] border border-[#ACACAC] rounded-[30px] hover:border-[#730FD6] hover:bg-[#730FD6] hover:text-white transition-all duration-300 group"
+                >
                   <span className="font-open-sans font-normal text-[clamp(16px,4vw,20px)] leading-[1.35] text-[#272727] group-hover:text-white">
                     Check live site
                   </span>
-                </button>
+                </a>
               </div>
             </AnimatedWrapper>
 

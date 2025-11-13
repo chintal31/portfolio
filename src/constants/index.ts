@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   title: "Jashvi Sudra - UX/UI Designer",
   description:
     "Portfolio showcasing my work and experience as a UX/UI Designer",
-  url: "https://jashvi.me", // TODO: change to actual url
+  url: "https://jashvi.vercel.app",
   ogImage: "/images/landing-page/flower.png",
   keywords: [
     "UX/UI Designer",
