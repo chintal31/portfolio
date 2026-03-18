@@ -15,7 +15,7 @@ const duplicated = [...brands, ...brands];
 
 export default function Brands() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
   const [centeredIndex, setCenteredIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -66,7 +66,10 @@ export default function Brands() {
           </div>
 
           {/* Companies Marquee */}
-          <div ref={containerRef} className="w-[60%] mx-auto overflow-hidden marquee-fade-mask">
+          <div
+            ref={containerRef}
+            className="w-[60%] mx-auto overflow-hidden marquee-fade-mask"
+          >
             <div className="animate-marquee flex gap-8 w-max">
               {duplicated.map((brand, index) => (
                 <div

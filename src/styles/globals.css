@@ -21,7 +21,6 @@ body {
   font-family: var(--font-playfair), serif;
 }
 
-
 .animated-wrapper {
   will-change: opacity, transform;
   backface-visibility: hidden;
@@ -43,7 +42,6 @@ body {
 .animated-wrapper * {
   transform-style: preserve-3d;
 }
-
 
 @keyframes slideInFromBottom {
   from {
@@ -128,9 +126,9 @@ html {
   background: #a8a8a8;
 }
 
-
 @keyframes float-fast {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
@@ -143,9 +141,9 @@ html {
   animation-delay: 1s;
 }
 
-
 @keyframes float-right {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0px) rotate(0deg);
   }
   50% {
@@ -154,7 +152,8 @@ html {
 }
 
 @keyframes float-diagonal {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0px, 0px) rotate(0deg);
   }
   25% {
@@ -179,8 +178,12 @@ html {
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -192,6 +195,18 @@ html {
 }
 
 .marquee-fade-mask {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 18%,
+    black 82%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 18%,
+    black 82%,
+    transparent 100%
+  );
 }
