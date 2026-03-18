@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AnimatedWrapper } from "../ui";
 
 interface Testimonial {
@@ -42,6 +42,8 @@ export default function Testimonials() {
     [key: string]: boolean;
   }>({});
   const [isMobile, setIsMobile] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const MAX_QUOTE_LENGTH = 200; // Character limit for quotes
 
@@ -57,12 +59,20 @@ export default function Testimonials() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Auto-rotate carousel every 5 seconds
+  // Cleanup resume timer on unmount
   useEffect(() => {
+    return () => {
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    };
+  }, []);
+
+  // Auto-rotate carousel every 5 seconds, paused on hover or read more
+  useEffect(() => {
+    if (isPaused) return;
+
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => {
         if (prevIndex === testimonials.length - 1) {
-          // After last testimonial, go to first
           return 0;
         }
         return prevIndex + 1;
@@ -70,17 +80,34 @@ export default function Testimonials() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
+
+  const pauseRotation = () => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    setIsPaused(true);
+  };
+
+  const resumeRotation = () => {
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    // Resume after a short delay so the user has time to finish reading
+    resumeTimerRef.current = setTimeout(() => setIsPaused(false), 1000);
+  };
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
 
   const toggleQuote = (testimonialId: string) => {
+    const willExpand = !expandedQuotes[testimonialId];
     setExpandedQuotes(prev => ({
       ...prev,
       [testimonialId]: !prev[testimonialId],
     }));
+    if (willExpand) {
+      pauseRotation();
+    } else {
+      resumeRotation();
+    }
   };
 
   const truncateQuote = (quote: string, maxLength: number) => {
@@ -129,7 +156,11 @@ export default function Testimonials() {
                     >
                       <div className="max-w-4xl mx-auto">
                         {/* Testimonial Card - Updated to match Figma design */}
-                        <div className="relative bg-[#F8F8F8] rounded-[20px] p-2 md:p-4 lg:p-6">
+                        <div
+                          className="relative bg-[#F8F8F8] rounded-[20px] p-2 md:p-4 lg:p-6"
+                          onMouseEnter={pauseRotation}
+                          onMouseLeave={resumeRotation}
+                        >
                           {/* Quote Mark - Positioned as per Figma */}
                           <div className="absolute left-4 md:left-8 lg:left-10 top-4 md:top-8 lg:top-10 -translate-y-1 md:-translate-y-2">
                             <span className="text-[60px] md:text-[80px] lg:text-[100px] font-pavanam text-[#4B01AB] leading-[70px] md:leading-[90px] lg:leading-[110px]">

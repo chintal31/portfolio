@@ -102,7 +102,7 @@ export default function Footer() {
                 <a
                   href="/resume-jashvi-sudra.pdf"
                   download
-                  className="font-open-sans text-lg sm:text-xl md:text-xl lg:text-2xl text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+                  className="font-open-sans font-semibold text-[20px] text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
                 >
                   Resume
                 </a>
@@ -118,7 +118,7 @@ export default function Footer() {
               </h3>
               <a
                 href={`mailto:${CONTACT_INFO.email}`}
-                className="font-open-sans text-lg md:text-xl lg:text-2xl text-gray-800 hover:text-gray-600 transition-colors text-center md:text-right"
+                className="font-open-sans font-semibold text-[20px] text-gray-800 hover:text-gray-600 transition-colors text-center md:text-right"
               >
                 {CONTACT_INFO.email}
               </a>

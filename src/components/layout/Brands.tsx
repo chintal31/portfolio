@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { AnimatedWrapper } from "../ui";
 
 const brands = [
@@ -10,7 +11,44 @@ const brands = [
   { name: "Mindstix", logo: "/images/landing-page/brands/mindstix.png" },
 ];
 
+const duplicated = [...brands, ...brands];
+
 export default function Brands() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>();
+  const [centeredIndex, setCenteredIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    const findCentered = () => {
+      if (!containerRef.current) return;
+
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+
+      const items = containerRef.current.querySelectorAll("[data-brand-item]");
+      let closestIndex = 0;
+      let closestDist = Infinity;
+
+      items.forEach((item, i) => {
+        const rect = item.getBoundingClientRect();
+        const itemCenter = rect.left + rect.width / 2;
+        const dist = Math.abs(itemCenter - containerCenter);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closestIndex = i;
+        }
+      });
+
+      setCenteredIndex(closestIndex);
+      rafRef.current = requestAnimationFrame(findCentered);
+    };
+
+    rafRef.current = requestAnimationFrame(findCentered);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
   return (
     <AnimatedWrapper
       delay={0}
@@ -27,15 +65,20 @@ export default function Brands() {
             </h2>
           </div>
 
-          {/* Companies Grid */}
-          <div className="flex justify-center">
-            <div className="grid grid-cols-6 gap-4 md:gap-6 lg:gap-8 max-w-4xl">
-              {brands.map(brand => (
+          {/* Companies Marquee */}
+          <div ref={containerRef} className="w-[60%] mx-auto overflow-hidden marquee-fade-mask">
+            <div className="animate-marquee flex gap-8 w-max">
+              {duplicated.map((brand, index) => (
                 <div
-                  key={brand.name}
-                  className="flex flex-col items-center justify-center"
+                  key={`${brand.name}-${index}`}
+                  data-brand-item
+                  className="flex flex-col items-center justify-center flex-shrink-0"
                 >
-                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white border border-gray-100 rounded-xl flex items-center justify-center">
+                  <div
+                    className={`relative w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white rounded-xl flex items-center justify-center transition-all duration-300 ${
+                      centeredIndex === index ? "scale-110" : "scale-100"
+                    }`}
+                  >
                     <Image
                       src={brand.logo}
                       alt={`${brand.name} logo`}
