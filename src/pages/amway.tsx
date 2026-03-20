@@ -810,7 +810,15 @@ export default function Amway() {
         </div>
       </section>
 
-      <Outcomes />
+      <Outcomes
+        items={[
+          "Redesigned search, PLP, and PDP experiences across Amway Thailand\u2019s storefront, directly reducing friction in the product discovery journey for both customers and ABOs",
+          "Solution-based navigation replaced a rigid product hierarchy \u2014 early usability testing showed users located target products faster with fewer taps and less backtracking",
+          "Backend-driven edge case design (stock states, multilingual pricing, back-office config) eliminated UX breakdowns that had previously eroded user trust",
+          "Accessibility improvements across card components resulted in a more consistent, scannable experience aligned to WCAG standards",
+          "Delivered across 4 concurrent sprint cycles, balancing live usability insights with forward design work \u2014 shipped without rework delays",
+        ]}
+      />
 
       <KeyLearning />
     </Layout>

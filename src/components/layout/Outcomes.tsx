@@ -1,6 +1,10 @@
 import AnimatedWrapper from "../ui/AnimatedWrapper";
 
-export default function Outcomes() {
+interface OutcomesProps {
+  items: string[];
+}
+
+export default function Outcomes({ items }: OutcomesProps) {
   return (
     <AnimatedWrapper
       delay={0}
@@ -67,22 +71,14 @@ export default function Outcomes() {
                 Outcomes
               </h2>
               <div className="space-y-2 md:space-y-3">
-                <p className="font-open-sans font-normal text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-9 text-white">
-                  • Enabled faster detection and internal escalation of
-                  misinformation events within minutes
-                </p>
-                <p className="font-open-sans font-normal text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-9 text-white">
-                  • Supported SEBI compliance by streamlining structured alert
-                  creation and reporting
-                </p>
-                <p className="font-open-sans font-normal text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-9 text-white">
-                  • Improved cross-functional coordination between PR,
-                  Compliance, and CXOs
-                </p>
-                <p className="font-open-sans font-normal text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-9 text-white">
-                  • Internal testing showed 94% success rate in alert setup for
-                  misinformation events
-                </p>
+                {items.map((item, index) => (
+                  <p
+                    key={index}
+                    className="font-open-sans font-normal text-base md:text-lg lg:text-xl leading-relaxed md:leading-8 text-white"
+                  >
+                    • {item}
+                  </p>
+                ))}
               </div>
             </div>
           </div>
