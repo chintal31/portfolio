@@ -178,7 +178,7 @@ export default function NewsverseCaseStudy() {
           "Enabled faster detection and internal escalation of misinformation events within minutes",
           "Supported SEBI compliance by streamlining structured alert creation and reporting",
           "Improved cross-functional coordination between PR, Compliance, and CXOs",
-          "Internal testing showed 94% success rate in alert setup for misinformation events",
+          "Internal testing showed 90% success rate in alert setup",
         ]}
       />
 
