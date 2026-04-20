@@ -71,10 +71,10 @@ export default function Collaboration() {
                 <p className="font-open-sans font-normal text-[clamp(1rem,2vw,1.5rem)] leading-relaxed text-[#272727]">
                   You can mail me at 👇 <br />
                   <a
-                    href="mailto:jashvi.sudra@gmail.com"
+                    href="mailto:jashvisudra@gmail.com"
                     className="text-black font-semibold hover:text-black-700 transition-colors"
                   >
-                    jashvi.sudra@gmail.com
+                    jashvisudra@gmail.com
                   </a>
                 </p>
               </AnimatedWrapper>

@@ -48,25 +48,9 @@ export default function SEOHead({
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
-      {/* Favicon */}
-      <link rel="icon" href="/favicon.ico" />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/apple-touch-icon.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon-16x16.png"
-      />
+      {/* Favicon — same asset as navbar brand mark */}
+      <link rel="icon" type="image/png" href="/images/navbar/flower.png" />
+      <link rel="apple-touch-icon" href="/images/navbar/flower.png" />
 
       {children}
     </Head>

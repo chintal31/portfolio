@@ -30,7 +30,7 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
 
 // Contact information
 export const CONTACT_INFO: ContactInfo = {
-  email: "jashvi.sudra@gmail.com",
+  email: "jashvisudra@gmail.com",
   location: "Mumbai, India",
   social: {
     linkedin: "https://www.linkedin.com/in/jashvisudra/",
