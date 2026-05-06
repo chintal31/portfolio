@@ -109,7 +109,7 @@ export default function UXCaseStudies() {
   const caseStudies: CaseStudyCardProps[] = [
     {
       id: 1,
-      title: "UX Strategy for AI-Powered News Intelligence",
+      title: "Streamlining Media Monitoring for Enterprises",
       backgroundColor: "#FFEAD4",
       imageSrc: "/images/landing-page/case-study/newsverse.png",
       imageAlt: "AI Media Intelligence Interface",
@@ -129,7 +129,7 @@ export default function UXCaseStudies() {
     },
     {
       id: 3,
-      title: "Reimagining the Home Buying Process",
+      title: "Improving Home Building & Buying Journeys",
       backgroundColor: "#DAF3FF",
       imageSrc: "/images/landing-page/case-study/home-buying-exp.png",
       imageAlt: "Lennar Employee Portal",
@@ -139,7 +139,7 @@ export default function UXCaseStudies() {
     },
     {
       id: 4,
-      title: "Gamifying the Sustainability for Individuals",
+      title: "Gamifying Sustainability for Individuals",
       // backgroundColor: "#DBFFF0",
       backgroundColor: "#30B0A0",
       imageSrc: "/images/landing-page/case-study/sus-2.png",
@@ -151,10 +151,7 @@ export default function UXCaseStudies() {
   ];
 
   return (
-    <section
-      id="work"
-      className="bg-[#FCFCFC] border-t border-[#EBEBEB] py-16 px-4 md:py-20"
-    >
+    <section id="work" className="bg-[#FCFCFC] py-16 px-4 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <AnimatedWrapper
@@ -165,7 +162,7 @@ export default function UXCaseStudies() {
         >
           <div className="mb-12 md:mb-16">
             <h2 className="font-display font-medium text-[clamp(2rem,6vw,3rem)] leading-[1.3] text-[#222222]">
-              UX Case Studies
+              Case Studies
             </h2>
           </div>
         </AnimatedWrapper>

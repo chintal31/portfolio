@@ -5,7 +5,7 @@ export default function Newsverse() {
   return (
     <Layout
       seo={{
-        title: "Newsverse - UX Strategy for AI-Powered Media Intelligence",
+        title: "Newsverse - Streamlining Media Monitoring for Enterprises",
         description:
           "A comprehensive UX strategy case study for an AI-powered media intelligence platform, focusing on user experience optimization and interface design.",
       }}

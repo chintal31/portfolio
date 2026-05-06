@@ -101,7 +101,7 @@ export default function Footer() {
                 </div>
                 <a
                   href="/resume-jashvi-sudra.pdf"
-                  download
+                  download="Senior Product Designer | Jashvi Dholakiya.pdf"
                   className="font-open-sans font-semibold text-[20px] text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
                 >
                   Resume

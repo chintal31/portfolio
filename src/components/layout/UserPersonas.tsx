@@ -44,7 +44,7 @@ export default function UserPersonas() {
   ];
 
   return (
-    <section className="w-full bg-white py-16 md:py-20">
+    <section className="w-full bg-[#FBFBFB] py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 md:px-12 lg:px-16">
         <div className="mb-12">
           <h2 className="font-display font-medium text-3xl leading-[43px] text-[#0C0C0C] mb-3">

@@ -81,9 +81,8 @@ export default function NewsverseCaseStudy() {
                 {/* Title */}
 
                 <h1 className="font-display font-normal text-[clamp(1.5rem,4vw,2.5rem)] leading-[1.2] text-[#272727]">
-                  <span className="block">UX Strategy For</span>
-                  <span className="block">AI-Powered Media</span>
-                  <span className="block">Intelligence</span>
+                  <span className="block">Streamlining Media Monitoring</span>
+                  <span className="block">for Enterprises</span>
                 </h1>
                 {/* Category Tags */}
                 <div className="flex flex-wrap items-start gap-6 md:gap-8 w-full max-w-full md:max-w-[407px]">
@@ -149,16 +148,6 @@ export default function NewsverseCaseStudy() {
         <ProblemStatement />
       </AnimatedWrapper>
 
-      {/* Design Process Section */}
-      <AnimatedWrapper
-        delay={0}
-        duration={0.8}
-        animationType="fadeInUp"
-        distance={80}
-      >
-        <DesignProcess />
-      </AnimatedWrapper>
-
       {/* User Personas Section */}
       <AnimatedWrapper
         delay={0}
@@ -181,6 +170,16 @@ export default function NewsverseCaseStudy() {
           "Internal testing showed 90% success rate in alert setup",
         ]}
       />
+
+      {/* Design Process Section */}
+      <AnimatedWrapper
+        delay={0}
+        duration={0.8}
+        animationType="fadeInUp"
+        distance={80}
+      >
+        <DesignProcess />
+      </AnimatedWrapper>
 
       {/* Key Learning Section */}
       <KeyLearning />

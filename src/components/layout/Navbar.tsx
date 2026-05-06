@@ -87,7 +87,7 @@ export default function Navbar() {
                   {item.label === "Resume" ? (
                     <a
                       href={item.href}
-                      download
+                      download="Senior Product Designer | Jashvi Dholakiya.pdf"
                       className={cn(
                         "px-3 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium rounded-xl transition-colors cursor-pointer",
                         "text-gray-800 hover:text-[#1404D5]"
@@ -172,7 +172,7 @@ export default function Navbar() {
                   <a
                     key={item.href}
                     href={item.href}
-                    download
+                    download="Senior Product Designer | Jashvi Dholakiya.pdf"
                     className={cn(
                       "px-4 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium cursor-pointer",
                       "text-gray-800"

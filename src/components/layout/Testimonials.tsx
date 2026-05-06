@@ -43,7 +43,9 @@ export default function Testimonials() {
   }>({});
   const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [isInView, setIsInView] = useState(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   const MAX_QUOTE_LENGTH = 200; // Character limit for quotes
 
@@ -66,9 +68,28 @@ export default function Testimonials() {
     };
   }, []);
 
+  // Start/stop carousel based on section visibility in viewport
+  useEffect(() => {
+    const sectionElement = sectionRef.current;
+    if (!sectionElement) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry?.isIntersecting || false);
+      },
+      {
+        threshold: 0.35,
+      }
+    );
+
+    observer.observe(sectionElement);
+
+    return () => observer.disconnect();
+  }, []);
+
   // Auto-rotate carousel every 5 seconds, paused on hover or read more
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || !isInView) return;
 
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => {
@@ -80,7 +101,7 @@ export default function Testimonials() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, isInView]);
 
   const pauseRotation = () => {
     if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
@@ -130,7 +151,7 @@ export default function Testimonials() {
       animationType="fadeInUp"
       distance={80}
     >
-      <section className="py-16 md:py-20 lg:py-24 bg-white">
+      <section ref={sectionRef} className="py-16 md:py-20 lg:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-16 md:gap-20">
             {/* Section Title */}
