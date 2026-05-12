@@ -7,7 +7,6 @@ import UserPersonas from "./UserPersonas";
 import KeyUXSolutions from "./KeyUXSolutions";
 import Outcomes from "./Outcomes";
 import KeyLearning from "./KeyLearning";
-import CaseStudyNavigation from "./CaseStudyNavigation";
 import MoreProjects from "./MoreProjects";
 import { AnimatedWrapper } from "../ui";
 
