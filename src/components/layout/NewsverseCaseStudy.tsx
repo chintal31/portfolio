@@ -7,6 +7,7 @@ import UserPersonas from "./UserPersonas";
 import KeyUXSolutions from "./KeyUXSolutions";
 import Outcomes from "./Outcomes";
 import KeyLearning from "./KeyLearning";
+import CaseStudyNavigation from "./CaseStudyNavigation";
 import { AnimatedWrapper } from "../ui";
 
 interface CategoryTagProps {
@@ -183,6 +184,9 @@ export default function NewsverseCaseStudy() {
 
       {/* Key Learning Section */}
       <KeyLearning />
+
+      {/* Case Study Navigation */}
+      <CaseStudyNavigation currentSlug="newsverse" />
     </>
   );
 }
