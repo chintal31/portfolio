@@ -1,5 +1,6 @@
 import KeyLearning from "@/components/layout/KeyLearning";
 import Layout from "@/components/layout/Layout";
+import MoreProjects from "@/components/layout/MoreProjects";
 import Outcomes from "@/components/layout/Outcomes";
 import ProjectOverview from "@/components/layout/ProjectOverview";
 import { AnimatedWrapper } from "@/components/ui";
@@ -821,6 +822,8 @@ export default function Amway() {
       />
 
       <KeyLearning />
+
+      <MoreProjects currentSlug="amway" />
     </Layout>
   );
 }
