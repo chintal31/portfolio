@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import Hero from "@/components/layout/Hero";
+import Milestones from "@/components/layout/Milestones";
 import Brands from "@/components/layout/Brands";
 import Collaboration from "@/components/layout/Collaboration";
 import UXCaseStudies from "@/components/layout/UXCaseStudies";
@@ -15,8 +16,9 @@ export default function Home() {
       }}
     >
       <Hero />
-      <Brands />
+      <Milestones />
       <UXCaseStudies />
+      <Brands />
       <Testimonials />
       <Collaboration />
     </Layout>
