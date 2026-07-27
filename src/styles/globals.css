@@ -210,3 +210,24 @@ html {
     transparent 100%
   );
 }
+
+@keyframes milestone-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.milestone-slide-in {
+  animation: milestone-slide-in 700ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .milestone-slide-in {
+    animation: none;
+  }
+}

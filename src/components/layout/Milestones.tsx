@@ -24,62 +24,57 @@ const milestones = [
     description: "From 0→1 concepts to system-wide rollouts.",
   },
   {
-    value: 5_000_000,
+    value: 5,
     suffix: "M+",
     label: "Users Designed For",
     description: "Product designed for users across web, iOS, and Android.",
   },
 ];
 
-function useCountUp(target: number, active: boolean, duration = 1755) {
+const COUNT_DURATION = 1200;
+
+function useCountUp(target: number, active: boolean, duration: number) {
   const [count, setCount] = useState(0);
-  const [complete, setComplete] = useState(false);
 
   useEffect(() => {
     if (!active) return;
 
     let frameId = 0;
-    let completionFrameId = 0;
     const startTime = performance.now();
     const animate = (time: number) => {
       const progress = Math.min((time - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-      setCount(Math.round(target * eased));
+      setCount(Math.round(target * progress));
       if (progress < 1) {
         frameId = requestAnimationFrame(animate);
-      } else {
-        completionFrameId = requestAnimationFrame(() => setComplete(true));
       }
     };
 
     frameId = requestAnimationFrame(animate);
     return () => {
       cancelAnimationFrame(frameId);
-      cancelAnimationFrame(completionFrameId);
     };
   }, [active, duration, target]);
 
-  return { count, complete };
+  return count;
 }
 
 function Milestone({
   milestone,
   active,
+  duration,
 }: {
   milestone: (typeof milestones)[number];
   active: boolean;
+  duration: number;
 }) {
-  const { count, complete } = useCountUp(milestone.value, active);
+  const count = useCountUp(milestone.value, active, duration);
 
   return (
-    <article>
+    <article className={active ? "milestone-slide-in" : "opacity-0"}>
       <p className="font-display text-5xl leading-none text-white">
         <span className="inline-block min-w-[9ch] tabular-nums">
-          {complete
-            ? milestone.value === 5_000_000
-              ? "5M+"
-              : `${milestone.value}${milestone.suffix}`
-            : count.toLocaleString("en-US")}
+          {count.toLocaleString("en-US")}
+          {milestone.suffix}
         </span>
       </p>
       <h3 className="mt-4 font-open-sans text-xl font-semibold text-white">
@@ -102,8 +97,6 @@ export default function Milestones() {
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
-    const timeoutIds: number[] = [];
-
     const play = () => {
       if (
         !hasScrolledRef.current ||
@@ -114,12 +107,7 @@ export default function Milestones() {
       }
 
       hasPlayedRef.current = true;
-      milestones.forEach((_, index) => {
-        const timeoutId = window.setTimeout(() => {
-          setActiveStats(stats => [...stats, index]);
-        }, index * 120);
-        timeoutIds.push(timeoutId);
-      });
+      setActiveStats(milestones.map((_, index) => index));
     };
 
     const onScroll = () => {
@@ -141,7 +129,6 @@ export default function Milestones() {
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
-      timeoutIds.forEach(timeoutId => window.clearTimeout(timeoutId));
     };
   }, []);
 
@@ -166,6 +153,7 @@ export default function Milestones() {
               key={milestone.label}
               milestone={milestone}
               active={activeStats.includes(index)}
+              duration={COUNT_DURATION}
             />
           ))}
         </div>
