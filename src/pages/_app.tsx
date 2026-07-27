@@ -6,6 +6,7 @@ import {
   Pavanam,
 } from "next/font/google";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/next";
 import PageTransition from "@/components/ui/PageTransition";
 import "@/styles/globals.css";
 
@@ -49,6 +50,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </PageTransition>
       </div>
+      <Analytics />
     </>
   );
 }
