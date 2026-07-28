@@ -2,11 +2,23 @@ import Image from "next/image";
 import { AnimatedWrapper } from "../ui";
 
 const brands = [
-  { name: "Amway", logo: "/images/landing-page/brands/amway.png" },
-  { name: "Lennar", logo: "/images/landing-page/brands/lennar.png" },
-  { name: "Locobuzz", logo: "/images/landing-page/brands/locobuzz.jpeg" },
-  { name: "RBL", logo: "/images/landing-page/brands/rbl.png" },
-  { name: "Mindstix", logo: "/images/landing-page/brands/mindstix.png" },
+  {
+    name: "Mindstix",
+    logo: "/images/landing-page/brands/mindstix-gray.png",
+  },
+  {
+    name: "Locobuzz",
+    logo: "/images/landing-page/brands/locobuzz-gray.png",
+  },
+  {
+    name: "Lennar",
+    logo: "/images/landing-page/brands/lennar-gray.png",
+  },
+  { name: "Amway", logo: "/images/landing-page/brands/amway-gray.png" },
+  {
+    name: "RBL",
+    logo: "/images/landing-page/brands/rbl-bank-gray.png",
+  },
 ];
 
 const duplicated = [...brands, ...brands];
@@ -19,11 +31,11 @@ export default function Brands() {
       animationType="slideInUp"
       distance={80}
     >
-      <section className="py-6 sm:py-16 md:py-16">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
-          <div className="text-center mb-[14px]">
-            <h2 className="font-open-sans text-[clamp(0.775rem,1.75vw,1.25rem)] text-gray-600">
+          <div className="mb-6 text-center md:mb-8 lg:mb-10">
+            <h2 className="font-open-sans text-base text-gray-500 sm:text-lg">
               Brands I&apos;ve designed for
             </h2>
           </div>
@@ -36,13 +48,13 @@ export default function Brands() {
                   key={`${brand.name}-${index}`}
                   className="flex flex-col items-center justify-center flex-shrink-0"
                 >
-                  <div className="relative w-[4rem] h-[4rem] sm:w-[5.5rem] sm:h-[5.5rem] md:w-[7.5rem] md:h-[7.5rem] bg-white rounded-xl flex items-center justify-center">
+                  <div className="relative h-[80px] w-[120px]">
                     <Image
                       src={brand.logo}
                       alt={`${brand.name} logo`}
                       fill
-                      className="object-contain p-2 sm:p-3 md:p-4"
-                      sizes="(min-width: 768px) 120px, (min-width: 640px) 88px, 64px"
+                      className="object-contain"
+                      sizes="120px"
                     />
                   </div>
                   <span className="sr-only">{brand.name}</span>
