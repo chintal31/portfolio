@@ -153,11 +153,11 @@ export default function Testimonials() {
     >
       <section ref={sectionRef} className="py-16 md:py-20 lg:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-16 md:gap-20">
+          <div className="flex flex-col gap-8 md:gap-10">
             {/* Section Title */}
 
-            <div className="text-center md:text-left">
-              <h2 className="font-display font-medium text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-[#222222]">
+            <div className="text-left">
+              <h2 className="font-display font-medium text-[28px] md:text-[32px] lg:text-[40px] xl:text-[48px] leading-tight text-[#222222]">
                 Testimonials
               </h2>
             </div>

@@ -71,7 +71,7 @@ function Milestone({
 
   return (
     <article className={active ? "milestone-slide-in" : "opacity-0"}>
-      <p className="font-display text-5xl leading-none text-white">
+      <p className="font-display text-[42px] leading-none text-white md:text-5xl">
         <span className="inline-block min-w-[9ch] tabular-nums">
           {count.toLocaleString("en-US")}
           {milestone.suffix}
@@ -118,11 +118,11 @@ export default function Milestones() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisibleRef.current = Boolean(
-          entry?.isIntersecting && entry.intersectionRatio >= 0.3
+          entry?.isIntersecting && entry.intersectionRatio >= 0.5
         );
         play();
       },
-      { threshold: 0.3 }
+      { threshold: 0.5 }
     );
     observer.observe(section);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -139,10 +139,10 @@ export default function Milestones() {
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
         <div className="text-center">
-          <h2 className="font-display text-3xl text-white sm:text-4xl">
+          <h2 className="font-display text-[28px] text-white md:text-[32px]">
             Every number tells a story.
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl font-open-sans text-lg leading-relaxed text-white/55 sm:text-xl">
+          <p className="mx-auto mt-4 max-w-3xl font-open-sans text-lg leading-relaxed text-white/55 md:text-2xl">
             These milestones reflect a career built on curiosity, craft and
             meaningful impact.
           </p>

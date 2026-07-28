@@ -44,7 +44,7 @@ export default function Collaboration() {
                 animationType="fadeInUp"
                 distance={80}
               >
-                <h2 className="font-display font-medium text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight text-[#222222]">
+                <h2 className="font-display font-medium text-[28px] md:text-[32px] lg:text-[40px] xl:text-[48px] leading-tight text-[#222222]">
                   Let&apos;s Collaborate
                 </h2>
               </AnimatedWrapper>

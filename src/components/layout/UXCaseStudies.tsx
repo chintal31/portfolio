@@ -36,7 +36,7 @@ function CaseStudyCard({
       distance={80}
     >
       <div
-        className={`flex flex-col gap-8 w-full ${className} cursor-pointer group`}
+        className={`flex w-full flex-col gap-3 cursor-pointer group md:gap-4 lg:gap-5 ${className}`}
       >
         <div
           className="w-full h-[330px] rounded-[20px] relative overflow-hidden"
@@ -161,7 +161,7 @@ export default function UXCaseStudies() {
           distance={80}
         >
           <div className="mb-12 md:mb-16">
-            <h2 className="font-display font-medium text-[clamp(2rem,6vw,3rem)] leading-[1.3] text-[#222222]">
+            <h2 className="font-display font-medium text-[32px] md:text-[clamp(2rem,6vw,3rem)] leading-[1.3] text-[#222222]">
               Case Studies
             </h2>
           </div>

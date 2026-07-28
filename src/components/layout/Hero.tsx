@@ -4,7 +4,7 @@ import { AnimatedWrapper } from "../ui";
 export default function Hero() {
   return (
     <section
-      className="relative py-12 sm:py-16 md:py-20 bg-cover bg-center bg-no-repeat"
+      className="relative flex min-h-screen items-center bg-cover bg-center bg-no-repeat pt-12 pb-[70px] sm:pt-16 sm:pb-[100px] md:pt-20 md:pb-[140px]"
       style={{
         backgroundImage: "url('/images/landing-page/hero/hero-section-bg.png')",
       }}
@@ -20,7 +20,7 @@ export default function Hero() {
           >
             <div className="order-2 md:order-1">
               <div className="flex flex-col gap-1">
-                <h1 className="font-display text-[clamp(1.5rem,6vw,3rem)] md:text-[clamp(1.05rem,4.6vw,2.4rem)] lg:text-[clamp(1.5rem,6vw,3rem)] leading-[1.2] font-normal">
+                <h1 className="font-display text-[32px] md:text-[clamp(1.05rem,4.6vw,2.4rem)] lg:text-[clamp(1.5rem,6vw,3rem)] leading-[1.2] font-normal">
                   Designing
                   <br />
                   Digital Experiences
@@ -28,7 +28,7 @@ export default function Hero() {
                   that bring
                 </h1>
                 <div
-                  className="font-display font-semibold text-transparent bg-clip-text text-[clamp(1.25rem,6vw,3rem)] md:text-[clamp(1.05rem,4.6vw,2.4rem)] lg:text-[clamp(1.25rem,6vw,3rem)] md:whitespace-nowrap md:tracking-[-0.01em] leading-[1.2]"
+                  className="font-display font-semibold text-transparent bg-clip-text text-[32px] md:text-[clamp(1.05rem,4.6vw,2.4rem)] lg:text-[clamp(1.25rem,6vw,3rem)] md:whitespace-nowrap md:tracking-[-0.01em] leading-[1.2]"
                   style={{
                     backgroundImage:
                       "linear-gradient(90deg, #064CF0 0%, #2F0267 67.33%)",
@@ -37,11 +37,11 @@ export default function Hero() {
                   clarity to complexity
                 </div>
                 <div className="flex items-baseline leading-[1.2]">
-                  <span className="font-display font-semibold text-black text-[clamp(1.25rem,6vw,3rem)] md:text-[clamp(1.15rem,5vw,2.6rem)] lg:text-[clamp(1.25rem,6vw,3rem)]">
+                  <span className="font-display font-semibold text-black text-[32px] md:text-[clamp(1.15rem,5vw,2.6rem)] lg:text-[clamp(1.25rem,6vw,3rem)]">
                     & &nbsp;
                   </span>
                   <span
-                    className="font-display font-semibold text-transparent bg-clip-text text-[clamp(1.25rem,6vw,3rem)] md:text-[clamp(1.15rem,5vw,2.6rem)] lg:text-[clamp(1.25rem,6vw,3rem)] leading-[1]"
+                    className="font-display font-semibold text-transparent bg-clip-text text-[32px] md:text-[clamp(1.15rem,5vw,2.6rem)] lg:text-[clamp(1.25rem,6vw,3rem)] leading-[1]"
                     style={{
                       backgroundImage:
                         "linear-gradient(90.24deg, #DF09A2 8.5%, #920081 99.8%)",
@@ -50,7 +50,7 @@ export default function Hero() {
                     ideas to life
                   </span>
                 </div>
-                <span className="mt-[clamp(14px,2.8vw,32px)] font-open-sans text-gray-700 text-[clamp(0.875rem,2vw,1.5rem)] leading-[1.4] max-w-[clamp(300px,60vw,500px)]">
+                <span className="mt-[clamp(14px,2.8vw,32px)] max-w-[clamp(300px,60vw,500px)] font-open-sans text-base leading-relaxed text-gray-700 md:text-2xl">
                   With 5+ years of UX expertise, I&apos;ve helped startups and
                   global teams bring powerful tools to life.
                 </span>
