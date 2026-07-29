@@ -125,6 +125,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        <p className="mt-10 font-open-sans text-sm text-left text-gray-600 md:mt-12">
+          Designed and built with love by Jashvi Dholakiya (Sudra) © 2026.
+        </p>
       </div>
     </footer>
   );

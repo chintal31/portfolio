@@ -23,7 +23,7 @@ export default function UXCaseStudies() {
           animationType="fadeInUp"
           distance={80}
         >
-          <div className="text-center md:text-left mb-12 md:mb-16">
+          <div className="mb-12 text-left md:mb-16">
             <h2 className="font-display font-medium text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-[#222222]">
               Case Studies
             </h2>

@@ -134,7 +134,7 @@ function MagneticConceptLink() {
       href="https://www.behance.net/gallery/153216047/IMPACT-APP-Designathon"
       target="_blank"
       rel="noreferrer"
-      className="inline-flex w-fit self-start items-center gap-2 whitespace-nowrap rounded-[20px] border border-[#848484] px-5 py-3 font-display text-[21px] text-white transition-transform duration-200 ease-out md:text-2xl"
+      className="inline-flex w-fit max-w-full self-start items-center gap-1 whitespace-nowrap rounded-[20px] border border-[#848484] px-3 py-2.5 font-display text-sm text-white transition-transform duration-200 ease-out sm:gap-2 sm:px-5 sm:py-3 sm:text-[21px] md:text-2xl lg:col-span-2"
       onPointerMove={event => {
         const bounds = event.currentTarget.getBoundingClientRect();
         const x = (event.clientX - bounds.left - bounds.width / 2) * 0.18;
@@ -233,18 +233,18 @@ export default function Highlights() {
   return (
     <section
       ref={sectionRef}
-      className="overflow-hidden bg-black py-20 sm:py-24 md:py-32"
+      className="overflow-hidden bg-black pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-32 md:pb-16"
     >
       <div className="mx-auto max-w-7xl overflow-hidden px-6 sm:px-8 lg:px-10">
-        <p className="font-display text-[28px] text-white md:text-[32px]">
+        <p className="font-open-sans text-lg font-normal text-white/55 md:text-xl">
           Highlights
         </p>
-        <div ref={trackRef} className="mt-6 flex w-[200%] md:mt-8 lg:mt-12">
+        <div ref={trackRef} className="mt-3 flex w-[200%] md:mt-4 lg:mt-5">
           <div
             className="w-1/2 pr-6 sm:pr-8 lg:pr-10"
             aria-hidden={activeSlide !== 0}
           >
-            <h2 className="max-w-4xl font-open-sans text-xl font-semibold text-white">
+            <h2 className="max-w-4xl font-display text-2xl text-white md:text-[32px]">
               Redesigning the Payments Flow for a 5M+ User Banking App
             </h2>
             <div className="mt-5 grid items-center gap-12 md:mt-6 lg:mt-8 lg:grid-cols-[auto_1fr] lg:gap-16">
@@ -264,7 +264,7 @@ export default function Highlights() {
             className={`w-1/2 ${secondSlideVisible ? "visible" : "invisible pointer-events-none"}`}
             aria-hidden={activeSlide !== 1}
           >
-            <h2 className="max-w-4xl font-open-sans text-xl font-semibold text-white">
+            <h2 className="max-w-4xl font-display text-2xl text-white md:text-[32px]">
               Gamifying the Sustainability for individuals
             </h2>
             <div className="mt-5 grid items-center gap-12 md:mt-6 lg:mt-8 lg:grid-cols-[auto_1fr] lg:gap-20">

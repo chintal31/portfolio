@@ -63,13 +63,13 @@ export default function HowICreateValue({
 
   return (
     <section
-      className="bg-[#FCFCFC] px-4 py-16 md:py-20"
+      className="bg-[#FFFFFF] px-4 py-16 md:py-20"
       aria-labelledby={labelId}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2
           id={labelId}
-          className="mb-8 font-display text-[32px] leading-[1.3] text-[#222222] md:mb-10 md:text-[clamp(2rem,6vw,3rem)]"
+          className="mb-8 font-display font-medium text-3xl leading-tight text-[#222222] md:mb-10 md:text-4xl lg:text-5xl xl:text-6xl"
         >
           How I Create Value
         </h2>

@@ -35,7 +35,7 @@ export default function CaseStudyCard({
       distance={80}
     >
       <div
-        className={`flex flex-col gap-8 w-full ${className} cursor-pointer group`}
+        className={`flex w-full flex-col gap-3 md:gap-4 lg:gap-5 ${className} cursor-pointer group`}
       >
         <div
           className="w-full h-[330px] rounded-[20px] relative overflow-hidden"
