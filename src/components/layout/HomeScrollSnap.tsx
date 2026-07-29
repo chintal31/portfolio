@@ -77,7 +77,7 @@ export default function HomeScrollSnap({ children }: { children: ReactNode }) {
   return (
     <div
       ref={containerRef}
-      className="[&>section]:min-h-screen [&>section:nth-child(2)]:min-h-0 [&>section:nth-child(4)]:min-h-0"
+      className="[&>section]:min-h-screen [&>section:nth-child(2)]:min-h-0 [&>section:nth-child(4)]:min-h-0 [&>section:nth-child(5)]:min-h-0"
     >
       {children}
     </div>
