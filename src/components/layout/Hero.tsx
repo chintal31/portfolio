@@ -1,143 +1,172 @@
+"use client";
+
 import Image from "next/image";
-import { AnimatedWrapper } from "../ui";
+import { useEffect, useRef, useState } from "react";
+
+const TICKER_WORDS = [
+  "Product Designer",
+  "Strategic Thinker",
+  "Curious Experimenter",
+];
+
+// Temporary stand-ins until the final strategy-session photos are supplied.
+const PLACEHOLDER_CARDS = [
+  "/images/landing-page/hero/online meeting.jpg",
+  "/images/landing-page/hero/meeting.jpg",
+  "/images/landing-page/hero/hero-img2.png",
+  "/images/landing-page/hero/hero-img1.png",
+  "/images/landing-page/hero/designathon.jpg",
+];
 
 export default function Hero() {
+  const [phase, setPhase] = useState<"intro" | "reveal" | "ready">("intro");
+  const [showIntro, setShowIntro] = useState(true);
+  const [tickerIndex, setTickerIndex] = useState(0);
+  const timers = useRef<number[]>([]);
+  const tickerTimer = useRef<number | null>(null);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const navigation = performance.getEntriesByType("navigation")[0] as
+      | PerformanceNavigationTiming
+      | undefined;
+    const playOnThisVisit =
+      reducedMotion === false &&
+      (navigation?.type === "reload" ||
+        !sessionStorage.getItem("jashvi-hero-played"));
+
+    const addTimer = (callback: () => void, delay: number) => {
+      const timer = window.setTimeout(callback, delay);
+      timers.current.push(timer);
+    };
+
+    const startTicker = () => {
+      if (reducedMotion || tickerTimer.current !== null) return;
+
+      tickerTimer.current = window.setInterval(() => {
+        setTickerIndex(current => (current + 1) % TICKER_WORDS.length);
+      }, 2000);
+    };
+
+    const revealTicker = () => {
+      addTimer(() => {
+        setTickerIndex(current => (current + 1) % TICKER_WORDS.length);
+        startTicker();
+      }, 2250);
+    };
+
+    const finishImmediately = () => {
+      timers.current.forEach(window.clearTimeout);
+      timers.current = [];
+      setPhase("ready");
+      setShowIntro(false);
+      setTickerIndex(0);
+      startTicker();
+    };
+
+    if (!playOnThisVisit) {
+      finishImmediately();
+      return;
+    }
+
+    sessionStorage.setItem("jashvi-hero-played", "true");
+    addTimer(() => {
+      setPhase("reveal");
+      setShowIntro(false);
+      revealTicker();
+    }, 3800);
+    addTimer(() => setPhase("ready"), 7000);
+
+    window.addEventListener("wheel", finishImmediately, {
+      passive: true,
+      once: true,
+    });
+    window.addEventListener("touchstart", finishImmediately, {
+      passive: true,
+      once: true,
+    });
+    window.addEventListener("scroll", finishImmediately, {
+      passive: true,
+      once: true,
+    });
+
+    return () => {
+      timers.current.forEach(window.clearTimeout);
+      if (tickerTimer.current !== null) {
+        window.clearInterval(tickerTimer.current);
+        tickerTimer.current = null;
+      }
+      window.removeEventListener("wheel", finishImmediately);
+      window.removeEventListener("touchstart", finishImmediately);
+      window.removeEventListener("scroll", finishImmediately);
+    };
+  }, []);
+
   return (
     <section
-      className="relative flex min-h-screen items-center bg-cover bg-center bg-no-repeat pt-12 pb-[70px] sm:pt-16 sm:pb-[100px] md:pt-20 md:pb-[140px]"
-      style={{
-        backgroundImage: "url('/images/landing-page/hero/hero-section-bg.png')",
-      }}
+      className={`hero-redesign hero-${phase}`}
+      aria-label="Introduction"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
-          {/* Left: Text */}
-          <AnimatedWrapper
-            delay={0}
-            duration={0.8}
-            animationType="fadeInUp"
-            distance={80}
+      {showIntro && (
+        <div
+          className={`hero-intro ${phase === "reveal" ? "hero-intro-leaving" : ""}`}
+          aria-hidden="true"
+        >
+          <div
+            className="hero-command-intro"
+            aria-label="Research, strategy, and a little AI magic."
           >
-            <div className="order-2 md:order-1">
-              <div className="flex flex-col gap-1">
-                <h1 className="font-display text-[32px] md:text-[clamp(1.05rem,4.6vw,2.4rem)] lg:text-[clamp(1.5rem,6vw,3rem)] leading-[1.2] font-normal">
-                  Designing
-                  <br />
-                  Digital Experiences
-                  <br />
-                  that bring
-                </h1>
-                <div
-                  className="font-display font-semibold text-transparent bg-clip-text text-[32px] md:text-[clamp(1.05rem,4.6vw,2.4rem)] lg:text-[clamp(1.25rem,6vw,3rem)] md:whitespace-nowrap md:tracking-[-0.01em] leading-[1.2]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(90deg, #064CF0 0%, #2F0267 67.33%)",
-                  }}
-                >
-                  clarity to complexity
-                </div>
-                <div className="flex items-baseline leading-[1.2]">
-                  <span className="font-display font-semibold text-black text-[32px] md:text-[clamp(1.15rem,5vw,2.6rem)] lg:text-[clamp(1.25rem,6vw,3rem)]">
-                    & &nbsp;
-                  </span>
-                  <span
-                    className="font-display font-semibold text-transparent bg-clip-text text-[32px] md:text-[clamp(1.15rem,5vw,2.6rem)] lg:text-[clamp(1.25rem,6vw,3rem)] leading-[1]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(90.24deg, #DF09A2 8.5%, #920081 99.8%)",
-                    }}
-                  >
-                    ideas to life
-                  </span>
-                </div>
-                <span className="mt-[clamp(14px,2.8vw,32px)] max-w-[clamp(300px,60vw,500px)] font-open-sans text-base leading-relaxed text-gray-700 md:text-2xl">
-                  With 5+ years of UX expertise, I&apos;ve helped startups and
-                  global teams bring powerful tools to life.
-                </span>
-              </div>
-            </div>
-          </AnimatedWrapper>
+            <span className="hero-command-window-controls" aria-hidden="true">
+              <span className="hero-command-window-dot hero-command-window-dot-red" />
+              <span className="hero-command-window-dot hero-command-window-dot-yellow" />
+              <span className="hero-command-window-dot hero-command-window-dot-green" />
+            </span>
+            <span className="hero-command-prompt" aria-hidden="true">
+              <span className="hero-command-username">jashvi@studio</span>
+              <span className="hero-command-path">:~</span>
+              <span className="hero-command-symbol">$</span>
+            </span>
+            <span className="hero-command-text">
+              Research, strategy, and a little AI magic.
+            </span>
+            <span className="hero-command-caret" aria-hidden="true" />
+          </div>
+        </div>
+      )}
 
-          <AnimatedWrapper
-            delay={0.2}
-            duration={0.8}
-            animationType="fadeInUp"
-            distance={80}
-          >
-            {/* Right: Images */}
-            <div className="order-1 md:order-2 flex justify-center">
-              <div className="relative w-full h-[clamp(250px,40vw,400px)] flex justify-center items-center">
-                <div className="flex gap-4 items-center">
-                  {/* Background Image */}
-                  <div
-                    className="relative z-2"
-                    style={{
-                      width: "clamp(160px,22vw,280px)",
-                      height: "clamp(200px,30vw,380px)",
-                      transform: "rotate(-6.86deg)",
-                    }}
-                  >
-                    <Image
-                      src="/images/landing-page/hero/hero-img2.png"
-                      alt="UI mockups collage"
-                      fill
-                      className="object-cover rounded-[clamp(6px,0.6vw,10px)] shadow-sm"
-                      priority
-                      sizes="(min-width: 1024px) 400px, 60vw"
-                    />
-                  </div>
+      <div className="hero-redesign-content">
+        <div className="hero-copy">
+          <p className="hero-question">Who am I?</p>
+          <div className="hero-ticker" aria-live="polite">
+            <span className="hero-ticker-word" key={tickerIndex}>
+              {TICKER_WORDS[tickerIndex]}
+            </span>
+          </div>
+        </div>
 
-                  {/* Foreground Image */}
-                  <div
-                    className="relative z-1 -ml-5"
-                    style={{
-                      width: "clamp(160px,22vw,280px)",
-                      height: "clamp(200px,30vw,380px)",
-                      transform: "rotate(9.17deg)",
-                    }}
-                  >
-                    <Image
-                      src="/images/landing-page/hero/hero-img1.png"
-                      alt="Jashvi presenting a UX flow"
-                      fill
-                      className="object-cover rounded-[clamp(6px,0.6vw,10px)] shadow-sm"
-                      priority
-                      sizes="(min-width: 1024px) 400px, 60vw"
-                    />
-                  </div>
-                  <div className="absolute inset-0 z-3">
-                    <div className="flex justify-center items-start h-1/3">
-                      <Image
-                        src="/images/landing-page/hero/ux-lead.svg"
-                        alt="UX Lead"
-                        width={60}
-                        height={60}
-                        className="w-[clamp(40px,6vw,75px)] h-full animate-float-fast"
-                      />
-                    </div>
-                    <div className="flex justify-end items-end h-1/3">
-                      <Image
-                        src="/images/landing-page/hero/digital-problem-solver.svg"
-                        alt="Digital Problem Solver"
-                        width={100}
-                        height={100}
-                        className="w-[clamp(100px,12vw,150px)] h-full animate-float-right"
-                      />
-                    </div>
-                    <div className="flex justify-center items-end h-1/3">
-                      <Image
-                        src="/images/landing-page/hero/driven-by-clarity.svg"
-                        alt="Driven by Clarity"
-                        width={150}
-                        height={150}
-                        className="w-[clamp(150px,20vw,250px)] h-full animate-float-diagonal"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </AnimatedWrapper>
+        <div
+          className="hero-photo-stage"
+          aria-label="Strategy and collaboration moments"
+        >
+          <div className="hero-photo-stack">
+            {PLACEHOLDER_CARDS.map((card, slot) => (
+              <figure
+                className={`hero-photo-card hero-photo-card-${slot}`}
+                key={card}
+              >
+                <Image
+                  src={card}
+                  alt="Placeholder for a Jashvi strategy session photograph"
+                  fill
+                  priority={slot < 2}
+                  sizes="(max-width: 767px) 45vw, (max-width: 1200px) 30vw, 300px"
+                  className="object-cover"
+                />
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
