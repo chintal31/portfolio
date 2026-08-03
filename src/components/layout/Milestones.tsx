@@ -134,6 +134,7 @@ export default function Milestones() {
 
   return (
     <section
+      id="milestones"
       ref={sectionRef}
       className="overflow-hidden bg-black py-20 sm:py-24 md:py-32"
     >

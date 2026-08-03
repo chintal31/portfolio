@@ -63,7 +63,7 @@ export default function HowICreateValue({
 
   return (
     <section
-      className="bg-[#FFFFFF] px-4 py-16 md:py-20"
+      className="bg-[#FFFFFF] px-4 pt-20 pb-40 md:pt-24 md:pb-48 lg:pt-[100px] lg:pb-[200px]"
       aria-labelledby={labelId}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -73,6 +73,7 @@ export default function HowICreateValue({
         >
           How I Create Value
         </h2>
+        <p className="value-accordion-instruction">Select a pillar to expand</p>
         <div
           className="value-accordion"
           role="group"

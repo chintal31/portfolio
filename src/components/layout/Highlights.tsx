@@ -2,10 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const highlights = [
   { value: 20, suffix: "%", label: "Reduction in payment flow drop-offs" },
@@ -24,12 +20,9 @@ const COUNT_DURATION = 1200;
 
 function useCountUp(target: number, active: boolean) {
   const [count, setCount] = useState(0);
-  const hasPlayedRef = useRef(false);
 
   useEffect(() => {
-    if (!active || hasPlayedRef.current) return;
-
-    hasPlayedRef.current = true;
+    if (!active) return;
 
     let frameId = 0;
     const startTime = performance.now();
@@ -46,16 +39,6 @@ function useCountUp(target: number, active: boolean) {
   return count;
 }
 
-function useHasEntered(active: boolean) {
-  const [hasEntered, setHasEntered] = useState(false);
-
-  useEffect(() => {
-    if (active) setHasEntered(true);
-  }, [active]);
-
-  return hasEntered;
-}
-
 function HighlightStat({
   value,
   suffix,
@@ -63,10 +46,9 @@ function HighlightStat({
   active,
 }: (typeof highlights)[number] & { active: boolean }) {
   const count = useCountUp(value, active);
-  const hasEntered = useHasEntered(active);
 
   return (
-    <article className={hasEntered ? "highlight-stat-in" : "opacity-0"}>
+    <article className={active ? "highlight-stat-in" : "opacity-0"}>
       <p className="font-display text-[42px] leading-none text-white md:text-5xl">
         {count.toLocaleString("en-US")}
         {suffix}
@@ -85,10 +67,9 @@ function SustainabilityStat({
   active,
 }: (typeof sustainabilityHighlights)[number] & { active: boolean }) {
   const count = useCountUp(value, active);
-  const hasEntered = useHasEntered(active);
 
   return (
-    <article className={hasEntered ? "highlight-stat-in" : "opacity-0"}>
+    <article className={active ? "highlight-stat-in" : "opacity-0"}>
       <p className="font-display text-[42px] leading-none text-white md:text-5xl">
         {count.toLocaleString("en-US")}
         {suffix === "nd" ? <sup className="text-2xl">nd</sup> : suffix}
@@ -162,9 +143,7 @@ export default function Highlights() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [secondSlideVisible, setSecondSlideVisible] = useState(false);
-  const [impactStatsStarted, setImpactStatsStarted] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -172,12 +151,12 @@ export default function Highlights() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry?.isIntersecting && entry.intersectionRatio >= 0.5) {
+        if (entry?.isIntersecting) {
           setActive(true);
           observer.disconnect();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
 
     observer.observe(section);
@@ -187,117 +166,123 @@ export default function Highlights() {
   useEffect(() => {
     const section = sectionRef.current;
     const track = trackRef.current;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!section || !track) return;
 
-    if (!section || !track || reducedMotion.matches) return;
+    let frameId: number | null = null;
 
-    const context = gsap.context(() => {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          id: "highlights-carousel",
-          trigger: section,
-          start: "top top",
-          end: "+=200%",
-          pin: true,
-          scrub: 0.7,
-          anticipatePin: 1,
-          onUpdate: trigger => {
-            setActiveSlide(trigger.progress >= 0.5 ? 1 : 0);
-            setSecondSlideVisible(trigger.progress > 0.01);
-            setImpactStatsStarted(trigger.progress >= 0.15);
-          },
-        },
-      });
+    const updateTrackPosition = () => {
+      frameId = null;
 
-      timeline
-        .to(track, { xPercent: -50, duration: 1, ease: "none" })
-        .to({}, { duration: 1 });
-    }, section);
+      const sectionStart = section.getBoundingClientRect().top + window.scrollY;
+      const progress = Math.min(
+        Math.max((window.scrollY - sectionStart) / window.innerHeight, 0),
+        1
+      );
 
-    return () => context.revert();
+      track.style.transform = `translate3d(-${progress * 100}%, 0, 0)`;
+      setCurrentSlide(progress >= 0.5 ? 1 : 0);
+    };
+
+    const scheduleTrackUpdate = () => {
+      if (frameId === null) {
+        frameId = requestAnimationFrame(updateTrackPosition);
+      }
+    };
+
+    updateTrackPosition();
+    window.addEventListener("scroll", scheduleTrackUpdate, { passive: true });
+    window.addEventListener("resize", scheduleTrackUpdate);
+
+    return () => {
+      if (frameId !== null) cancelAnimationFrame(frameId);
+      window.removeEventListener("scroll", scheduleTrackUpdate);
+      window.removeEventListener("resize", scheduleTrackUpdate);
+    };
   }, []);
 
   const goToSlide = (slide: number) => {
-    const trigger = ScrollTrigger.getById("highlights-carousel");
-    if (trigger) {
-      window.scrollTo({
-        top: trigger.start + (trigger.end - trigger.start) * slide,
-        behavior: "smooth",
-      });
-    } else {
-      setActiveSlide(slide);
-      gsap.set(trackRef.current, { xPercent: -50 * slide });
-    }
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const sectionStart = section.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: sectionStart + slide * window.innerHeight,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <section
-      ref={sectionRef}
-      className="overflow-hidden bg-black pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-32 md:pb-16"
-    >
-      <div className="mx-auto max-w-7xl overflow-hidden px-6 sm:px-8 lg:px-10">
-        <p className="font-open-sans text-lg font-normal text-white/55 md:text-xl">
-          Highlights
-        </p>
-        <div ref={trackRef} className="mt-3 flex w-[200%] md:mt-4 lg:mt-5">
-          <div
-            className="w-1/2 pr-6 sm:pr-8 lg:pr-10"
-            aria-hidden={activeSlide !== 0}
-          >
-            <h2 className="max-w-4xl font-display text-2xl text-white md:text-[32px]">
-              Redesigning the Payments Flow for a 5M+ User Banking App
-            </h2>
-            <div className="mt-5 grid items-center gap-12 md:mt-6 lg:mt-8 lg:grid-cols-[auto_1fr] lg:gap-16">
-              <BankingAppMockup />
-              <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 sm:gap-8">
-                {highlights.map(stat => (
-                  <HighlightStat
-                    key={stat.label}
-                    {...stat}
-                    active={active && activeSlide === 0}
-                  />
-                ))}
+    <section ref={sectionRef} className="relative bg-white">
+      <div className="sticky top-0 overflow-hidden bg-black pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-32 md:pb-16">
+        <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
+          <p className="font-open-sans text-lg font-normal text-white/55 md:text-xl">
+            Highlights
+          </p>
+          <div className="mt-3 overflow-hidden md:mt-4 lg:mt-5">
+            <div ref={trackRef} className="flex">
+              <div className="w-full shrink-0" aria-hidden={currentSlide !== 0}>
+                <h2 className="max-w-4xl font-display text-2xl text-white md:text-[32px]">
+                  Redesigning the Payments Flow for a 5M+ User Banking App
+                </h2>
+                <div className="mt-5 grid items-center gap-12 md:mt-6 lg:mt-8 lg:grid-cols-[auto_1fr] lg:gap-16">
+                  <BankingAppMockup />
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 sm:gap-8">
+                    {highlights.map(stat => (
+                      <HighlightStat
+                        key={stat.label}
+                        {...stat}
+                        active={active && currentSlide === 0}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="w-full shrink-0" aria-hidden={currentSlide !== 1}>
+                <h2 className="max-w-4xl font-display text-2xl text-white md:text-[32px]">
+                  Gamifying the Sustainability for individuals
+                </h2>
+                <div className="mt-5 grid items-center gap-12 md:mt-6 lg:mt-8 lg:grid-cols-[auto_1fr] lg:gap-20">
+                  <SustainabilityAppMockup />
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 sm:gap-8">
+                    {sustainabilityHighlights.map(stat => (
+                      <SustainabilityStat
+                        key={stat.label}
+                        {...stat}
+                        active={active && currentSlide === 1}
+                      />
+                    ))}
+                    <MagneticConceptLink />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            className={`w-1/2 ${secondSlideVisible ? "visible" : "invisible pointer-events-none"}`}
-            aria-hidden={activeSlide !== 1}
-          >
-            <h2 className="max-w-4xl font-display text-2xl text-white md:text-[32px]">
-              Gamifying the Sustainability for individuals
-            </h2>
-            <div className="mt-5 grid items-center gap-12 md:mt-6 lg:mt-8 lg:grid-cols-[auto_1fr] lg:gap-20">
-              <SustainabilityAppMockup />
-              <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 sm:gap-8">
-                {sustainabilityHighlights.map(stat => (
-                  <SustainabilityStat
-                    key={stat.label}
-                    {...stat}
-                    active={active && impactStatsStarted}
-                  />
-                ))}
-                <MagneticConceptLink />
-              </div>
+            <div
+              className="mt-8 flex justify-center gap-2"
+              aria-label="Highlights carousel navigation"
+            >
+              {[
+                "Show banking-app highlights",
+                "Show sustainability highlights",
+              ].map((label, index) => (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => goToSlide(index)}
+                  aria-label={label}
+                  aria-current={currentSlide === index ? "true" : undefined}
+                  className={`h-2 w-8 rounded-full transition-colors ${
+                    currentSlide === index
+                      ? "bg-white"
+                      : "bg-white/35 hover:bg-white/60"
+                  }`}
+                />
+              ))}
             </div>
           </div>
-        </div>
-        <div
-          className="mt-10 flex justify-center gap-1.5"
-          aria-label="Highlights pagination"
-        >
-          {[0, 1].map(slide => (
-            <button
-              key={slide}
-              type="button"
-              onClick={() => goToSlide(slide)}
-              aria-label={`Show highlight ${slide + 1}`}
-              aria-current={activeSlide === slide ? "true" : undefined}
-              className={`h-1.5 w-6 rounded-full transition-colors ${activeSlide === slide ? "bg-white" : "bg-white/35"}`}
-            />
-          ))}
         </div>
       </div>
+      <div aria-hidden="true" className="h-screen" />
     </section>
   );
 }

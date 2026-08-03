@@ -22,12 +22,12 @@ export default function Home() {
         <Hero />
         <Milestones />
         <UXCaseStudies />
-        <HowICreateValue />
-        <Highlights />
-        <Brands />
-        <Testimonials />
-        <Collaboration />
       </HomeScrollSnap>
+      <HowICreateValue />
+      <Highlights />
+      <Brands />
+      <Testimonials />
+      <Collaboration />
     </Layout>
   );
 }

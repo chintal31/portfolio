@@ -32,20 +32,6 @@ export default function AboutHero() {
                 the gap between the two with clarity and purpose.
               </p>
             </AnimatedWrapper>
-
-            <AnimatedWrapper
-              delay={0}
-              duration={0.8}
-              animationType="fadeInUp"
-              distance={80}
-            >
-              <div className="border-l-4 border-gray-300 pl-6">
-                <p className="font-open-sans text-md md:text-lg italic text-gray-600 leading-relaxed">
-                  &quot;I&apos;ll show you every version of design I can think
-                  of.&quot; [swiftie coded]
-                </p>
-              </div>
-            </AnimatedWrapper>
           </div>
 
           {/* Right: Image */}
