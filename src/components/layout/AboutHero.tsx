@@ -32,7 +32,6 @@ export default function AboutHero() {
                 the gap between the two with clarity and purpose.
               </p>
             </AnimatedWrapper>
-
           </div>
 
           {/* Right: Image */}
