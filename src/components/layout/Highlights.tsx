@@ -141,6 +141,7 @@ function MagneticConceptLink() {
 
 export default function Highlights() {
   const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -155,7 +156,7 @@ export default function Highlights() {
           observer.disconnect();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
 
     observer.observe(section);
@@ -163,89 +164,125 @@ export default function Highlights() {
   }, []);
 
   useEffect(() => {
-    if (!active) return;
+    const section = sectionRef.current;
+    const track = trackRef.current;
+    if (!section || !track) return;
 
-    const interval = window.setInterval(() => {
-      setCurrentSlide(slide => (slide + 1) % 2);
-    }, 2000);
+    let frameId: number | null = null;
 
-    return () => window.clearInterval(interval);
-  }, [active]);
+    const updateTrackPosition = () => {
+      frameId = null;
+
+      const sectionStart = section.getBoundingClientRect().top + window.scrollY;
+      const progress = Math.min(
+        Math.max((window.scrollY - sectionStart) / window.innerHeight, 0),
+        1
+      );
+
+      track.style.transform = `translate3d(-${progress * 100}%, 0, 0)`;
+      setCurrentSlide(progress >= 0.5 ? 1 : 0);
+    };
+
+    const scheduleTrackUpdate = () => {
+      if (frameId === null) {
+        frameId = requestAnimationFrame(updateTrackPosition);
+      }
+    };
+
+    updateTrackPosition();
+    window.addEventListener("scroll", scheduleTrackUpdate, { passive: true });
+    window.addEventListener("resize", scheduleTrackUpdate);
+
+    return () => {
+      if (frameId !== null) cancelAnimationFrame(frameId);
+      window.removeEventListener("scroll", scheduleTrackUpdate);
+      window.removeEventListener("resize", scheduleTrackUpdate);
+    };
+  }, []);
+
+  const goToSlide = (slide: number) => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const sectionStart = section.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: sectionStart + slide * window.innerHeight,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <section
-      ref={sectionRef}
-      className="overflow-hidden bg-black pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-32 md:pb-16"
-    >
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <p className="font-open-sans text-lg font-normal text-white/55 md:text-xl">
-          Highlights
-        </p>
-        <div className="mt-3 overflow-hidden md:mt-4 lg:mt-5">
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-          >
-            <div className="w-full shrink-0" aria-hidden={currentSlide !== 0}>
-              <h2 className="max-w-4xl font-display text-2xl text-white md:text-[32px]">
-                Redesigning the Payments Flow for a 5M+ User Banking App
-              </h2>
-              <div className="mt-5 grid items-center gap-12 md:mt-6 lg:mt-8 lg:grid-cols-[auto_1fr] lg:gap-16">
-                <BankingAppMockup />
-                <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 sm:gap-8">
-                  {highlights.map(stat => (
-                    <HighlightStat
-                      key={stat.label}
-                      {...stat}
-                      active={active && currentSlide === 0}
-                    />
-                  ))}
+    <section ref={sectionRef} className="relative bg-white">
+      <div className="sticky top-0 overflow-hidden bg-black pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-32 md:pb-16">
+        <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
+          <p className="font-open-sans text-lg font-normal text-white/55 md:text-xl">
+            Highlights
+          </p>
+          <div className="mt-3 overflow-hidden md:mt-4 lg:mt-5">
+            <div ref={trackRef} className="flex">
+              <div className="w-full shrink-0" aria-hidden={currentSlide !== 0}>
+                <h2 className="max-w-4xl font-display text-2xl text-white md:text-[32px]">
+                  Redesigning the Payments Flow for a 5M+ User Banking App
+                </h2>
+                <div className="mt-5 grid items-center gap-12 md:mt-6 lg:mt-8 lg:grid-cols-[auto_1fr] lg:gap-16">
+                  <BankingAppMockup />
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 sm:gap-8">
+                    {highlights.map(stat => (
+                      <HighlightStat
+                        key={stat.label}
+                        {...stat}
+                        active={active && currentSlide === 0}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="w-full shrink-0" aria-hidden={currentSlide !== 1}>
+                <h2 className="max-w-4xl font-display text-2xl text-white md:text-[32px]">
+                  Gamifying the Sustainability for individuals
+                </h2>
+                <div className="mt-5 grid items-center gap-12 md:mt-6 lg:mt-8 lg:grid-cols-[auto_1fr] lg:gap-20">
+                  <SustainabilityAppMockup />
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 sm:gap-8">
+                    {sustainabilityHighlights.map(stat => (
+                      <SustainabilityStat
+                        key={stat.label}
+                        {...stat}
+                        active={active && currentSlide === 1}
+                      />
+                    ))}
+                    <MagneticConceptLink />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="w-full shrink-0" aria-hidden={currentSlide !== 1}>
-              <h2 className="max-w-4xl font-display text-2xl text-white md:text-[32px]">
-                Gamifying the Sustainability for individuals
-              </h2>
-              <div className="mt-5 grid items-center gap-12 md:mt-6 lg:mt-8 lg:grid-cols-[auto_1fr] lg:gap-20">
-                <SustainabilityAppMockup />
-                <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4 sm:gap-8">
-                  {sustainabilityHighlights.map(stat => (
-                    <SustainabilityStat
-                      key={stat.label}
-                      {...stat}
-                      active={active && currentSlide === 1}
-                    />
-                  ))}
-                  <MagneticConceptLink />
-                </div>
-              </div>
+            <div
+              className="mt-8 flex justify-center gap-2"
+              aria-label="Highlights carousel navigation"
+            >
+              {[
+                "Show banking-app highlights",
+                "Show sustainability highlights",
+              ].map((label, index) => (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => goToSlide(index)}
+                  aria-label={label}
+                  aria-current={currentSlide === index ? "true" : undefined}
+                  className={`h-2 w-8 rounded-full transition-colors ${
+                    currentSlide === index
+                      ? "bg-white"
+                      : "bg-white/35 hover:bg-white/60"
+                  }`}
+                />
+              ))}
             </div>
-          </div>
-          <div
-            className="mt-8 flex justify-center gap-2"
-            aria-label="Highlights carousel navigation"
-          >
-            {[
-              "Show banking-app highlights",
-              "Show sustainability highlights",
-            ].map((label, index) => (
-              <button
-                key={label}
-                type="button"
-                onClick={() => setCurrentSlide(index)}
-                aria-label={label}
-                aria-current={currentSlide === index ? "true" : undefined}
-                className={`h-2 w-8 rounded-full transition-colors ${
-                  currentSlide === index
-                    ? "bg-white"
-                    : "bg-white/35 hover:bg-white/60"
-                }`}
-              />
-            ))}
           </div>
         </div>
       </div>
+      <div aria-hidden="true" className="h-screen" />
     </section>
   );
 }

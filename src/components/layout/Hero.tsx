@@ -168,6 +168,14 @@ export default function Hero() {
             ))}
           </div>
         </div>
+
+        <a className="hero-scroll-cue" href="#milestones">
+          <span className="hero-scroll-arrow" aria-hidden="true" />
+          <span className="hero-scroll-copy">
+            <span className="hero-scroll-heading">Design in action</span>
+            <span className="hero-scroll-body">Scroll to view</span>
+          </span>
+        </a>
       </div>
     </section>
   );

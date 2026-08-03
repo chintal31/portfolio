@@ -19,15 +19,15 @@ export default function Home() {
       }}
     >
       <HomeScrollSnap>
-      <Hero />
-      <Milestones />
-      <UXCaseStudies />
+        <Hero />
+        <Milestones />
+        <UXCaseStudies />
+      </HomeScrollSnap>
       <HowICreateValue />
       <Highlights />
       <Brands />
       <Testimonials />
       <Collaboration />
-      </HomeScrollSnap>
     </Layout>
   );
 }
