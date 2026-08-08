@@ -108,18 +108,16 @@ const projects: Record<"ai" | "writing", Project[]> = {
 export default function DesignerBuilder() {
   const [activeTab, setActiveTab] = useState<"ai" | "writing">("ai");
   const stackFrameRef = useRef<HTMLDivElement>(null);
-  const stackRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLElement | null)[]>([]);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const activeProjects = projects[activeTab];
 
   useLayoutEffect(() => {
     const stackFrame = stackFrameRef.current;
-    const stack = stackRef.current;
     const cards = cardRefs.current.filter(
       (card): card is HTMLElement => card !== null
     );
-    if (!stackFrame || !stack || cards.length < 2) return;
+    if (!stackFrame || cards.length < 2) return;
 
     const context = gsap.context(() => {
       const mediaQuery = window.matchMedia(
@@ -136,7 +134,13 @@ export default function DesignerBuilder() {
         activeMediaIndex = -1;
       };
       const activateMedia = (index: number, restart = false) => {
-        if (activeMediaIndex === index && !restart) return;
+        if (activeMediaIndex === index && !restart) {
+          const activeVideo = videoRefs.current[index];
+          if (activeVideo?.paused) {
+            void activeVideo.play().catch(() => undefined);
+          }
+          return;
+        }
 
         pauseAllVideos();
         activeMediaIndex = index;
@@ -173,7 +177,7 @@ export default function DesignerBuilder() {
             activateMedia(mediaIndexForProgress(self.progress));
           },
           onLeave: stopAllMedia,
-          onLeaveBack: stopAllMedia,
+          onLeaveBack: () => activateMedia(0, true),
           onUpdate: self => {
             activeCardIndex = mediaIndexForProgress(self.progress);
             activateMedia(activeCardIndex);
@@ -205,14 +209,6 @@ export default function DesignerBuilder() {
         });
       });
 
-      ScrollTrigger.create({
-        trigger: stack,
-        start: "top 90%",
-        end: "bottom top",
-        onEnter: () => activateMedia(0, true),
-        onEnterBack: () => activateMedia(0, true),
-        onLeaveBack: stopAllMedia,
-      });
     }, stackFrame);
 
     return () => {
@@ -285,7 +281,7 @@ export default function DesignerBuilder() {
               </span>
             </button>
           </div>
-          <div className="designer-builder-stack" ref={stackRef} role="tabpanel">
+          <div className="designer-builder-stack" role="tabpanel">
           {activeProjects.map((project, index) => {
             const content = (
               <>
