@@ -1,129 +1,104 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-const TICKER_WORDS = [
-  "Product Designer",
-  "Strategic Thinker",
-  "Curious Experimenter",
-];
-
-// Temporary stand-ins until the final strategy-session photos are supplied.
-const PLACEHOLDER_CARDS = [
-  "/images/landing-page/hero/online meeting.jpg",
-  "/images/landing-page/hero/meeting.jpg",
-  "/images/landing-page/hero/hero-img2.png",
-  "/images/landing-page/hero/hero-img1.png",
-  "/images/landing-page/hero/designathon.jpg",
-];
+const HERO_INTRO_SESSION_KEY = "jashvi-hero-intro-seen";
 
 export default function Hero() {
-  const [phase, setPhase] = useState<"intro" | "reveal" | "ready">("intro");
+  // Keep the first client render identical to the server render. Reading
+  // sessionStorage here made a returning visitor render different markup
+  // during hydration.
   const [showIntro, setShowIntro] = useState(true);
-  const [tickerIndex, setTickerIndex] = useState(0);
-  const timers = useRef<number[]>([]);
-  const tickerTimer = useRef<number | null>(null);
+  const timerRef = useRef<number | null>(null);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    const navigation = performance.getEntriesByType("navigation")[0] as
-      | PerformanceNavigationTiming
-      | undefined;
-    const playOnThisVisit =
-      reducedMotion === false &&
-      (navigation?.type === "reload" ||
-        !sessionStorage.getItem("jashvi-hero-played"));
+    const previousScrollRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
 
-    const addTimer = (callback: () => void, delay: number) => {
-      const timer = window.setTimeout(callback, delay);
-      timers.current.push(timer);
-    };
+    const shouldSkipIntro =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.sessionStorage.getItem(HERO_INTRO_SESSION_KEY) === "true";
 
-    const startTicker = () => {
-      if (reducedMotion || tickerTimer.current !== null) return;
-
-      tickerTimer.current = window.setInterval(() => {
-        setTickerIndex(current => (current + 1) % TICKER_WORDS.length);
-      }, 2000);
-    };
-
-    const revealTicker = () => {
-      addTimer(() => {
-        setTickerIndex(current => (current + 1) % TICKER_WORDS.length);
-        startTicker();
-      }, 2250);
-    };
-
-    const finishImmediately = () => {
-      timers.current.forEach(window.clearTimeout);
-      timers.current = [];
-      setPhase("ready");
+    if (shouldSkipIntro) {
       setShowIntro(false);
-      setTickerIndex(0);
-      startTicker();
-    };
-
-    if (!playOnThisVisit) {
-      finishImmediately();
-      return;
+      return () => {
+        window.history.scrollRestoration = previousScrollRestoration;
+      };
     }
 
-    sessionStorage.setItem("jashvi-hero-played", "true");
-    addTimer(() => {
-      setPhase("reveal");
-      setShowIntro(false);
-      revealTicker();
-    }, 3800);
-    addTimer(() => setPhase("ready"), 7000);
+    if (!showIntro) {
+      return () => {
+        window.history.scrollRestoration = previousScrollRestoration;
+      };
+    }
 
-    window.addEventListener("wheel", finishImmediately, {
+    window.sessionStorage.setItem(HERO_INTRO_SESSION_KEY, "true");
+
+    const dismissIntro = () => {
+      if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+      setShowIntro(false);
+    };
+
+    timerRef.current = window.setTimeout(dismissIntro, 3800);
+    window.addEventListener("wheel", dismissIntro, {
       passive: true,
       once: true,
     });
-    window.addEventListener("touchstart", finishImmediately, {
-      passive: true,
-      once: true,
-    });
-    window.addEventListener("scroll", finishImmediately, {
+    window.addEventListener("touchstart", dismissIntro, {
       passive: true,
       once: true,
     });
 
     return () => {
-      timers.current.forEach(window.clearTimeout);
-      if (tickerTimer.current !== null) {
-        window.clearInterval(tickerTimer.current);
-        tickerTimer.current = null;
-      }
-      window.removeEventListener("wheel", finishImmediately);
-      window.removeEventListener("touchstart", finishImmediately);
-      window.removeEventListener("scroll", finishImmediately);
+      if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+      window.removeEventListener("wheel", dismissIntro);
+      window.removeEventListener("touchstart", dismissIntro);
+      window.history.scrollRestoration = previousScrollRestoration;
+    };
+  }, [showIntro]);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    let frameId: number | null = null;
+    const updateGridVisibility = () => {
+      frameId = null;
+      const progress = Math.max(
+        0,
+        Math.min(1, window.scrollY / window.innerHeight)
+      );
+      hero.style.setProperty("--home-hero-scroll-progress", String(progress));
+    };
+    const onScroll = () => {
+      if (frameId === null)
+        frameId = window.requestAnimationFrame(updateGridVisibility);
+    };
+
+    updateGridVisibility();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
     };
   }, []);
 
   return (
     <section
-      className={`hero-redesign hero-${phase}`}
-      aria-label="Introduction"
+      ref={heroRef}
+      className={`home-hero ${showIntro ? "home-hero-intro-active" : "home-hero-ready"}`}
+      aria-labelledby="home-hero-heading"
     >
       {showIntro && (
-        <div
-          className={`hero-intro ${phase === "reveal" ? "hero-intro-leaving" : ""}`}
-          aria-hidden="true"
-        >
-          <div
-            className="hero-command-intro"
-            aria-label="Research, strategy, and a little AI magic."
-          >
-            <span className="hero-command-window-controls" aria-hidden="true">
+        <div className="hero-intro" aria-hidden="true">
+          <div className="hero-command-intro">
+            <span className="hero-command-window-controls">
               <span className="hero-command-window-dot hero-command-window-dot-red" />
               <span className="hero-command-window-dot hero-command-window-dot-yellow" />
               <span className="hero-command-window-dot hero-command-window-dot-green" />
             </span>
-            <span className="hero-command-prompt" aria-hidden="true">
+            <span className="hero-command-prompt">
               <span className="hero-command-username">jashvi@studio</span>
               <span className="hero-command-path">:~</span>
               <span className="hero-command-symbol">$</span>
@@ -131,52 +106,31 @@ export default function Hero() {
             <span className="hero-command-text">
               Research, strategy, and a little AI magic.
             </span>
-            <span className="hero-command-caret" aria-hidden="true" />
+            <span className="hero-command-caret" />
           </div>
         </div>
       )}
-
-      <div className="hero-redesign-content">
-        <div className="hero-copy">
-          <p className="hero-question">Who am I?</p>
-          <div className="hero-ticker" aria-live="polite">
-            <span className="hero-ticker-word" key={tickerIndex}>
-              {TICKER_WORDS[tickerIndex]}
-            </span>
-          </div>
-        </div>
-
-        <div
-          className="hero-photo-stage"
-          aria-label="Strategy and collaboration moments"
-        >
-          <div className="hero-photo-stack">
-            {PLACEHOLDER_CARDS.map((card, slot) => (
-              <figure
-                className={`hero-photo-card hero-photo-card-${slot}`}
-                key={card}
-              >
-                <Image
-                  src={card}
-                  alt="Placeholder for a Jashvi strategy session photograph"
-                  fill
-                  priority={slot < 2}
-                  sizes="(max-width: 767px) 45vw, (max-width: 1200px) 30vw, 300px"
-                  className="object-cover"
-                />
-              </figure>
-            ))}
-          </div>
-        </div>
-
-        <a className="hero-scroll-cue" href="#milestones">
-          <span className="hero-scroll-arrow" aria-hidden="true" />
-          <span className="hero-scroll-copy">
-            <span className="hero-scroll-heading">Design in action</span>
-            <span className="hero-scroll-body">Scroll to view</span>
+      <div className="home-hero-grid" aria-hidden="true" />
+      <div className="home-hero-content">
+        <h1 id="home-hero-heading">
+          <span className="home-hero-heading-line home-hero-heading-line-one">
+            Every brief hides an{" "}
+            <span className="home-hero-highlight cursor-hover">assumption</span>
+            .
           </span>
-        </a>
+          <span className="home-hero-heading-line home-hero-heading-line-two">
+            I find it before I build anything
+          </span>
+        </h1>
+        <p>Hi, I&apos;m Jashvi, a Product designer based in Germany</p>
       </div>
+      <a className="hero-scroll-cue home-hero-scroll-cue" href="#milestones">
+        <span className="hero-scroll-arrow" aria-hidden="true" />
+        <span className="hero-scroll-copy">
+          <span className="hero-scroll-heading">Design in action</span>
+          <span className="hero-scroll-body">Scroll to view</span>
+        </span>
+      </a>
     </section>
   );
 }

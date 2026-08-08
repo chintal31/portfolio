@@ -60,13 +60,13 @@ export default function UserPersonas() {
           {personas.map((persona, index) => (
             <div key={index} className="flex flex-col gap-8">
               <div className="flex flex-col gap-3 h-32">
-                <div className="w-24 h-24 bg-gray-100 rounded-lg flex text-4xl">
+                <div className="w-24 h-24 flex text-4xl">
                   <Image
                     src={persona.svg}
                     alt={persona.title}
                     width={100}
                     height={100}
-                    className="bg-white"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <h3 className="font-open-sans font-semibold text-base leading-[22px] text-black">
