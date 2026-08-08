@@ -984,6 +984,10 @@ html {
     border-radius 220ms ease;
 }
 
+.hero-photo-card.is-caption-active {
+  z-index: 10;
+}
+
 .hero-photo-card.is-caption-active .hero-photo-caption {
   visibility: visible;
   transform: translateY(0);
@@ -1846,7 +1850,7 @@ html {
   transform: var(--final-transform);
 }
 .hero-ready .hero-photo-card:hover {
-  z-index: 6;
+  z-index: 10;
   box-shadow: 0 16px 30px rgb(33 26 18 / 19%);
   transform: translate3d(0, -12px, 0) var(--final-transform);
 }
