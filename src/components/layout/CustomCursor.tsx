@@ -47,6 +47,10 @@ export default function CustomCursor() {
         event.target instanceof Element &&
           Boolean(event.target.closest("a, button, .cursor-hover"))
       );
+      cursor.dataset.highlight = String(
+        event.target instanceof Element &&
+          Boolean(event.target.closest(".home-hero-highlight"))
+      );
 
       if (frameId === null) frameId = requestAnimationFrame(paint);
     };

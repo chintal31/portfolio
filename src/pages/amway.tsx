@@ -43,7 +43,7 @@ export default function Amway() {
     },
     {
       title: "Team",
-      description: "1 PM, 12 Developers, 3 Designer",
+      description: "1 PM, 12 Developers, 3 Designers",
     },
 
     {
@@ -110,7 +110,7 @@ export default function Amway() {
       {/* Hero Section */}
       <section className="relative w-full min-h-[528px] bg-white overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 md:px-12 h-full">
-          <div className="flex flex-col md:flex-row items-center justify-between min-h-[528px] py-16 gap-8 md:gap-12">
+          <div className="flex flex-col md:flex-row items-center justify-between min-h-[528px] pt-16 pb-0 gap-8 md:gap-12">
             {/* Left Content */}
             <AnimatedWrapper
               delay={0}
@@ -152,13 +152,14 @@ export default function Amway() {
 
             {/* Right: Device Frame - Full size image with responsive positioning */}
             <AnimatedWrapper
+              className="order-1 w-full md:order-2 md:w-[48%] md:shrink-0"
               delay={0}
               duration={0.8}
               animationType="fadeInRight"
               distance={80}
             >
-              <div className="order-1 md:order-2 w-full md:w-auto flex justify-center md:justify-start mb-8 md:mb-0">
-                <div className="w-full max-w-lg md:max-w-xl lg:max-w-3xl">
+              <div className="mb-8 flex w-full justify-center md:mb-0 md:justify-start">
+                <div className="w-full">
                   <Image
                     src="/images/amway/amway-hero.png"
                     alt="Amway Hero Image"

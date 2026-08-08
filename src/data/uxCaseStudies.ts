@@ -41,7 +41,7 @@ export const UX_CASE_STUDIES: UXCaseStudy[] = [
     backgroundColor: "#DAF3FF",
     imageSrc: "/images/landing-page/case-study/home-buying-exp.png",
     imageAlt: "Lennar Employee Portal",
-    href: "https://luminous-galaxy-47d.notion.site/Home-Buying-Experience-8342de601ef4446e935ece5709eb7a71",
+    href: "/home-buying",
     tags: ["UX Research", "B2B Saas", "Real Estate"],
     tagBgColor: "#C5EAFF",
   },

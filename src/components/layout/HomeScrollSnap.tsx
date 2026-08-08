@@ -63,10 +63,28 @@ export default function HomeScrollSnap({ children }: { children: ReactNode }) {
       });
 
       const refresh = () => ScrollTrigger.refresh();
+      let restoreSnapTimer: number | undefined;
+      const pauseSnapForAnchorNavigation = () => {
+        trigger.disable();
+        window.clearTimeout(restoreSnapTimer);
+        restoreSnapTimer = window.setTimeout(() => {
+          trigger.enable();
+          ScrollTrigger.refresh();
+        }, 1000);
+      };
       window.addEventListener("resize", refresh);
+      window.addEventListener(
+        "portfolio:anchor-navigation",
+        pauseSnapForAnchorNavigation
+      );
 
       return () => {
         window.removeEventListener("resize", refresh);
+        window.removeEventListener(
+          "portfolio:anchor-navigation",
+          pauseSnapForAnchorNavigation
+        );
+        window.clearTimeout(restoreSnapTimer);
         trigger.kill();
       };
     }, container);

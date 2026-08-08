@@ -1,59 +1,126 @@
+"use client";
+
 import Image from "next/image";
-import { AnimatedWrapper } from "../ui";
+import { useEffect, useState } from "react";
+
+const TICKER_WORDS = [
+  "Product Designer",
+  "Strategic Thinker",
+  "Curious Experimenter",
+];
+const PHOTO_CARDS = [
+  {
+    src: "/images/landing-page/hero/online meeting.jpg",
+    caption: "Friday evenings. Brainstorms > happy hours.",
+  },
+  {
+    src: "/images/landing-page/hero/meeting.jpg",
+    caption: "Early feedback = Less rework",
+  },
+  {
+    src: "/images/landing-page/hero/hero-img2.png",
+    caption: 'Always in my "Let me try this." mode.',
+  },
+  {
+    src: "/images/landing-page/hero/hero-img1.png",
+    caption: "Before AI, there was this :)",
+  },
+  {
+    src: "/images/landing-page/hero/designathon.jpg",
+    caption: "Good design = Good communication",
+  },
+];
 
 export default function AboutHero() {
-  return (
-    <section className="py-16 md:py-20 lg:py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-10 lg:gap-16">
-          {/* Left: Text Content */}
-          <div className="space-y-8">
-            <AnimatedWrapper
-              delay={0}
-              duration={0.8}
-              animationType="fadeInUp"
-              distance={80}
-            >
-              {" "}
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-tight font-normal text-gray-800">
-                Design is more than just moving pixels
-              </h1>
-            </AnimatedWrapper>
-            <AnimatedWrapper
-              delay={0}
-              duration={0.8}
-              animationType="fadeInUp"
-              distance={80}
-            >
-              <p className="font-open-sans text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-800 max-w-2xl">
-                I believe design sits at the intersection of{" "}
-                <span className="font-bold">empathy and impact</span> -
-                listening to users, understanding business goals, and bridging
-                the gap between the two with clarity and purpose.
-              </p>
-            </AnimatedWrapper>
-          </div>
+  const [phase, setPhase] = useState<"reveal" | "ready">("reveal");
+  const [tickerIndex, setTickerIndex] = useState(0);
+  const [activeCaption, setActiveCaption] = useState(2);
 
-          {/* Right: Image */}
-          <AnimatedWrapper
-            delay={0}
-            duration={0.8}
-            animationType="fadeInUp"
-            distance={80}
-          >
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative w-80 h-80 md:w-96 md:h-96 lg:w-[484px] lg:h-[484px]">
-                <Image
-                  src="/images/about/about_hero.svg"
-                  alt="Jashvi Sudra - UX Designer"
-                  fill
-                  className="object-cover rounded-lg"
-                  priority
-                  sizes="(min-width: 1024px) 484px, (min-width: 768px) 384px, 320px"
-                />
-              </div>
-            </div>
-          </AnimatedWrapper>
+  const handleCardPointerEnter = (slot: number) => {
+    setActiveCaption(slot);
+  };
+
+  const handleCardPointerLeave = () => {
+    setActiveCaption(2);
+  };
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setPhase("ready");
+      return;
+    }
+    const tickerStart = window.setTimeout(() => setTickerIndex(1), 2250);
+    const ready = window.setTimeout(() => setPhase("ready"), 7000);
+    const ticker = window.setInterval(
+      () => setTickerIndex(current => (current + 1) % TICKER_WORDS.length),
+      4250
+    );
+    return () => {
+      window.clearTimeout(tickerStart);
+      window.clearTimeout(ready);
+      window.clearInterval(ticker);
+    };
+  }, []);
+
+  return (
+    <section
+      className={`hero-redesign hero-${phase}`}
+      aria-label="Introduction"
+    >
+      <div className="hero-redesign-content">
+        <div className="hero-copy">
+          <p className="hero-question">Who am I?</p>
+          <div className="hero-ticker" aria-live="polite">
+            <span className="hero-ticker-word" key={tickerIndex}>
+              {TICKER_WORDS[tickerIndex]}
+            </span>
+          </div>
+        </div>
+        <div
+          className="hero-photo-stage"
+          aria-label="Strategy and collaboration moments"
+        >
+          <div className="hero-photo-stack">
+            {PHOTO_CARDS.map((card, slot) => (
+              <figure
+                className={`hero-photo-card hero-photo-card-${slot} ${activeCaption === slot ? "is-caption-active" : ""}`}
+                key={card.src}
+                onClick={() => setActiveCaption(slot)}
+                onPointerEnter={() => handleCardPointerEnter(slot)}
+                onPointerLeave={handleCardPointerLeave}
+                onKeyDown={event => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setActiveCaption(slot);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <div className="hero-photo-image">
+                  <Image
+                    src={card.src}
+                    alt="Jashvi in a strategy and collaboration session"
+                    fill
+                    priority={slot < 2}
+                    sizes="(max-width: 767px) 45vw, (max-width: 1200px) 30vw, 300px"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="hero-photo-caption">
+                  {slot === 2 ? (
+                    <>
+                      Always in my
+                      <br />
+                      “Let me try this” mode.
+                    </>
+                  ) : (
+                    card.caption
+                  )}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>

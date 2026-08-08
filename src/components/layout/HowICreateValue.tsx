@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState, type KeyboardEvent } from "react";
+import { AnimatedWrapper } from "../ui";
 
 export type ValuePanel = {
   title: string;
@@ -63,24 +64,37 @@ export default function HowICreateValue({
 
   return (
     <section
-      className="bg-[#FFFFFF] px-4 pt-20 pb-40 md:pt-24 md:pb-48 lg:pt-[100px] lg:pb-[200px]"
+      className="bg-[#FFFFFF] py-16 md:py-20 lg:py-20"
       aria-labelledby={labelId}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2
-          id={labelId}
-          className="mb-8 font-display font-medium text-3xl leading-tight text-[#222222] md:mb-10 md:text-4xl lg:text-5xl xl:text-6xl"
+      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
+        <AnimatedWrapper
+          delay={0}
+          duration={0.8}
+          animationType="fadeInUp"
+          distance={80}
         >
-          How I Create Value
-        </h2>
-        <p className="value-accordion-instruction">Select a pillar to expand</p>
-        <div
-          className="value-accordion"
-          role="group"
-          aria-label="How I Create Value accordion"
-          tabIndex={0}
-          onKeyDown={onKeyDown}
+          <h2
+            id={labelId}
+            className="mb-8 font-display text-[28px] font-medium leading-tight text-[#222222] md:mb-10 md:text-[32px] lg:text-[40px] xl:text-[48px]"
+          >
+            How I Create Value
+          </h2>
+        </AnimatedWrapper>
+        <AnimatedWrapper
+          delay={0}
+          duration={0.8}
+          animationType="fadeInUp"
+          distance={80}
         >
+          <p className="value-accordion-instruction">Select a pillar to expand</p>
+          <div
+            className="value-accordion"
+            role="group"
+            aria-label="How I Create Value accordion"
+            tabIndex={0}
+            onKeyDown={onKeyDown}
+          >
           {panels.map((panel, index) => {
             const isActive = index === activeIndex;
             const number = `${String(index + 1).padStart(2, "0")}/${String(
@@ -127,7 +141,8 @@ export default function HowICreateValue({
               </button>
             );
           })}
-        </div>
+          </div>
+        </AnimatedWrapper>
       </div>
     </section>
   );

@@ -82,29 +82,31 @@ export default function Footer() {
           <div className="flex-1 flex justify-center">
             <div className="flex flex-col items-center gap-5 md:gap-7">
               <h3 className="font-display text-lg sm:text-xl md:text-xl lg:text-2xl text-gray-800 text-center">
-                Want to see my work?
+                Want the details?
               </h3>
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 md:w-8 md:h-8 bg-black rounded-lg flex items-center justify-center">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 25 25"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M13.67 4.5L18.5 9.33V20.5H6.5V4.5H13.67ZM14.5 2.5H6.5C5.4 2.5 4.5 3.4 4.5 4.5V20.5C4.5 21.6 5.4 22.5 6.5 22.5H18.5C19.6 22.5 20.5 21.6 20.5 20.5V8.5L14.5 2.5ZM12.5 14.5C13.6 14.5 14.5 13.6 14.5 12.5C14.5 11.4 13.6 10.5 12.5 10.5C11.4 10.5 10.5 11.4 10.5 12.5C10.5 13.6 11.4 14.5 12.5 14.5ZM16.5 17.93C16.5 17.12 16.02 16.4 15.28 16.08C14.43 15.71 13.49 15.5 12.5 15.5C11.51 15.5 10.57 15.71 9.72 16.08C8.98 16.4 8.5 17.12 8.5 17.93V18.5H16.5V17.93Z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
                 <a
                   href="/resume-jashvi-sudra.pdf"
                   download="Senior Product Designer | Jashvi Dholakiya.pdf"
-                  className="font-open-sans font-semibold text-[20px] text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+                  className="flex items-center gap-2 font-open-sans font-semibold text-[20px] text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
                 >
                   Resume
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 3V15M12 15L7.5 10.5M12 15L16.5 10.5M5 19.5H19"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </a>
               </div>
             </div>

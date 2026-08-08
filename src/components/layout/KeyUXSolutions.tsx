@@ -1,7 +1,32 @@
+"use client";
+
 import { AnimatedWrapper } from "../ui";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function KeyUXSolutions() {
+  const [activeGif, setActiveGif] = useState<{
+    src: string;
+    title: string;
+  } | null>(null);
+
+  useEffect(() => {
+    if (!activeGif) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActiveGif(null);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeGif]);
+
   const solutions = [
     {
       title: "Misinformation Detection Interface",
@@ -10,16 +35,21 @@ export default function KeyUXSolutions() {
       solution:
         "Designed an interface that flags potential misinformation using contextual explanations and contradiction cues. Users can quickly understand why a claim may be inaccurate through clear reasoning - enabling faster, more confident decisions.",
       bgColor: "bg-[#F5ECFC]",
-      gif: "/videos/Misinformation-detection-interface.gif",
+      gif: "/videos/Misinformation-detection-interface-cropped.gif",
+      boxHeight: "h-[310px] sm:h-[340px] md:h-[390px] lg:h-[420px]",
+      paddingClass: "pt-5 md:pt-8 lg:pt-8",
     },
     {
       title: "Alert Trigger System",
       problem:
         "Most teams react to misinformation after the damage is done - by then, share prices drop, media pressure builds, or SEBI scrutiny begins. While alert systems exist in other tools, they typically follow rigid, linear workflows, limiting how teams can adapt to the fast, chaotic nature of misinformation spread.",
+      struggle:
+        "Stakeholders initially pushed for a traditional query-syntax approach. I advocated for a different direction — PR and compliance teams using this daily had no technical query background, and syntax-based alerts would create a steep learning curve for exactly the users who needed to act fastest. With 4 days to prove it, I prototyped a gamified, drag-and-drop alternative to bring stakeholders a working demo instead of a spec.",
       solution:
         'Designed a modular alert builder that mirrors how real signals behave — by grouping conditions into Time, Volume, and Event Attributes. This flexible logic system enables teams to define what "risk momentum" looks like for them (e.g., 5 negative posts about frauds within 15 minutes), so they can act before an issue escalates. The result: a shift from reactive monitoring to proactive signal-driven intervention - built for high-stakes communication.',
       bgColor: "bg-[#FEF4E3]",
-      gif: "/videos/Alert-trigger-system.gif",
+      gif: "/videos/Alert-trigger-system-cropped.gif",
+      matchGifHeightToContent: true,
     },
     {
       title: "Share Market Impact",
@@ -28,7 +58,9 @@ export default function KeyUXSolutions() {
       solution:
         "We enabled teams to see live share price and volume movements as an event unfolds, so they can instantly assess market sensitivity. This helps differentiate real threats from noise, making interventions more timely and evidence-backed. It also supports compliance teams in aligning with SEBI's mandate to report misinformation that affects investor sentiment or share prices.",
       bgColor: "bg-[#FEE7E3]",
-      gif: "/videos/Share-market-impact.gif",
+      gif: "/videos/Share-market-impact-cropped.gif",
+      boxHeight: "h-[310px] sm:h-[340px] md:h-[390px] lg:h-[420px]",
+      paddingClass: "pt-5 md:pt-8 lg:pt-8",
     },
     {
       title: "Event Card Visualization",
@@ -37,7 +69,7 @@ export default function KeyUXSolutions() {
       solution:
         "Designed a two-state event card that balances completeness with clarity. In the default state, only the most critical information (headline, NV Score, sentiment, market movement, company) is shown, ensuring a clean and scannable view. On hover, secondary details like metrics and user actions providing depth without sacrificing simplicity. This layered approach keeps the interface minimal by default but powerful on demand, giving users immediate impact awareness while still fulfilling stakeholder needs.",
       bgColor: "bg-[#E8F3FA]",
-      gif: "/videos/Event-card-visualization.gif",
+      gif: "/videos/Event-card-visualization-cropped.gif",
     },
     {
       title: "Theme Categorization",
@@ -46,90 +78,148 @@ export default function KeyUXSolutions() {
       solution:
         "Introduced Insight Themes - a set of 10 key categories that every signal is sorted into, like PR Watch, Compliance View, and Leadership Movement. Each theme contains events, and each event contains the related articles or posts, helping users see the bigger picture at a glance. This layered setup turns a noisy feed into a clear, organized view of what's unfolding and why it matters.",
       bgColor: "bg-[#F2FEE3]",
-      gif: "/videos/Theme-categorization.gif",
+      gif: "/videos/Theme-categorization-cropped.gif",
     },
   ];
 
   return (
-    <section className="w-full bg-white py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 md:px-12 lg:px-16">
-        <div className="mb-16">
-          <AnimatedWrapper
-            delay={0}
-            duration={0.8}
-            animationType="fadeInUp"
-            distance={80}
-          >
-            <h2 className="font-display font-medium text-3xl leading-[43px] text-[#0C0C0C]">
-              Key UX Solutions
-            </h2>
-          </AnimatedWrapper>
-        </div>
-
-        <div className="space-y-16">
-          {solutions.map((solution, index) => (
+    <>
+      <section className="w-full bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 md:px-12 lg:px-16">
+          <div className="mb-16">
             <AnimatedWrapper
               delay={0}
               duration={0.8}
               animationType="fadeInUp"
               distance={80}
-              key={index}
             >
-              <div
-                className={`flex flex-col lg:flex-row items-start gap-8 lg:gap-12 ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Content */}
-                <div className="w-full lg:flex-1 lg:max-w-lg xl:w-[40%] xl:max-w-none">
-                  <h3 className="font-open-sans font-semibold text-2xl leading-[33px] text-black mb-6">
-                    {solution.title}
-                  </h3>
-
-                  <div className="space-y-4 mb-6">
-                    <div>
-                      <h4 className="font-open-sans font-semibold text-base leading-[22px] text-black mb-3">
-                        Problem:
-                      </h4>
-                      <p className="font-open-sans font-normal text-base leading-[22px] text-black">
-                        {solution.problem}
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="font-open-sans font-semibold text-base leading-[22px] text-black mb-3">
-                        Solution:
-                      </h4>
-                      <p className="font-open-sans font-normal text-base leading-[22px] text-black">
-                        {solution.solution}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* GIF */}
-                <div
-                  className={`w-full lg:w-[60%] h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px] rounded-xl sm:rounded-2xl border border-[#E0E0E0] ${solution.bgColor} relative overflow-hidden order-1 lg:order-2`}
-                >
-                  <div className="absolute inset-0 p-3 sm:p-4 md:p-6 lg:p-8">
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={solution.gif}
-                        alt={`${solution.title} demonstration`}
-                        className="w-full h-full rounded-lg object-cover"
-                        loading="lazy"
-                        width={1000}
-                        height={1000}
-                        unoptimized
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h2 className="font-display font-medium text-3xl leading-[43px] text-[#0C0C0C]">
+                Key UX Solutions
+              </h2>
             </AnimatedWrapper>
-          ))}
+          </div>
+
+          <div className="space-y-16">
+            {solutions.map((solution, index) => (
+              <AnimatedWrapper
+                delay={0}
+                duration={0.8}
+                animationType="fadeInUp"
+                distance={80}
+                key={index}
+              >
+                <div
+                  className={`flex flex-col lg:flex-row items-start gap-8 lg:gap-12 ${
+                    index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                  }`}
+                >
+                  {/* Content */}
+                  <div className="w-full lg:flex-1 lg:max-w-lg xl:w-[40%] xl:max-w-none">
+                    <h3 className="font-open-sans font-semibold text-2xl leading-[33px] text-black mb-6">
+                      {solution.title}
+                    </h3>
+
+                    <div className="space-y-4 mb-6">
+                      <div>
+                        <h4 className="font-open-sans font-semibold text-base leading-[22px] text-black mb-3">
+                          Problem:
+                        </h4>
+                        <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                          {solution.problem}
+                        </p>
+                      </div>
+
+                      {solution.struggle && (
+                        <div>
+                          <h4 className="font-open-sans font-semibold text-base leading-[22px] text-black mb-3">
+                            Struggle:
+                          </h4>
+                          <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                            {solution.struggle}
+                          </p>
+                        </div>
+                      )}
+
+                      <div>
+                        <h4 className="font-open-sans font-semibold text-base leading-[22px] text-black mb-3">
+                          Solution:
+                        </h4>
+                        <p className="font-open-sans font-normal text-base leading-[22px] text-black">
+                          {solution.solution}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* GIF */}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setActiveGif({ src: solution.gif, title: solution.title })
+                    }
+                    aria-label={`View ${solution.title} demonstration fullscreen`}
+                    className={`w-full lg:w-[60%] ${
+                      solution.matchGifHeightToContent
+                        ? "h-[280px] sm:h-[320px] md:h-[350px] lg:h-auto lg:self-stretch"
+                        : (solution.boxHeight ??
+                          "h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px]")
+                    } rounded-xl sm:rounded-2xl border border-[#E0E0E0] ${solution.bgColor} relative overflow-hidden order-1 lg:order-2 cursor-zoom-in text-left`}
+                  >
+                    <div
+                      className={`absolute inset-0 flex items-center justify-center p-3 md:p-5 lg:p-5 ${solution.paddingClass ?? ""}`}
+                    >
+                      <div className="relative w-full aspect-video">
+                        <Image
+                          src={solution.gif}
+                          alt={`${solution.title} demonstration`}
+                          className="w-full h-full rounded-lg object-contain"
+                          loading="lazy"
+                          width={1000}
+                          height={1000}
+                          unoptimized
+                        />
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </AnimatedWrapper>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {activeGif && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 sm:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${activeGif.title} demonstration`}
+          onClick={() => setActiveGif(null)}
+        >
+          <div
+            className="relative h-full w-full max-w-7xl"
+            onClick={event => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setActiveGif(null)}
+              className="absolute right-0 top-0 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl leading-none text-black shadow-lg transition-colors hover:bg-[#F0F0F0]"
+              aria-label="Close fullscreen preview"
+            >
+              ×
+            </button>
+            <Image
+              src={activeGif.src}
+              alt={`${activeGif.title} demonstration`}
+              fill
+              className="object-contain"
+              sizes="100vw"
+              unoptimized
+              priority
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

@@ -22,6 +22,9 @@ export default function CaseStudyCard({
   svgPosition = "topRight",
   variant = "default",
 }: CaseStudyCardProps) {
+  const isExternalLink =
+    href.startsWith("http://") || href.startsWith("https://");
+
   const titleClassName =
     variant === "onDark"
       ? `font-display font-normal text-[1.5rem] md:text-[1.875rem] leading-tight md:leading-[43px] text-white lg:group-hover:text-[#E8E8E8] transition-colors duration-300 lg:group-hover:underline decoration-[#E8E8E8] decoration-0 underline-offset-4`
@@ -95,7 +98,13 @@ export default function CaseStudyCard({
 
   if (href) {
     return (
-      <Link href={href} className="block">
+      <Link
+        href={href}
+        className="block"
+        {...(isExternalLink
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
+      >
         <CardContent />
       </Link>
     );
