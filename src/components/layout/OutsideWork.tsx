@@ -26,7 +26,7 @@ export default function OutsideWork() {
         >
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-4 lg:gap-8">
             {/* Planning a trip */}
-            <article className="group flex flex-col rounded-[26px] bg-[#f1f1f1] px-2.5 py-2 md:px-3 md:py-2.5 lg:px-4 lg:py-4">
+            <article className="group flex flex-col rounded-[26px] bg-[#f1f1f1] px-2.5 pt-4 pb-8 md:px-3 md:pt-2.5 md:pb-6 lg:px-4 lg:pt-4 lg:pb-8">
               <div className="aspect-[3/2] overflow-hidden rounded-2xl">
                 <Image
                   src="/images/about/trip_planning.svg"
@@ -42,7 +42,7 @@ export default function OutsideWork() {
             </article>
 
             {/* Singing or strumming */}
-            <article className="group flex flex-col rounded-[26px] bg-[#f1f1f1] px-2.5 py-2 md:px-3 md:py-2.5 lg:px-4 lg:py-4">
+            <article className="group flex flex-col rounded-[26px] bg-[#f1f1f1] px-2.5 pt-4 pb-8 md:px-3 md:pt-2.5 md:pb-6 lg:px-4 lg:pt-4 lg:pb-8">
               <div className="aspect-[3/2] overflow-hidden rounded-2xl">
                 <Image
                   src="/images/about/guitar.svg"
@@ -58,7 +58,7 @@ export default function OutsideWork() {
             </article>
 
             {/* Cooking */}
-            <article className="group flex flex-col rounded-[26px] bg-[#f1f1f1] px-2.5 py-2 md:px-3 md:py-2.5 lg:px-4 lg:py-4">
+            <article className="group flex flex-col rounded-[26px] bg-[#f1f1f1] px-2.5 pt-4 pb-8 md:px-3 md:pt-2.5 md:pb-6 lg:px-4 lg:pt-4 lg:pb-8">
               <div className="aspect-[3/2] overflow-hidden rounded-2xl">
                 <Image
                   src="/images/about/cook.svg"
@@ -74,7 +74,7 @@ export default function OutsideWork() {
             </article>
 
             {/* Gym */}
-            <article className="group flex flex-col rounded-[26px] bg-[#f1f1f1] px-2.5 py-2 md:px-3 md:py-2.5 lg:px-4 lg:py-4">
+            <article className="group flex flex-col rounded-[26px] bg-[#f1f1f1] px-2.5 pt-4 pb-8 md:px-3 md:pt-2.5 md:pb-6 lg:px-4 lg:pt-4 lg:pb-8">
               <div className="aspect-[3/2] overflow-hidden rounded-2xl">
                 <Image
                   src="/images/about/gym.svg"

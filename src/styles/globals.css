@@ -481,13 +481,13 @@ body {
   }
 
   .what-im-good-at-field {
-    min-height: 12.6rem;
+    min-height: 20rem;
     border-radius: 1.5rem;
   }
 
   .what-im-good-at-pill {
-    padding: 0.78rem 1rem;
-    font-size: 0.82rem;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.72rem;
   }
 }
 
@@ -795,6 +795,7 @@ html {
   min-height: min(820px, calc(100vh - 8rem));
   overflow: clip;
   background: #fff;
+  padding-bottom: 50px;
 }
 
 @media (hover: hover) and (pointer: fine) {

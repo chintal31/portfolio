@@ -78,37 +78,19 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Center Section - Portfolio/Resume */}
+          {/* Center Section - Resume */}
           <div className="flex-1 flex justify-center">
-            <div className="flex flex-col items-center gap-5 md:gap-7">
-              <h3 className="font-display text-lg sm:text-xl md:text-xl lg:text-2xl text-gray-800 text-center">
-                Want the details?
+            <div className="flex flex-col items-center gap-5 md:gap-6">
+              <h3 className="font-display text-xl md:text-2xl text-gray-800 text-center">
+                Want to see details?
               </h3>
-              <div className="flex items-center gap-2">
-                <a
-                  href="/resume-jashvi-sudra.pdf"
-                  download="Senior Product Designer | Jashvi Dholakiya.pdf"
-                  className="flex items-center gap-2 font-open-sans font-semibold text-[20px] text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
-                >
-                  Resume
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M12 3V15M12 15L7.5 10.5M12 15L16.5 10.5M5 19.5H19"
-                      stroke="currentColor"
-                      strokeWidth="1.75"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
+              <a
+                href="/resume-jashvi-sudra.pdf"
+                download="Senior Product Designer | Jashvi Dholakiya.pdf"
+                className="inline-flex items-center rounded-full border border-[#d8d8d8] bg-white px-5 py-2.5 font-open-sans text-[15px] font-semibold tracking-wide text-gray-800 transition-colors hover:border-gray-800 hover:bg-gray-800 hover:text-white"
+              >
+                Download Resume
+              </a>
             </div>
           </div>
 
