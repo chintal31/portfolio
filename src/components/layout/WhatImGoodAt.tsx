@@ -384,25 +384,25 @@ export default function WhatImGoodAt() {
       >
         <div className="what-im-good-at-field-wrap mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
           <div className="what-im-good-at-field" ref={fieldRef}>
-          <button
-            className="what-im-good-at-reset cursor-hover"
-            onClick={() => setDropCount(count => count + 1)}
-            type="button"
-          >
-            Drop again
-          </button>
-          {pills.map((pill, index) => (
             <button
-              className={`what-im-good-at-pill what-im-good-at-pill-tier-${pill.tier} cursor-hover`}
-              key={pill.label}
-              ref={element => {
-                pillRefs.current[index] = element;
-              }}
+              className="what-im-good-at-reset cursor-hover"
+              onClick={() => setDropCount(count => count + 1)}
               type="button"
             >
-              {pill.label}
+              Drop again
             </button>
-          ))}
+            {pills.map((pill, index) => (
+              <button
+                className={`what-im-good-at-pill what-im-good-at-pill-tier-${pill.tier} cursor-hover`}
+                key={pill.label}
+                ref={element => {
+                  pillRefs.current[index] = element;
+                }}
+                type="button"
+              >
+                {pill.label}
+              </button>
+            ))}
           </div>
         </div>
       </AnimatedWrapper>

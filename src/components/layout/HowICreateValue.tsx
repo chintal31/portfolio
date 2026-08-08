@@ -87,7 +87,9 @@ export default function HowICreateValue({
           animationType="fadeInUp"
           distance={80}
         >
-          <p className="value-accordion-instruction">Select a pillar to expand</p>
+          <p className="value-accordion-instruction">
+            Select a pillar to expand
+          </p>
           <div
             className="value-accordion"
             role="group"
@@ -95,52 +97,52 @@ export default function HowICreateValue({
             tabIndex={0}
             onKeyDown={onKeyDown}
           >
-          {panels.map((panel, index) => {
-            const isActive = index === activeIndex;
-            const number = `${String(index + 1).padStart(2, "0")}/${String(
-              panels.length
-            ).padStart(2, "0")}`;
+            {panels.map((panel, index) => {
+              const isActive = index === activeIndex;
+              const number = `${String(index + 1).padStart(2, "0")}/${String(
+                panels.length
+              ).padStart(2, "0")}`;
 
-            return (
-              <button
-                key={panel.title}
-                type="button"
-                aria-expanded={isActive}
-                aria-label={panel.title}
-                tabIndex={isActive ? 0 : -1}
-                className={`value-accordion-panel ${panel.colorClass}`}
-                data-active={isActive}
-                style={{ color: panel.textColor }}
-                onClick={() => {
-                  if (!isActive) setActiveIndex(index);
-                }}
-              >
-                <span
-                  className="value-accordion-collapsed-number"
-                  aria-hidden="true"
+              return (
+                <button
+                  key={panel.title}
+                  type="button"
+                  aria-expanded={isActive}
+                  aria-label={panel.title}
+                  tabIndex={isActive ? 0 : -1}
+                  className={`value-accordion-panel ${panel.colorClass}`}
+                  data-active={isActive}
+                  style={{ color: panel.textColor }}
+                  onClick={() => {
+                    if (!isActive) setActiveIndex(index);
+                  }}
                 >
-                  {number}
-                </span>
-                <span
-                  className="value-accordion-collapsed-label"
-                  aria-hidden="true"
-                >
-                  {panel.title}
-                </span>
-                <span
-                  id={`${labelId}-panel-${index}`}
-                  className="value-accordion-content"
-                  aria-hidden={!isActive}
-                >
-                  <span className="value-accordion-badge">{number}</span>
-                  <span className="value-accordion-title">{panel.title}</span>
-                  <span className="value-accordion-description">
-                    {panel.description}
+                  <span
+                    className="value-accordion-collapsed-number"
+                    aria-hidden="true"
+                  >
+                    {number}
                   </span>
-                </span>
-              </button>
-            );
-          })}
+                  <span
+                    className="value-accordion-collapsed-label"
+                    aria-hidden="true"
+                  >
+                    {panel.title}
+                  </span>
+                  <span
+                    id={`${labelId}-panel-${index}`}
+                    className="value-accordion-content"
+                    aria-hidden={!isActive}
+                  >
+                    <span className="value-accordion-badge">{number}</span>
+                    <span className="value-accordion-title">{panel.title}</span>
+                    <span className="value-accordion-description">
+                      {panel.description}
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </AnimatedWrapper>
       </div>

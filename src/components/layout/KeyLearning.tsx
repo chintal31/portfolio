@@ -16,9 +16,10 @@ export default function KeyLearning() {
             </h2>
             <div className="space-y-2 md:space-y-3">
               <p className="font-open-sans font-normal text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-9 text-black">
-                • Flexibility isn&apos;t always experienced as an upgrade — earning
-                users&apos; trust in a new system means designing around the mental
-                models they actually have, not the ones a spec assumes
+                • Flexibility isn&apos;t always experienced as an upgrade —
+                earning users&apos; trust in a new system means designing around
+                the mental models they actually have, not the ones a spec
+                assumes
               </p>
               <p className="font-open-sans font-normal text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-9 text-black">
                 • Complex AI outputs need transparent, explainable UI layers

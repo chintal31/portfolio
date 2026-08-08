@@ -18,9 +18,9 @@ export default function Home() {
       }}
     >
       {/* <HomeScrollSnap> */}
-        <Hero />
-        <Milestones />
-        <UXCaseStudies />
+      <Hero />
+      <Milestones />
+      <UXCaseStudies />
       {/* </HomeScrollSnap> */}
       <Highlights />
       <Brands />

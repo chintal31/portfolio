@@ -186,8 +186,13 @@ body {
   font-size: clamp(0.45rem, 0.9vw, 0.7rem);
 }
 
-.designer-builder-substack-nav strong { font-size: 1.25em; }
-.designer-builder-substack-nav > :last-child { justify-self: end; letter-spacing: 0.06em; }
+.designer-builder-substack-nav strong {
+  font-size: 1.25em;
+}
+.designer-builder-substack-nav > :last-child {
+  justify-self: end;
+  letter-spacing: 0.06em;
+}
 
 .designer-builder-substack-mark {
   width: 1rem;
@@ -821,7 +826,10 @@ html {
     opacity: 0;
     transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
     will-change: transform;
-    transition: opacity 180ms ease, width 180ms ease, height 180ms ease;
+    transition:
+      opacity 180ms ease,
+      width 180ms ease,
+      height 180ms ease;
   }
 
   #cursor[data-visible="true"] {

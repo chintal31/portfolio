@@ -208,7 +208,6 @@ export default function DesignerBuilder() {
           );
         });
       });
-
     }, stackFrame);
 
     return () => {
@@ -282,130 +281,130 @@ export default function DesignerBuilder() {
             </button>
           </div>
           <div className="designer-builder-stack" role="tabpanel">
-          {activeProjects.map((project, index) => {
-            const content = (
-              <>
-                <div
-                  className={`designer-builder-preview ${project.previewClass}`}
-                >
-                  {project.videoSrc ? (
-                    <video
-                      className={project.mediaClass}
-                      loop={project.loopVideo}
-                      muted
-                      playsInline
-                      poster={project.posterSrc}
-                      preload={index === 0 ? "auto" : "metadata"}
-                      ref={element => {
-                        videoRefs.current[index] = element;
-                      }}
-                      src={project.videoSrc}
-                    />
-                  ) : project.gifSrc ? (
-                    // GIF paths can be added to the project data when ready.
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={project.gifSrc} alt="" />
-                  ) : project.imageSrc ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      className={project.imageClass}
-                      src={project.imageSrc}
-                      alt=""
-                    />
-                  ) : project.previewKind === "substack-mood" ||
-                    project.previewKind === "substack-vibe" ? (
-                    <div
-                      className="designer-builder-substack-preview"
-                      aria-hidden="true"
-                    >
-                      <div className="designer-builder-substack-nav">
-                        <span className="designer-builder-substack-mark" />
-                        <strong>Jashvi</strong>
-                        <span>⌕　◯　♧</span>
-                      </div>
-                      <div className="designer-builder-substack-article">
-                        <h4>
-                          {project.previewKind === "substack-mood"
-                            ? "Mood to Moodboard"
-                            : "I vibe coded my first real product in 4 days. Here’s what that actually looked like."}
-                        </h4>
-                        <p>
-                          {project.previewKind === "substack-mood"
-                            ? "A Designer’s Secret Weapon"
-                            : "A Product designer who also is learning German"}
-                        </p>
-                        <small>
-                          JASHVI　·　
-                          {project.previewKind === "substack-mood"
-                            ? "JUN 03, 2026"
-                            : "MAY 25, 2026"}
-                        </small>
-                        <i />
-                        <b>
-                          {project.previewKind === "substack-mood"
-                            ? "As designers, our main job is to translate feelings into visuals."
-                            : "When AI started showing up everywhere in design, a lot of designers got nervous."}
-                        </b>
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-                <div className="designer-builder-card-content">
-                  <h3 className="designer-builder-card-title">
-                    {project.title}
-                  </h3>
+            {activeProjects.map((project, index) => {
+              const content = (
+                <>
                   <div
-                    className="designer-builder-tags"
-                    aria-label="Project categories"
+                    className={`designer-builder-preview ${project.previewClass}`}
                   >
-                    {project.tags.map(tag => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                  <span className="designer-builder-cta">
-                    <span className="designer-builder-cta-label">
-                      {project.href
-                        ? (project.ctaLabel ?? "View project")
-                        : (project.statusLabel ?? "Coming soon")}
-                    </span>
-                    {project.href ? (
-                      <span
-                        className="designer-builder-cta-arrow"
+                    {project.videoSrc ? (
+                      <video
+                        className={project.mediaClass}
+                        loop={project.loopVideo}
+                        muted
+                        playsInline
+                        poster={project.posterSrc}
+                        preload={index === 0 ? "auto" : "metadata"}
+                        ref={element => {
+                          videoRefs.current[index] = element;
+                        }}
+                        src={project.videoSrc}
+                      />
+                    ) : project.gifSrc ? (
+                      // GIF paths can be added to the project data when ready.
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={project.gifSrc} alt="" />
+                    ) : project.imageSrc ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        className={project.imageClass}
+                        src={project.imageSrc}
+                        alt=""
+                      />
+                    ) : project.previewKind === "substack-mood" ||
+                      project.previewKind === "substack-vibe" ? (
+                      <div
+                        className="designer-builder-substack-preview"
                         aria-hidden="true"
                       >
-                        ↗
-                      </span>
+                        <div className="designer-builder-substack-nav">
+                          <span className="designer-builder-substack-mark" />
+                          <strong>Jashvi</strong>
+                          <span>⌕　◯　♧</span>
+                        </div>
+                        <div className="designer-builder-substack-article">
+                          <h4>
+                            {project.previewKind === "substack-mood"
+                              ? "Mood to Moodboard"
+                              : "I vibe coded my first real product in 4 days. Here’s what that actually looked like."}
+                          </h4>
+                          <p>
+                            {project.previewKind === "substack-mood"
+                              ? "A Designer’s Secret Weapon"
+                              : "A Product designer who also is learning German"}
+                          </p>
+                          <small>
+                            JASHVI　·　
+                            {project.previewKind === "substack-mood"
+                              ? "JUN 03, 2026"
+                              : "MAY 25, 2026"}
+                          </small>
+                          <i />
+                          <b>
+                            {project.previewKind === "substack-mood"
+                              ? "As designers, our main job is to translate feelings into visuals."
+                              : "When AI started showing up everywhere in design, a lot of designers got nervous."}
+                          </b>
+                        </div>
+                      </div>
                     ) : null}
-                  </span>
-                </div>
-              </>
-            );
+                  </div>
+                  <div className="designer-builder-card-content">
+                    <h3 className="designer-builder-card-title">
+                      {project.title}
+                    </h3>
+                    <div
+                      className="designer-builder-tags"
+                      aria-label="Project categories"
+                    >
+                      {project.tags.map(tag => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                    <span className="designer-builder-cta">
+                      <span className="designer-builder-cta-label">
+                        {project.href
+                          ? (project.ctaLabel ?? "View project")
+                          : (project.statusLabel ?? "Coming soon")}
+                      </span>
+                      {project.href ? (
+                        <span
+                          className="designer-builder-cta-arrow"
+                          aria-hidden="true"
+                        >
+                          ↗
+                        </span>
+                      ) : null}
+                    </span>
+                  </div>
+                </>
+              );
 
-            return project.href ? (
-              <a
-                className="designer-builder-card cursor-hover"
-                href={project.href}
-                key={project.id}
-                target="_blank"
-                rel="noreferrer"
-                ref={element => {
-                  cardRefs.current[index] = element;
-                }}
-              >
-                {content}
-              </a>
-            ) : (
-              <article
-                className="designer-builder-card"
-                key={project.id}
-                ref={element => {
-                  cardRefs.current[index] = element;
-                }}
-              >
-                {content}
-              </article>
-            );
-          })}
+              return project.href ? (
+                <a
+                  className="designer-builder-card cursor-hover"
+                  href={project.href}
+                  key={project.id}
+                  target="_blank"
+                  rel="noreferrer"
+                  ref={element => {
+                    cardRefs.current[index] = element;
+                  }}
+                >
+                  {content}
+                </a>
+              ) : (
+                <article
+                  className="designer-builder-card"
+                  key={project.id}
+                  ref={element => {
+                    cardRefs.current[index] = element;
+                  }}
+                >
+                  {content}
+                </article>
+              );
+            })}
           </div>
         </AnimatedWrapper>
       </div>
