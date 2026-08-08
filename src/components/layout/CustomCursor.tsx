@@ -17,42 +17,30 @@ export default function CustomCursor() {
 
     setEnabled(true);
 
-    let targetX = -100;
-    let targetY = -100;
-    let currentX = -100;
-    let currentY = -100;
-    let frameId: number | null = null;
-
-    const paint = () => {
-      currentX += (targetX - currentX) * 0.18;
-      currentY += (targetY - currentY) * 0.18;
-      cursor.style.setProperty("--cursor-x", `${currentX}px`);
-      cursor.style.setProperty("--cursor-y", `${currentY}px`);
-
-      if (
-        Math.abs(targetX - currentX) > 0.1 ||
-        Math.abs(targetY - currentY) > 0.1
-      ) {
-        frameId = requestAnimationFrame(paint);
-      } else {
-        frameId = null;
-      }
-    };
+    let isHovering = false;
+    let isHighlighting = false;
 
     const moveCursor = (event: PointerEvent) => {
-      targetX = event.clientX;
-      targetY = event.clientY;
+      // Keep the custom cursor locked to the pointer. The previous eased
+      // animation made it trail behind during a scroll and feel sluggish.
+      cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
       cursor.dataset.visible = "true";
-      cursor.dataset.hover = String(
+      const nextHovering =
         event.target instanceof Element &&
-          Boolean(event.target.closest("a, button, .cursor-hover"))
-      );
-      cursor.dataset.highlight = String(
+        Boolean(event.target.closest("a, button, .cursor-hover"));
+      const nextHighlighting =
         event.target instanceof Element &&
-          Boolean(event.target.closest(".home-hero-highlight"))
-      );
+        Boolean(event.target.closest(".home-hero-highlight"));
 
-      if (frameId === null) frameId = requestAnimationFrame(paint);
+      if (nextHovering !== isHovering) {
+        isHovering = nextHovering;
+        cursor.dataset.hover = String(isHovering);
+      }
+
+      if (nextHighlighting !== isHighlighting) {
+        isHighlighting = nextHighlighting;
+        cursor.dataset.highlight = String(isHighlighting);
+      }
     };
     const hideCursor = () => {
       cursor.dataset.visible = "false";
@@ -69,7 +57,6 @@ export default function CustomCursor() {
       window.removeEventListener("pointermove", moveCursor);
       document.removeEventListener("mouseleave", hideCursor);
       document.removeEventListener("mouseenter", showCursor);
-      if (frameId !== null) cancelAnimationFrame(frameId);
     };
   }, []);
 

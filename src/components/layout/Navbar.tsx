@@ -173,6 +173,7 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     download="Senior Product Designer | Jashvi Dholakiya.pdf"
+                    onClick={() => setIsOpen(false)}
                     className={cn(
                       "px-4 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium cursor-pointer",
                       "text-gray-800"
@@ -184,6 +185,7 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={() => setIsOpen(false)}
                     className={cn(
                       "px-4 py-2 text-[14px] leading-[20px] tracking-[0.1px] font-medium",
                       router.pathname === item.href

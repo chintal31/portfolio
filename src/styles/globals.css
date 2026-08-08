@@ -792,12 +792,6 @@ html {
   background: #fff;
 }
 
-@property --cursor-scale {
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 1;
-}
-
 @media (hover: hover) and (pointer: fine) {
   html:has(#cursor[data-enabled="true"]) *,
   html:has(#cursor[data-enabled="true"]) *::before,
@@ -820,15 +814,14 @@ html {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #fff;
+    background: rgb(255 255 255 / 88%);
+    border: 1px solid rgb(255 255 255 / 55%);
     mix-blend-mode: difference;
     pointer-events: none;
     opacity: 0;
-    transform: translate3d(var(--cursor-x, -100px), var(--cursor-y, -100px), 0)
-      translate(-50%, -50%) scale(var(--cursor-scale, 1));
-    transition:
-      opacity 180ms ease,
-      --cursor-scale 250ms ease;
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+    will-change: transform;
+    transition: opacity 180ms ease, width 180ms ease, height 180ms ease;
   }
 
   #cursor[data-visible="true"] {
@@ -836,14 +829,13 @@ html {
   }
 
   #cursor[data-hover="true"] {
-    --cursor-scale: 2;
+    width: 44px;
+    height: 44px;
   }
 
   #cursor[data-highlight="true"] {
-    border: 0;
-    background: #fff;
-    mix-blend-mode: difference;
-    backdrop-filter: grayscale(1) contrast(300%);
+    background: rgb(255 255 255 / 72%);
+    backdrop-filter: blur(3px) saturate(130%);
   }
 }
 
