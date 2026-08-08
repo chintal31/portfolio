@@ -121,8 +121,6 @@ export default function DesignerBuilder() {
     );
     if (!stackFrame || !stack || cards.length < 2) return;
 
-    let removeWheelListener: (() => void) | undefined;
-    let releaseScrollLock: number | undefined;
     const context = gsap.context(() => {
       const mediaQuery = window.matchMedia(
         "(min-width: 768px) and (prefers-reduced-motion: no-preference)"
@@ -150,9 +148,7 @@ export default function DesignerBuilder() {
       };
       const mediaIndexForProgress = (progress: number) =>
         Math.min(cards.length - 1, Math.round(progress * (cards.length - 1)));
-      let consumeInitialScroll = false;
       let activeCardIndex = 0;
-      let isScrollLocked = false;
 
       gsap.set(cards, {
         x: index => index * 50,
@@ -167,20 +163,13 @@ export default function DesignerBuilder() {
           start: "center center",
           end: `+=${(cards.length - 1) * 320}`,
           scrub: 0.6,
-          snap: {
-            snapTo: "labelsDirectional",
-            duration: { min: 0.2, max: 0.5 },
-            ease: "power1.inOut",
-          },
           pin: stackFrame,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onEnter: () => {
-            consumeInitialScroll = true;
             activateMedia(0, true);
           },
           onEnterBack: self => {
-            consumeInitialScroll = true;
             activateMedia(mediaIndexForProgress(self.progress));
           },
           onLeave: stopAllMedia,
@@ -216,52 +205,6 @@ export default function DesignerBuilder() {
         });
       });
 
-      const handleWheel = (event: WheelEvent) => {
-        const trigger = timeline.scrollTrigger;
-        if (!trigger?.isActive || !event.deltaY) return;
-
-        const direction = event.deltaY > 0 ? 1 : -1;
-        const lastCardIndex = cards.length - 1;
-        const isAtEnd = direction > 0 && activeCardIndex === lastCardIndex;
-        const isAtStart = direction < 0 && activeCardIndex === 0;
-        if (isAtEnd || isAtStart) return;
-
-        event.preventDefault();
-        if (isScrollLocked) return;
-
-        isScrollLocked = true;
-        window.clearTimeout(releaseScrollLock);
-
-        if (direction > 0 && consumeInitialScroll) {
-          consumeInitialScroll = false;
-        } else {
-          const nextCardIndex = Math.max(
-            0,
-            Math.min(lastCardIndex, activeCardIndex + direction)
-          );
-          const nextScrollPosition =
-            trigger.start +
-            (trigger.end - trigger.start) * (nextCardIndex / lastCardIndex);
-
-          window.scrollTo({
-            top: nextScrollPosition,
-            behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
-              .matches
-              ? "auto"
-              : "smooth",
-          });
-        }
-
-        releaseScrollLock = window.setTimeout(() => {
-          isScrollLocked = false;
-        }, 550);
-      };
-
-      window.addEventListener("wheel", handleWheel, { passive: false });
-      removeWheelListener = () => {
-        window.removeEventListener("wheel", handleWheel);
-      };
-
       ScrollTrigger.create({
         trigger: stack,
         start: "top 90%",
@@ -273,8 +216,6 @@ export default function DesignerBuilder() {
     }, stackFrame);
 
     return () => {
-      removeWheelListener?.();
-      window.clearTimeout(releaseScrollLock);
       context.revert();
     };
   }, [activeTab]);
