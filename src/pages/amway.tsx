@@ -509,6 +509,7 @@ export default function Amway() {
                       src="/videos/amway/hueristic-analysis.gif"
                       alt="Heuristic Analysis showing UX evaluation and improvement recommendations"
                       className="w-full h-full object-contain"
+                      unoptimized
                       loading="lazy"
                     />
                   </div>
@@ -667,6 +668,7 @@ export default function Amway() {
                     src="/videos/amway/semantic-search-with-smart-filters.gif"
                     alt="Auto Complete showing search results and suggestions"
                     className="w-full h-full object-cover rounded-[20px]"
+                    unoptimized
                     loading="lazy"
                   />
                 </div>
@@ -688,6 +690,7 @@ export default function Amway() {
                     src="/videos/amway/PLP_PDP.gif"
                     alt="Product Listing and Detail Pages showing improved UX"
                     className="w-full h-full object-cover rounded-[16px]"
+                    unoptimized
                     loading="lazy"
                   />
                 </div>
@@ -758,6 +761,7 @@ export default function Amway() {
                     src="/videos/amway/solution-based-categorization-for-navigation.gif"
                     alt="Solution-based categorization showing improved navigation"
                     className="w-full h-full object-cover rounded-[16px]"
+                    unoptimized
                     loading="lazy"
                   />
                 </div>
@@ -779,6 +783,7 @@ export default function Amway() {
                     src="/videos/amway/backend-driven-UX-edge-case-handling.gif"
                     alt="Backend-driven UX showing edge case handling"
                     className="w-full h-full object-cover rounded-[21px]"
+                    unoptimized
                     loading="lazy"
                   />
                 </div>

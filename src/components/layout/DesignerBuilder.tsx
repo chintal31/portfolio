@@ -33,7 +33,7 @@ const projects: Record<"ai" | "writing", Project[]> = {
       tags: ["AI experiment", "Language game"],
       previewClass: "bg-[#d6f1fd]",
       videoSrc: "/videos/nounsense-preview.mp4",
-      posterSrc: "/images/about/nounsense-poster.jpg",
+      posterSrc: "/images/about/nounsense-poster.png",
       mediaClass: "designer-builder-media-nounsense",
       loopVideo: true,
       href: "https://nounsense.vercel.app/",
